@@ -1,0 +1,56 @@
+﻿<div ng-include="'header.html'"></div>
+<p class="adminhead">survey Admin</p>
+<div class="col-md-6 col-md-offset-3" ng-controller="LoginController" style="background-color:#f9f9f9; color:black;width: 85%%;" >
+    <br>
+    <h2  ng-show="errorMessage" style="color: #0044cc; text-align: center;">{{errorMessage}}</h2>
+    <h2 ng-show="vm.error"  style="color: #0044cc;text-align: center;">{{vm.error}}</h2>
+    <form name="form" ng-submit="login()" role="form">
+
+<br>
+        <div class="loginformtext" >
+            <label class=" col-sm-2">Username<em>*</em></label>
+            <input type="text" name="username" ng-pattern="/^[a-zA-Z0-9]*$/" id="username" class="textfeildname yellow" ng-model="vm.heartkidusername" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block haserrors">Username is required</span>
+            <span ng-show="form.username.$dirty && form.username.$error.pattern" class="help-block haserrors">Username is not valid</span>
+
+        </div>
+
+        <div class="loginformtext">
+            <label class=" col-sm-2">Password<em>*</em></label>
+            <input type="password" name="password" ng-pattern="/^[a-zA-Z0-9]*$/" id="password" class="textfeildname yellow" ng-model="vm.heartkidpassword" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block haserrors">Please enter your password</span>
+            <span ng-show="form.password.$dirty && form.password.$error.pattern" class="help-block haserrors">Password is not valid</span>
+
+        </div>
+        <br>
+        <div class="btn-groupadmin" style="text-align: center;" data-toggle="tooltip" title="" style="">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+        <br>
+        <div style="  text-align: center;
+    font-size: 14px;
+    color: coral;">
+            <p>#Login with the registered username</p>
+            <p>#Only survey authorized admin has access to this portal</p>
+        </div>
+</div>
+
+    </form>
+    <div ng-include="'footer.html'"></div>
+</div>
+
+<style>
+
+.adminhead
+{
+
+    color: #fff;
+    /* text-align: center; */
+    top: 6%;
+    position: fixed;
+    font-size: 18px;
+    left: 43%;
+}
+
+</style>

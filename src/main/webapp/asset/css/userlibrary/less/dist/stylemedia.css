@@ -1,0 +1,681 @@
+@media only screen and (max-width: 320px) {
+    .barstyle {
+        float: left;
+        font-size: 14px;
+        margin-left: 2px;
+        width: 7%;
+    }
+
+    .barstylenode5 {
+        font-size: 13px;
+        margin-right: 5%;
+        padding: 6px;
+        width: 24px;
+
+    }
+
+    #circle hr {
+
+        bottom: 55px;
+        color: #d7d1d1;
+        margin: -12px 0 0 23px;
+        top: 16%;
+        width: 20px;
+    }
+
+    #circle li {
+
+        font-size: 12px;
+        height: 25px;
+        margin: 0 4px;
+        padding: 4px;
+        width: 25px;
+    }
+
+    .profilebutn {
+        height: 3.5em;
+        width: 35%;
+        margin-top: 35px;
+    }
+
+    .btnnext {
+        width: 110px;
+        height: 3em;
+        margin-top: 40px;
+    }
+
+    .patient-width {
+        width: 50%;
+    }
+
+    .loginformtext {
+        padding: 15px;
+        width: 90%;
+
+    }
+
+    .cd-hero-slider p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .cd-hero-slider .cd-btn {
+        display: inline-block;
+        padding: .2em 0.4em;
+        margin-top: 0.8em;
+        background-color: rgba(212, 68, 87, 0.9);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffffff;
+        text-transform: uppercase;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+    }
+
+    .cd-hero-slider h2 {
+        font-size: 1.4rem;
+    }
+
+    .surveypart {
+        color: orange;
+        font-size: 12px;
+        font-weight: normal;
+        margin-right: 2%;
+        padding-top: 2px;
+        text-align: right;
+    }
+
+    .touch .modal .modal-body {
+        max-height: none;
+    }
+
+    .mobileview {
+        display: none;
+    }
+
+    .mobileviewshow {
+        display: block;
+    }
+
+    .modal-content {
+        max-height: 500px;
+    }
+
+    rzslider {
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    .barstyle {
+        float: left;
+        font-size: 14px;
+        margin-left: 2px;
+        width: 7%;
+    }
+
+    .barstylenode5 {
+        font-size: 13px;
+        margin-right: 5%;
+        padding: 6px;
+        width: 24px;
+
+    }
+
+    #circle hr {
+
+        bottom: 55px;
+        color: #d7d1d1;
+        margin: -12px 0 0 23px;
+        top: 16%;
+        width: 20px;
+    }
+
+    #circle li {
+
+        font-size: 12px;
+        height: 25px;
+        margin: 0 6px;
+        padding: 4px;
+        width: 25px;
+    }
+
+    .profilebutn {
+        height: 3.5em;
+        width: 25%;
+        margin-top: 35px;
+    }
+
+    .btnnext {
+        width: 110px;
+        height: 3.5em;
+    }
+
+    .patient-width {
+        width: 50%;
+    }
+
+    .loginformtext {
+        padding: 15px;
+        width: 80%;
+    }
+
+    .btn-groupadmin {
+        width: 80%;
+
+    }
+
+    .cd-hero-slider p {
+        font-size: 1.0rem;
+        line-height: 1.4;
+    }
+
+    .cd-hero-slider .cd-btn {
+        display: inline-block;
+        padding: .2em 0.4em;
+        margin-top: 0.8em;
+        background-color: rgba(212, 68, 87, 0.9);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffffff;
+        text-transform: uppercase;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+    }
+
+    .cd-hero-slider h2 {
+        font-size: 1.4rem;
+    }
+
+    .surveypart {
+        color: orange;
+        font-size: 12px;
+        font-weight: normal;
+        margin-right: 2%;
+        padding-top: 2px;
+        text-align: right;
+    }
+
+    .touch .modal .modal-body {
+        max-height: none;
+    }
+
+    .mobileview {
+        display: none;
+    }
+
+    .mobileviewshow {
+        display: block;
+    }
+
+    .modal-content {
+        max-height: 500px;
+    }
+
+    rzslider {
+        width: 95%;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+
+    .barstyle {
+        float: left;
+        font-size: 13px;
+        margin-left: 6px;
+        width: 26px;
+    }
+
+    .barstylenode5 {
+        font-size: 14px;
+        margin-right: 5%;
+        padding: 4px;
+        width: 26px;
+
+    }
+
+    #circle hr {
+
+        bottom: 55px;
+        color: #d7d1d1;
+        margin: -12px 0 0 29px;
+        top: 16%;
+        width: 40px;
+    }
+
+    #circle li {
+
+        font-size: 14px;
+        height: 40px;
+        margin: 0 10px;
+        padding: 11px;
+        width: 40px;
+    }
+
+    .profilebutn {
+        height: 4em;
+        width: 28%;
+
+    }
+
+    .btnnext {
+        width: 120px;
+        height: 3.7em;
+    }
+
+    .patient-width {
+        width: 50%;
+    }
+
+    .loginformtext {
+        padding: 15px;
+        width: 50%;
+    }
+
+    .btn-groupadmin {
+        width: 60%;
+
+    }
+
+    .cd-hero-slider p {
+        font-size: 1.3rem;
+        line-height: 1.4;
+    }
+
+    .cd-hero-slider .cd-btn {
+        display: inline-block;
+        padding: .2em 0.4em;
+        margin-top: 0.8em;
+        background-color: rgba(212, 68, 87, 0.9);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffffff;
+        text-transform: uppercase;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+    }
+
+    .cd-hero-slider h2 {
+        font-size: 1.4rem;
+    }
+
+    .surveypart {
+        color: orange;
+        font-size: 12px;
+        font-weight: normal;
+        margin-right: 2%;
+        padding-top: 2px;
+        text-align: right;
+    }
+
+    .mobileview {
+        display: none;
+    }
+
+    .mobileviewshow {
+        display: block;
+    }
+
+    .modal-content {
+        max-height: 320px;
+    }
+
+    rzslider {
+        width: 90%;
+    }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+
+    #circle hr {
+
+        bottom: 55px;
+        color: #d7d1d1;
+        margin: -12px 0 0 35px;
+        top: 16%;
+        width: 58px;
+    }
+
+    #circle li {
+
+        font-size: 16px;
+        height: 45px;
+        margin: 0 28px;
+        padding: 12px;
+        width: 45px;
+    }
+
+    .barstyle {
+        width: 30px;
+        margin-left: 20px;
+        font-size: 16px;
+        float: left;
+    }
+
+    .barstylenode5 {
+        width: 30px;
+        margin-right: 4%;
+        font-size: 16px;
+
+    }
+
+    .profilebutn {
+        height: 4.5em;
+        width: 20%;
+
+    }
+
+    .btnnext {
+        width: 130px;
+        height: 4em;
+    }
+
+    .patient-width {
+        width: 50%;
+    }
+
+    .loginformtext {
+        padding: 15px;
+        width: 40%;
+    }
+
+    .btn-groupadmin {
+        width: 40%;
+
+    }
+
+    .cd-hero-slider p {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+
+    .cd-hero-slider h2 {
+        font-size: 2.4em;
+        font-weight: 800;
+    }
+
+    .cd-hero-slider .cd-btn {
+        display: inline-block;
+        padding: 1.2em 1.4em;
+        margin-top: .8em;
+        background-color: rgba(212, 68, 87, 0.9);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffffff;
+        text-transform: uppercase;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+    }
+
+    .surveypart {
+        text-align: left;
+        color: orange;
+        font-weight: bold;
+        font-size: 17px;
+        margin-top: 15px;
+        margin-left: 30PX;
+    }
+
+    .mobileview {
+        display: none;
+    }
+
+    .mobileviewshow {
+        display: block;
+    }
+
+    .modal-content {
+        max-height: 800px;
+    }
+
+    rzslider {
+        width: 90%;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+
+    #circle hr {
+
+        bottom: 55px;
+        color: #D7D1D1;
+        padding-right: -42px;
+        margin: -12px 0 1px 42px;
+        top: 16%;
+        width: 96px;
+    }
+
+    #circle li {
+
+        font-size: 16px;
+        height: 60px;
+        margin: 0 36px;
+        padding: 18px;
+        width: 60px;
+    }
+
+    .barstyle {
+        margin-right: 2%;
+        width: 28px;
+        font-size: 15px;
+        float: left;
+    }
+
+    .barstylenode5 {
+        width: 30px;
+        margin-right: 4%;
+        font-size: 16px;
+
+    }
+
+    .profilebutn {
+        height: 4.5em;
+        width: 16%;
+
+    }
+
+    .btnnext {
+        width: 150px;
+        height: 4.5em;
+    }
+
+    .patient-width {
+        width: 50%;
+    }
+
+    .loginformtext {
+        padding: 15px;
+        width: 40%;
+    }
+
+    .btn-groupadmin {
+        width: 40%;
+
+    }
+
+    .cd-hero-slider p {
+        font-size: 1.9rem;
+        line-height: 1.4;
+    }
+
+    .cd-hero-slider h2 {
+        font-size: 2.4em;
+        font-weight: 800;
+    }
+
+    .cd-hero-slider .cd-btn {
+        display: inline-block;
+        padding: 1.2em 1.4em;
+        margin-top: .8em;
+        background-color: rgba(212, 68, 87, 0.9);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffffff;
+        text-transform: uppercase;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+    }
+
+    .surveypart {
+        text-align: left;
+        color: orange;
+        font-weight: bold;
+        font-size: 17px;
+        margin-top: 15px;
+        margin-left: 30PX;
+    }
+
+    .redclass {
+        background-color: #d6d6d6;
+
+    }
+
+    .mobileviewshow {
+        display: none;
+    }
+
+    .mobileview {
+        display: block;
+    }
+
+    .modal-content {
+        max-height: 550px;
+    }
+
+    rzslider {
+        width: 70%;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+
+    #circle hr {
+
+        bottom: 55px;
+        color: #D7D1D1;
+        padding-right: -42px;
+        margin: -12px 0 1px 42px;
+        top: 16%;
+        width: 96px;
+    }
+
+    #circle li {
+
+        font-size: 16px;
+        height: 60px;
+        margin: 0 44px;
+        padding: 19px;
+        width: 60px;
+    }
+
+    .barstyle {
+        margin-right: 2%;
+        width: 30px;
+        font-size: 16px;
+        float: left;
+    }
+
+    .barstylenode5 {
+        width: 30px;
+        margin-right: 4%;
+        font-size: 16px;
+
+    }
+
+    .profilebutn {
+        height: 4.5em;
+        width: 13%;
+
+    }
+
+    .btnnext {
+        width: 150px;
+        height: 4.5em;
+    }
+
+    .loginformtext {
+        padding: 15px;
+        width: 30%;
+    }
+
+    .btn-groupadmin {
+        width: 35%;
+
+    }
+
+    .cd-hero-slider p {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+
+    .cd-hero-slider h2 {
+        font-size: 2.4em;
+        font-weight: 300;
+    }
+
+    .cd-hero-slider .cd-btn {
+        display: inline-block;
+        padding: 1.2em 1.4em;
+        margin-top: .8em;
+        background-color: rgba(212, 68, 87, 0.9);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffffff;
+        text-transform: uppercase;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+    }
+
+    .surveypart {
+        text-align: left;
+        color: orange;
+        font-weight: bold;
+        font-size: 17px;
+        margin-top: 15px;
+        margin-left: 30PX;
+    }
+
+    .redclass {
+        background-color: #d6d6d6;
+
+    }
+
+    .mobileviewshow {
+        display: none;
+    }
+
+    .mobileview {
+        display: block;
+    }
+
+    .modal-content {
+        max-height: 550px;
+    }
+
+    rzslider {
+        width: 60%;
+    }
+}

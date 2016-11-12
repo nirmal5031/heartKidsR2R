@@ -1,0 +1,73 @@
+<div id="printconsenform"><p style="color:#2c343b; font-weight:bold; ">{{disclaimerCont.header}}</p>
+
+    <p>{{disclaimerCont.intro}} </p>
+    <br>
+    <div ng-repeat="content in disclaimerCont.disclaimercontent">
+    <p>
+        <span class="txtquestion">{{content.question}}</span><br>
+        {{content.answer}}
+
+
+    </p>
+    <br>
+    </div>
+
+    <p style="font-family: ProximaNova-Regular;font-weight: bold;">INFORMED CONSENT</p>
+    <br>
+    <p style="font-family: ProximaNova-Regular;font-weight: bold;">{{disclaimerCont.consent}}
+    </p>
+    <br>
+    <p>
+        {{disclaimerCont.consentcontent[0]}}</p>
+    <p> {{disclaimerCont.consentcontent[1]}}</p>
+    <p> {{disclaimerCont.consentcontent[2]}}</p>
+    </p>
+
+    <br>
+    <div style="padding: 2%">
+        <input type="checkbox" ng-model="agreeconsentpatient" name="agreeconsentpatientval" id="agreeconsentpatientId"
+               class="filled-in" ng-init="agreeconsentpatient=false" required/> <label for="agreeconsentpatientId"
+                                                                                         style="font-size: 1.4rem"
+                                                                                         onclick>I consent to/agree with
+        the above statements</label>
+
+        <br><input type="checkbox" ng-model="agreecontactpatientr2r" name="agreecontactpatientr2r"
+                   id="contactpatientfuture" class="filled-in" /><label
+            for="contactpatientfuture" style="font-size: 1.4rem" onclick>I consent to being contacted in the future by
+        the organisers of the Register to be Registered Program</label>
+
+        <br><input type="checkbox" ng-model="agreeconsentreqpatient" name="agreeconsentreqpatientval"
+                   id="patientagefuture" class="filled-in"  ng-init="agreeconsentreqpatient=false"/><label
+            for="patientagefuture" style="font-size: 1.4rem" onclick>I am over 18 years of age.</label>
+
+    </div>
+</div>
+
+<p style="color:red;
+    width: 90%;
+    margin-left: 6%;
+    font-weight: 600;">{{agreeconsentpatientreq}}</p>
+
+<div class="btn-group surveybutton" style=" padding-top: 10px;
+    padding-bottom: 80px;">
+    <button style="" ng-click="proceedtopatientsurvey(usertype,agreeconsentpatient,agreeconsentreqpatient)"
+            class="btnnext btn-primary btnsizing">Agree
+    </button>
+    <button style="" class="btnnext btn-default btnsizing" class="close" data-dismiss="modal" aria-hidden="true">
+        Disagree
+    </button>
+</div>
+
+
+</div>
+<style>
+    .checksizing {
+        font-size: 15px;
+        font-family: ProximaNova-Regular;
+    }
+
+    .btnsizing {
+        height: 50px;
+        width: 110px;
+    }
+</style>

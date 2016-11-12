@@ -1,0 +1,639 @@
+/*!
+ * Materialize v0.97.5 (http://materializecss.com)
+ * Copyright 2014-2015 Materialize
+ * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+.mdi-av-radio:before {
+  content: "\e6c2";
+}
+
+.mdi-av-recent-actors:before {
+  content: "\e6c3";
+}
+
+.mdi-av-repeat-one:before {
+  content: "\e6c4";
+}
+
+.mdi-av-repeat:before {
+  content: "\e6c5";
+}
+
+.mdi-av-replay:before {
+  content: "\e6c6";
+}
+
+.mdi-av-shuffle:before {
+  content: "\e6c7";
+}
+
+.mdi-av-skip-next:before {
+  content: "\e6c8";
+}
+
+.mdi-av-skip-previous:before {
+  content: "\e6c9";
+}
+
+.mdi-av-snooze:before {
+  content: "\e6ca";
+}
+
+.mdi-av-stop:before {
+  content: "\e6cb";
+}
+
+.mdi-av-subtitles:before {
+  content: "\e6cc";
+}
+
+.mdi-av-surround-sound:before {
+  content: "\e6cd";
+}
+
+.mdi-av-timer:before {
+  content: "\e6ce";
+}
+
+.mdi-av-video-collection:before {
+  content: "\e6cf";
+}
+
+.mdi-av-videocam-off:before {
+  content: "\e6d0";
+}
+
+.mdi-av-videocam:before {
+  content: "\e6d1";
+}
+
+.mdi-av-volume-down:before {
+  content: "\e6d2";
+}
+
+.mdi-av-volume-mute:before {
+  content: "\e6d3";
+}
+
+.mdi-av-volume-off:before {
+  content: "\e6d4";
+}
+
+.mdi-av-volume-up:before {
+  content: "\e6d5";
+}
+
+.mdi-av-web:before {
+  content: "\e6d6";
+}
+
+.mdi-communication-business:before {
+  content: "\e6d7";
+}
+
+.mdi-communication-call-end:before {
+  content: "\e6d8";
+}
+
+.mdi-communication-call-made:before {
+  content: "\e6d9";
+}
+
+.mdi-communication-call-merge:before {
+  content: "\e6da";
+}
+
+.mdi-communication-call-missed:before {
+  content: "\e6db";
+}
+
+.mdi-communication-call-received:before {
+  content: "\e6dc";
+}
+
+.mdi-communication-call-split:before {
+  content: "\e6dd";
+}
+
+.mdi-communication-call:before {
+  content: "\e6de";
+}
+
+.mdi-communication-chat:before {
+  content: "\e6df";
+}
+
+.mdi-communication-clear-all:before {
+  content: "\e6e0";
+}
+
+.mdi-communication-comment:before {
+  content: "\e6e1";
+}
+
+.mdi-communication-contacts:before {
+  content: "\e6e2";
+}
+
+.mdi-communication-dialer-sip:before {
+  content: "\e6e3";
+}
+
+.mdi-communication-dialpad:before {
+  content: "\e6e4";
+}
+
+.mdi-communication-dnd-on:before {
+  content: "\e6e5";
+}
+
+.mdi-communication-email:before {
+  content: "\e6e6";
+}
+
+.mdi-communication-forum:before {
+  content: "\e6e7";
+}
+
+.mdi-communication-import-export:before {
+  content: "\e6e8";
+}
+
+.mdi-communication-invert-colors-off:before {
+  content: "\e6e9";
+}
+
+.mdi-communication-invert-colors-on:before {
+  content: "\e6ea";
+}
+
+.mdi-communication-live-help:before {
+  content: "\e6eb";
+}
+
+.mdi-communication-location-off:before {
+  content: "\e6ec";
+}
+
+.mdi-communication-location-on:before {
+  content: "\e6ed";
+}
+
+.mdi-communication-message:before {
+  content: "\e6ee";
+}
+
+.mdi-communication-messenger:before {
+  content: "\e6ef";
+}
+
+.mdi-communication-no-sim:before {
+  content: "\e6f0";
+}
+
+.mdi-communication-phone:before {
+  content: "\e6f1";
+}
+
+.mdi-communication-portable-wifi-off:before {
+  content: "\e6f2";
+}
+
+.mdi-communication-quick-contacts-dialer:before {
+  content: "\e6f3";
+}
+
+.mdi-communication-quick-contacts-mail:before {
+  content: "\e6f4";
+}
+
+.mdi-communication-ring-volume:before {
+  content: "\e6f5";
+}
+
+.mdi-communication-stay-current-landscape:before {
+  content: "\e6f6";
+}
+
+.mdi-communication-stay-current-portrait:before {
+  content: "\e6f7";
+}
+
+.mdi-communication-stay-primary-landscape:before {
+  content: "\e6f8";
+}
+
+.mdi-communication-stay-primary-portrait:before {
+  content: "\e6f9";
+}
+
+.mdi-communication-swap-calls:before {
+  content: "\e6fa";
+}
+
+.mdi-communication-textsms:before {
+  content: "\e6fb";
+}
+
+.mdi-communication-voicemail:before {
+  content: "\e6fc";
+}
+
+.mdi-communication-vpn-key:before {
+  content: "\e6fd";
+}
+
+.mdi-content-add-box:before {
+  content: "\e6fe";
+}
+
+.mdi-content-add-circle-outline:before {
+  content: "\e6ff";
+}
+
+.mdi-content-add-circle:before {
+  content: "\e700";
+}
+
+.mdi-content-add:before {
+  content: "\e701";
+}
+
+.mdi-content-archive:before {
+  content: "\e702";
+}
+
+.mdi-content-backspace:before {
+  content: "\e703";
+}
+
+.mdi-content-block:before {
+  content: "\e704";
+}
+
+.mdi-content-clear:before {
+  content: "\e705";
+}
+
+.mdi-content-content-copy:before {
+  content: "\e706";
+}
+
+.mdi-content-content-cut:before {
+  content: "\e707";
+}
+
+.mdi-content-content-paste:before {
+  content: "\e708";
+}
+
+.mdi-content-create:before {
+  content: "\e709";
+}
+
+.mdi-content-drafts:before {
+  content: "\e70a";
+}
+
+.mdi-content-filter-list:before {
+  content: "\e70b";
+}
+
+.mdi-content-flag:before {
+  content: "\e70c";
+}
+
+.mdi-content-forward:before {
+  content: "\e70d";
+}
+
+.mdi-content-gesture:before {
+  content: "\e70e";
+}
+
+.mdi-content-inbox:before {
+  content: "\e70f";
+}
+
+.mdi-content-link:before {
+  content: "\e710";
+}
+
+.mdi-content-mail:before {
+  content: "\e711";
+}
+
+/***************
+  Radio Buttons
+***************/
+/* Remove default Radio Buttons */
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+}
+
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  position: relative;
+  padding-left: 35px;
+  padding-right: 35px;
+
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  font-size: 1rem;
+  /* webkit (konqueror) browsers */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: none;
+}
+[type="radio"] .active{
+  background-color:rgba(0,0,0,0);
+
+}
+
+
+[type="radio"] + label:before,
+[type="radio"] + label:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 4px;
+  width: 22px;
+  height: 22px;
+  z-index: 0;
+}
+
+/* Unchecked styles */
+[type="radio"]:not(:checked) + label:before {
+  border-radius: 50%;
+  border: 1px solid #b3b3b3;
+}
+
+[type="radio"]:not(:checked) + label:after {
+  border-radius: 50%;
+  border: 2px solid #5a5a5a;
+  z-index: -1;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+/* Checked styles */
+[type="radio"]:checked + label:before {
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+[type="radio"]:checked + label:after {
+  border-radius: 50%;
+  border: 2px solid #26a69a;
+  background-color: #26a69a;
+  z-index: 0;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+/* Radio With gap */
+[type="radio"].with-gap:checked + label:before {
+  border-radius: 50%;
+  border: 1px solid #b3b3b3;
+}
+
+[type="radio"].with-gap:checked + label:after {
+  border-radius: 50%;
+  border: 1px solid #026ab3;
+  background-color: #026ab3;
+  z-index: 0;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+
+/* Disabled Radio With gap */
+[type="radio"].with-gap:disabled:checked + label:before {
+  border: 2px solid rgba(0, 0, 0, 0.26);
+}
+
+[type="radio"].with-gap:disabled:checked + label:after {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.26);
+}
+
+/* Disabled style */
+[type="radio"]:disabled:not(:checked) + label:before,
+[type="radio"]:disabled:checked + label:before {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.26);
+}
+
+[type="radio"]:disabled + label {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+[type="radio"]:disabled:not(:checked) + label:before {
+  border-color: rgba(0, 0, 0, 0.26);
+}
+
+[type="radio"]:disabled:checked + label:after {
+  background-color: rgba(0, 0, 0, 0.26);
+  border-color: #BDBDBD;
+}
+
+/***************
+   Checkboxes
+***************/
+/* CUSTOM CSS CHECKBOXES */
+form p {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+form p:last-child {
+  margin-bottom: 0;
+}
+
+/* Remove default checkbox */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+}
+
+[type="checkbox"] {
+  /* checkbox aspect */
+}
+
+[type="checkbox"] + label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+
+[type="checkbox"] + label:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  z-index: 0;
+  border: 2px solid #DADADA;
+  border-radius: 1px;
+  margin-top: 2px;
+}
+
+[type="checkbox"]:not(:checked):disabled + label:before {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.26);
+}
+
+[type="checkbox"]:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #026ab3;
+  border-bottom: 2px solid #026ab3;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+
+[type="checkbox"]:checked:disabled + label:before {
+  border-right: 2px solid rgba(0, 0, 0, 0.26);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.26);
+}
+
+/* Indeterminate checkbox */
+[type="checkbox"]:indeterminate + label:before {
+  left: -10px;
+  top: -11px;
+  width: 10px;
+  height: 22px;
+  border-top: none;
+  border-left: none;
+  border-right: 2px solid #26a69a;
+  border-bottom: none;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+
+[type="checkbox"]:indeterminate:disabled + label:before {
+  border-right: 2px solid rgba(0, 0, 0, 0.26);
+  background-color: transparent;
+}
+
+[type="checkbox"].filled-in + label:after {
+  border-radius: 2px;
+}
+
+[type="checkbox"].filled-in + label:before,
+[type="checkbox"].filled-in + label:after {
+  content: '';
+  left: 0;
+  position: absolute;
+  /* .1s delay is for check animation */
+  transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+  z-index: 1;
+}
+
+[type="checkbox"].filled-in:not(:checked) + label:before {
+  width: 0;
+  height: 0;
+  border: 3px solid transparent;
+  left: 6px;
+  top: 10px;
+  -webkit-transform: rotateZ(37deg);
+  transform: rotateZ(37deg);
+  -webkit-transform-origin: 20% 40%;
+  transform-origin: 100% 100%;
+}
+
+[type="checkbox"].filled-in:not(:checked) + label:after {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 2px solid #dadada ;
+  top: 0px;
+  z-index: 0;
+}
+
+[type="checkbox"].filled-in:checked + label:before {
+  top: 0;
+  left: 1px;
+  width: 8px;
+  height: 13px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  -webkit-transform: rotateZ(37deg);
+  transform: rotateZ(37deg);
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+[type="checkbox"].filled-in:checked + label:after {
+  top: 0px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #0072bb;
+  background-color: #0072bb;
+  z-index: 0;
+}
+
+[type="checkbox"].filled-in:disabled:not(:checked) + label:before {
+  background-color: transparent;
+  border: 2px solid transparent;
+}
+
+[type="checkbox"].filled-in:disabled:not(:checked) + label:after {
+  border-color: transparent;
+  background-color: #BDBDBD;
+}
+
+[type="checkbox"].filled-in:disabled:checked + label:before {
+  background-color: transparent;
+}
+
+[type="checkbox"].filled-in:disabled:checked + label:after {
+  background-color: #BDBDBD;
+  border-color: #BDBDBD;
+}
+

@@ -1,0 +1,2 @@
+place all the framework related icons in framework/theme/{themename} folder (where theme name can be red / green so on..)
+place all the HK related image in clients/heartkids folder

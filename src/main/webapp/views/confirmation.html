@@ -1,0 +1,49 @@
+<!--TO-DO :  Move to JSON File -->
+
+<div class="col-lg-12" style="width:85%;" ng-controller="pagecontroller">
+    <br>
+
+    <div class="col-md-12"><div style="text-align:center;color:#026ab3; font-size:20px; font-weight:bold; padding:4px; border-bottom:2px #026ab3 solid;">	Thank you for Your Participation</div>
+        <br>
+            <p>{{thankyoupagecontent.line1}}, {{usernameval}}, {{thankyoupagecontent.line12}}  </p>
+            <p style="margin-bottom: 3%;">{{thankyoupagecontent.line2}}
+            </p>
+        <p>{{thankyoupagecontent.line3}} <strong style="color: #0072bb;"> {{referencenumberval}} </strong>.
+        </p>
+        <p>{{thankyoupagecontent.line4}}
+        </p>
+        </div>
+        <div style="float: left;margin-top: 6%;">
+            <span style="line-height:0.8em;">{{thankyoupagecontent.line5}}</span>
+        </div><div style="float: left;margin-top: 4%;">   <a href="{{thankyoupagecontent.twilink}}" target="_blank"><img style="cursor: pointer;" class="twitt-logo img-responsive"  src="images/twit.png" alt="Share via Twitter"></a>
+            <a href="{{thankyoupagecontent.facebooklink}}" target="_blank"><img style="cursor: pointer;" src="images/facebook.png" class="will-logo img-responsive"  alt="Share via Facebook"></a>
+    </div>
+
+</div>
+<br><br><br>
+<div class="btn-group" style="text-align: center;margin-bottom: 35px; padding-top: 40px;">
+    <a href="{{thankyoupagecontent.buttonLink}}"><div class="btnnext btn-primary btnsizingdon">{{thankyoupagecontent.buttonLabel}}</div></a>
+</div>
+
+
+<!--TO-DO :  Move all the CSS to css files (less) -->
+
+<style>
+    .modal-content
+    {
+        overflow: hidden;
+
+    }
+    .btnsizingdon
+    {
+        width: 150px;        height: 45px;
+        border: 2px solid #0072bb;
+        padding: 10px;
+        color: #0072bb;
+        font-weight: 400;
+        font-family: ProximaNova-Semibold;
+
+
+    }
+
+</style>

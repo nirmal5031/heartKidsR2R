@@ -1,0 +1,85 @@
+<fieldset>
+   <!-- <ul style="margin-top: 5%;" id="" style="color: #9a9a9a;">
+        <li class="imagecont" style="display:inline; border: 2px solid #E8E8E8;padding: 1%;"
+            ng-repeat="hometype in template_content.usertypetab" ng-click="usertypecontentedit(hometype.id)"><span
+                style="color:#0673b5">{{hometype.title}}
+</span></li>
+    </ul>
+    <ul>
+        <li class="imagecont" style="color: #0673b5; font-weight: 600; list-style: none;"
+            style="border: none;margin-top: 2px; cursor: pointer;" ng-click="createnewusertype()"><img
+                src="images/Plus-35.png" alt="add image container"> <span>Add Type</span></li>
+    </ul>-->
+    <div ng-show="SuccessMessage">
+        <div  ng-if="ResponseMessage != null" class="my-notify-success">{{ResponseMessage}}</div>
+    </div>
+    <div class="card small" ng-repeat="hometype in template_content.usertypetab" style="width: 45%;
+        height: 290px;">
+        <div class="card-image waves-effect waves-block waves-light" style="    width: 180px;
+    height: 206px;">
+            <img class="activator usertypepng" src="{{hometype.img}}">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-f text-darken-4">{{hometype.title}}<i class="material-icons right">more_vert</i></span>
+            <p style="margin-top: 3%;"><img  src="images/EditPropertyFilled-24.png" title="Edit property" style="margin-right: 3%;" ng-click="usertypecontentedit(hometype.id)"><img  src="images/DeletePropertyFilled-24.png" title="delete property" confirmed-click="deletehomeuser(hometype.id)"
+                                                                                                                                                                               ng-confirm-click="Are you sure want to delete the banner ?"></p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{hometype.title}}<i class="material-icons right">close</i></span>
+            <p>{{hometype.type_shrt_desc}}</p>
+            <p>{{hometype.type_desc}}</p>
+</div>
+    </div>
+
+    <div class="card small" ng-repeat="a in range(usertypnumb) track by $index" style="width: 190px;
+        height: 290px;">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator usertypepng" src="images/Add_user.png">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Title<i class="material-icons right">more_vert</i></span>
+            <p style="margin-top: 3%;"><img  src="images/AddPropertyFilled-24.png" title="Add property" ng-click="createnewusertype()" style="width: 25px;
+    height: 25px;"></p>
+
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Title<i class="material-icons right">close</i></span>
+            <p>Create a new usertype</p>
+        </div>
+    </div>
+
+    <br>
+</fieldset>
+
+
+
+
+
+<fieldset>
+
+<div class="adminbacktab" style=" color: #9a9a9a !important;">
+    <br>
+    <h4 style="margin-left:20px; color:#0673b5;">Other Page Contents :</h4>
+<div>
+    <div  style="padding: 2%; float: left;width: 50%;"  ng-repeat="(key,value) in template_content.othrhomecont[0]">
+        <span>
+            {{key}}
+            <input type="text" class="textboxstyl" style="width: 90% !important; height: 75px; word-break: break-word;" ng-model=template_content.othrhomecont[0][key] />
+        </span>
+    </div>
+</div>
+<div style="text-align: center;padding-top: 30%;">
+    <button style="height: 3em; text-align: center;" class="btnnext btn-default"
+            ng-click="updatesec2content(item)">Update content
+    </button>
+</div>  </div>
+
+</fieldset>
+
+<style>
+
+.usertypepng
+{
+    padding:25px;
+}
+</style>

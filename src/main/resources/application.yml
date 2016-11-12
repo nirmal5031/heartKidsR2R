@@ -1,0 +1,61 @@
+server.servlet-path: "/*"
+server.contextPath: "/publicsurvey"
+server.port: 8080
+
+spring:
+ profiles.active: production
+---
+spring:
+  profiles: test
+  datasource:
+    url: "jdbc:h2:mem:heartkidsdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL"
+  jpa:
+    database-platform: "org.hibernate.dialect.MySQLDialect"
+    hibernate.ddl-auto: create
+    hibernate.hbm2ddl.auto: create
+    show-sql: true
+  endpoints:
+    enabled: true
+    health.enabled: true
+---
+spring:
+  profiles: production
+  datasource:
+    url: "jdbc:mysql://au-cdbr-azure-east-a.cloudapp.net:3306/acsm_23bc38e43cb2070"
+    username: b506c61c7d204c
+    password: b46a2855
+    driverClassName: com.mysql.jdbc.Driver
+    removeAbandoned: true
+    removeAbandonedTimeout: 120
+    logAbandoned: true
+    testOnBorrow: false
+    testOnReturn: false
+    timeBetweenEvictionRunsMillis: 60000
+    numTestsPerEvictionRun: 5
+    minEvictableIdleTimeMillis: 30000
+    testWhileIdle: true
+    validationQuery: select 1
+
+  jpa:
+    database-platform: "org.hibernate.dialect.MySQLDialect"
+    hibernate.ddl-auto: update
+    hibernate.hbm2ddl.auto: create
+    show-sql: true
+  endpoints:
+    enabled: false
+    health.enabled: true
+---
+mail.username: admin@Heartkidsaustralia.onmicrosoft.com
+mail.password: e0Tu9825Mr3Q1
+mailfromId: R2Rportal@heartkids.org.au
+mail.smtp.host: outlook.office365.com
+mail.smtp.port: 587
+mail.auth: true
+REFERENCE_PREFIX: HKCHD
+homecontFile: cms_content.json
+allow-duplicates: false
+HK_CHD_version: HKCHD_v1.0
+mail.AccessKey: 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
+emailContent: dsd
+adminMailID: nirmal5031@gmail.com
+unSubscribeUserURL: http://localhost:8080

@@ -1,0 +1,77 @@
+<div id="newpageques" >
+
+    <div class="input-w">
+        <label for="question">Header<em>*</em></label>
+        <input type="text" class="textboxstyl" ng-model="formPageData.metadata.header" ng-required="true" maxlength="300"/>
+    </div>
+
+    <div class="input-w">
+        <label for="question">Description Header</label>
+        <input type="text" class="textboxstyl" ng-model="formPageData.metadata.shortdesc" maxlength="300"/>
+    </div>
+
+    <div class="input-w">
+
+        <input type="hidden" class="textboxstyl"   ng-model="formPageData.enterpageno"/>
+    </div>
+
+    <div class="input-w">
+        <label for="question">Short Description</label>
+        <div class="chip" ng-repeat="option in formPageData.metadata.desc">
+            {{option}}
+            <i class="material-icons">close</i>
+        </div>
+
+        <span style="margin-top: 3%;" ng-click="showoptioneditor=true"><img  src="images/AddColumnFilled-24.png" title="Add options" style="margin-left: 2%; vertical-align: middle;"></span>
+
+    </div>
+ <div class="input-w" ng-show="showoptioneditor">
+        <textarea type="text" class="textareanotepad"  ng-model="formPageData.metadata.desc" ng-list="" ></textarea>
+    </div>
+
+
+    <input class="" type="hidden" ng-model="formPageData.pageid">
+    <input class=""  type="hidden" ng-model="formPageData.questionnaire" ng-list="[]" ng-init="formPageData.questionnaire=[]" readonly>
+    <br>
+     <span style="display: flex;
+    justify-content: center;">
+    <button style="height: 2.5em;width: 75px;" ng-click="" class="ngdialog-close btnnext btn-primary">Cancel</button>
+
+    <button  style="height: 2.5em;width: 75px;" class="btnnext btn-default" ng-click="createnewpage(formPageData,index)">Create</button>
+    </span></div>
+
+<style>
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+width: 50%;
+height: auto;
+}
+</style>
+
+
+
+
+
+
+
+
+<!--<div id="newpageques" >
+    <span style="font-weight: 600;color:red">Create Page ::</span>
+
+    <br>
+    <div>
+
+              <input class="" style="width: 60%;" type="hidden" ng-model="formPageData.pageid" ng-disabled="true">
+          <input class=""  style="width: 60%;" type="hidden" ng-model="formPageData.formName" readonly>
+        page Title :        <input class="textboxstyl"  type="text" ng-model="formPageData.pagetitle" >
+        Short Description : <input class="textboxstyl" type="text" ng-model="formPageData.metadata.shortdesc">
+        Header :            <input class="textboxstyl" type="text"  ng-model="formPageData.metadata.header" >
+        Description:        <textarea class="textboxstyl" type="text"  ng-model="formPageData.metadata.desc" ng-init="formPageData.metadata.desc=''" ng-list=""></textarea>
+
+
+    <br>{{formPageData}}<br>
+    <button style="height: 3em" ng-click="" class="ngdialog-close btnnext btn-primary">Cancel</button>
+    <button  style="height: 3em" class="ngdialog-close btnnext btn-default" ng-click="createnewpage(formPageData)">Create</button>
+</div>
+
+
+    </div>-->

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Survey Admin</title>
+
+    <!-- CDN CSS Repository -->
+
+	<!-- TO-DO : Reduce the local repo of css framework and point to CDN -->
+
+
+<!-- CSS Framework Library -->
+
+<!-- USER Library LESS Compiled Distro -->
+
+	<!-- TO-DO : Minify when precompiling -->
+
+
+
+    <link rel="stylesheet" href="asset/css/framework/jquery-ui-smooth.css">
+    <link rel="stylesheet" href="asset/css/userlibrary/less/dist/main.css"/>
+    <link rel="stylesheet" href="asset/css/userlibrary/less/dist/mystyle.css"/>
+    <link rel="Stylesheet" href="asset/css/framework/datepicker.css"/>
+    <link rel="Stylesheet" href="asset/css/framework/checkbox.css"/>
+    <link rel="Stylesheet" href="asset/css/userlibrary/less/dist/stylemedia.css"/>
+    <link rel="Stylesheet" href="asset/css/userlibrary/less/dist/mainadmin.css"/>
+    <link rel="Stylesheet" href="asset/css/framework/ngDialog.css"/>
+    <link rel="Stylesheet" href="asset/css/framework/xeditable.css"/>
+
+    <link rel="Stylesheet" href="asset/css/framework/ngDialog-theme-default.css"/>
+    <link type="text/css" rel="stylesheet" href="asset/dist/materialize.css"  media="screen,projection"/>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <script src="asset/js/angular1.2.2.js"></script>
+    <script src="asset/js/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="asset/js/jquery.csv.js"></script>
+
+    <script src="asset/js/dirPagination.js" type="text/javascript"></script>
+    <script src="asset/js/FileSaver.js" type="text/javascript"></script>
+    <script src="adminapp.js"></script>
+    <script src="asset/js/angular-cookie.js"></script>
+    <script type="text/javascript" src="asset/js/d3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="asset/dist/angular-charts.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="asset/dist/angularjs-nvd3-directives.js" charset="utf-8"></script>
+    <script type="text/javascript" src="asset/js/bootstrap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="asset/js/nv.d3.js" charset="utf-8"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="asset/js/ngDialog.js"></script>
+    <script type="text/javascript" src="asset/dist/materialize.js"></script>
+    <script type="text/javascript" src="asset/dist/xeditable.js"></script>
+    <script type='text/javascript' src="asset/js/aes.js"></script>
+    <script type='text/javascript' src="asset/js/mdo-angular-cryptography.js"></script>
+   <!-- <script src="js/angular-modal-service.js"></script>
+ <script src="js/ui-bootstrap-tpls.js"></script>-->
+
+</head>
+<body>
+
+    <div class="">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ui-view></div>
+
+    </div>
+
+
+<!-- CDN JS Repository -->
+
+<!-- JS Framework Library -->
+
+ <!-- USER Library & Controller-->
+
+    <script src="admin-views/home/home.controller.js"></script>
+    <script src="admin-views/login/login.controller.js"></script>
+    <script src="admin-views/login/reset.controller.js"></script>
+    <script src="admin-views/template/template.controller.js"></script>
+    <script src="admin-views/template/questionarie.template.js"></script>
+    <script src="admin-views/template/previewController.js"></script>
+    <script src="admin-views/login/LoginService.js"></script>
+    <script src="admin-views/login/AuthenticationService.js"></script>
+    <script src="admin-views/login/config.js"></script>
+</body>
+</html>

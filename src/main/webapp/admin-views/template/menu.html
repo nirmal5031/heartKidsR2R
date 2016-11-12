@@ -1,0 +1,78 @@
+<ul id="drop-nav">
+    <li class="no-heading"><a ui-sref="form.template">Home</a>
+        <ul class="sub-menu">
+            <li><a ui-sref="form.template" ng-click="homepagesec('sec1')">Banner image</a></li>
+
+            <li><a ui-sref="form.template" ng-click="homepagesec('sec2')">Content</a></li>
+        </ul>
+
+    </li>
+    <li  class="no-heading"><a >Questionnarie  </a>
+        <ul class="sub-menu">
+            <li ng-repeat="pagecontent in ques_template_content" ui-sref="form.templateques" ng-click="getPageQuestions($index)"><a>{{pagecontent.metadata.header}}</a></li>
+            <li ui-sref="form.templateques" ng-click="createnewquespage()"><a style="background: #777;">Add Page</a></li>
+        </ul>
+    </li>
+
+    <li class="no-heading"><a>Templates</a>
+        <ul class="sub-menu">
+            <li><a ui-sref="form.email">Email Template</a></li>
+            <li><a ui-sref="form.disclaimer">Disclaimer</a></li>
+            <li><a ui-sref="form.thankyou">Thank You</a></li>
+        </ul>
+    </li>
+
+</ul>
+
+<style>
+
+    li ul {display: block;}
+
+    ul li a {display: block;background: rgba(66, 115, 145, 0.98);text-decoration: none;
+        white-space: nowrap;color: #fff;width: 296px;}
+    /*ul li a:hover {background: #0673b5;
+    width: 296px; cursor: pointer;}*/
+    li:hover ul {
+        display: block; position: relative;
+
+    }
+    li:hover li {float: none;}
+    /*li:hover a {background: #0673b5;}*/
+    /*ul.sub-menu li a:hover {background: #B3B3B3;   }*/
+    #drop-nav li ul li {
+        list-style: none;
+       margin-top: 1px;
+        cursor: pointer;
+    }
+    #drop-nav li a {
+        padding: 0 0 0 20px;
+    }
+    .sub-menu li a {
+        padding: 0 0 0 40px !important;
+        border-radius: 8px;
+    }
+    ul.sub-menu li:hover a{
+        background: #ddd;
+        text-decoration: none;
+        color: #673AB7;
+        font-family: ProximaNova-Regular;
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+     li.no-heading > a{
+         background: #0673B5;
+         font-weight: 500;
+         font-family: ProximaNova-Regular;
+         text-decoration: none;
+         margin-top: 1px;
+         border-radius: 8px;
+    }
+    #drop-nav
+    {
+        list-style: none;
+    }
+    ul{
+        margin: 0 0 0em 0;
+        padding-left: 0em;
+    }
+</style>

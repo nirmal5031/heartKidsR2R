@@ -1,0 +1,362 @@
+
+<div class="col-lg-12" style="width:80%; margin-top: -2.8%;    " ng-controller="HomeController" data-ng-init="init()">
+
+<br><br>
+<div ng-include="'admin-views/home/barreports.view.html'"></div>
+<div ng-include="'admin-views/home/reports.view.html'"></div>
+
+<br>
+    <br>
+<div class="btn-groupadmin" style="float:left; margin-top: 4%;" id="searchuserrecords">
+    <button  class="btn btn-default buttontab activebutton" style="" ng-click=""  >Search</button>
+</div>
+<hr class="hrstyle" style="border: 2px solid #0072BB;"></hr>
+
+<section class="spotlight adminbacktab" style="margin:0px 0px 0px 0px; width: 100%; background-color: #fff; padding: 3%;">
+    <div class="image" style="margin-right: 0em; width: 100%" class="form-width">
+
+        <div class="col-xs-row">
+            <div class="form-group">
+                <label for="ReferenceNumber">Reference Number : </label>
+                <input type="text" name="refnum" id="refnum" class="textfeildname  form-control" ng-pattern="/^[a-zA-Z0-9]*$/"
+                       ng-model="formAdminData.refno" placeholder="" style="    background-color: white;
+    border: 1px solid grey;" ng-init="formAdminData.refno=''"/>
+
+                <p ng-show="userForm.refnum.$dirty && userForm.refnum.$error.pattern" class="help-block"
+                   style="margin: auto;padding: 10px;">Please enter valid reference number.</p>
+            </div>
+            <div class="form-group">
+                <label for="state">State: </label>
+                <select name="stateselct" ng-model="formAdminData.state" class="textfeildname  form-control arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="state for state in statelistArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+            <div ng-show="advancedoption">
+                <div class="form-group">
+                    <label for="Ethinicity">Ethinicity: </label>
+                    <select name="Ethinicity" ng-model="formAdminData.ethnicity" class="textfeildname  form-control arrowupdown"
+                            style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                            ng-options="state for state in ethnicityArray">
+                        <option value="">--Select--</option>
+                        <!-- not selected / blank option -->
+                    </select>
+                </div>
+
+                <div class="form-group" style="width: 56%; margin-left: 0%;float:left;">
+                    <label for="age1">Age</label>
+                    <select class="textfeildname  form-control arrowupdown" ng-model="formAdminData.agefrom" ng-init="formAdminData.agefrom=''"
+                            style=" moz-appearance: none;-webkit-appearance: none;appearance:none; width: 45%">
+                        <option value="">From</option>
+                        <option ng-repeat="i in getNumber(myNumber) track by $index">{{$index}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="heartconds1">What congenital heart condition were you diagnosed with?</label>
+                    <select name="heartconds1" ng-model="formAdminData.heartconds" class="textfeildname  form-control arrowupdown"
+                            style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                            ng-options="cond for cond in heartcondsArray">
+                        <option value="">--Select--</option>
+                        <!-- not selected / blank option -->
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="usertype">User Type</label>
+                    <select name="usertype" ng-model="formAdminData.usertype" class="textfeildname  form-control arrowupdown"
+                            style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                            ng-options="cond for cond in usertypeArray">
+                        <option value="">--Select--</option>
+                        <!-- not selected / blank option -->
+                    </select>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content form-width" style="width: 100%;order: 1;">
+
+        <div class="col-xs-row" style="margin-bottom: 5%;">
+            <div class="form-group">
+                <label for="sex">Sex :</label>
+                <select name="sexselect" ng-model="formAdminData.sex" class="textfeildname  form-control arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="sex for sex in sexArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="state">Country of Birth: </label>
+                <select name="stateselct" ng-model="formAdminData.countrybirth" class="textfeildname  form-control arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="state for state in lstofcountryArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+
+            <div ng-show="advancedoption">
+
+                <div class="form-group" style="margin-left: -70%;
+               margin-top: 24%;
+               width: 56%;
+    float: left;">
+                    <select class="textfeildname  form-control arrowupdown" name="ageto" ng-model="formAdminData.ageto"
+                            min="{{formAdminData.agefrom}}"
+                            style=" moz-appearance: none;-webkit-appearance: none;appearance:none; width: 45%">
+                        <option value="">To</option>
+                        <option ng-repeat="i in getNumber(myNumber) track by $index">{{$index+(1*formAdminData.agefrom)}}
+                        </option>
+                    </select>
+
+                    <p ng-show="userForm.ageto.$error.min && userForm.ageto.$dirty" class="help-block haserrors"
+                       style="margin: auto;padding: 10px;">Age to must be greater than Age from</p>
+
+                </div>
+                <div class="form-group">
+                    <label for="crctsurgery">How many delays to the corrective surgery did you experience?
+                    </label>
+                    <select class="textfeildname  form-control arrowupdown" ng-model="formAdminData.surgerydelaycount"
+                            style=" moz-appearance: none;-webkit-appearance: none;appearance:none;">
+                        <option value="">--Select--</option>
+                        <option ng-repeat="i in getNumber(5) track by $index">{{$index+1}}</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select name="status" ng-model="formAdminData.status" class="textfeildname  form-control arrowupdown"
+                            style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                            ng-options="status for status in statusArray">
+                        <option value="">--Select--</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <div  class=" adminbacktab " ng-show="advancedoption" style="width: 100%; padding-left: 4%;
+    padding-bottom: 3%;">
+        <label class="radioBtnspace"> List user records whose specific condition are known? </label>
+
+        <!-- Define a div with input & label , iterate the div-->
+        <span ng-repeat="option in yesnoArrayCaps" class="radio-btn">
+    <input type="radio" class="with-gap radio-btn" ng-model="formAdminData.conditioncalld" value="{{option}}" name="conditioncalld" id="conditioncalld{{option}}"/>
+            <label for="conditioncalld{{option}}" class="labelradio radiopadding">{{option}}</label>
+            </span>
+
+<br>
+        <label class="radioBtnspace"> List people who had corrective surgery in heart ?</label>
+
+        <!-- Define a div with input & label , iterate the div-->
+        <span ng-repeat="option in yesnoArrayCaps" class="radio-btn">
+    <input type="radio" class="with-gap radio-btn" ng-model="formAdminData.surgeryheld" name="surgeryheld" value="{{option}}" id="surgeryheld{{option}}"/>
+            <label for="surgeryheld{{option}}" class="labelradio radiopadding">{{option}}</label>
+            </span>
+
+        <br>
+
+        <label class="radioBtnspace"> List records whose surgery has been delayed?</label>
+
+        <!-- Define a div with input & label , iterate the div-->
+        <span ng-repeat="option in yesnoArrayCaps" class="radio-btn">
+    <input type="radio" class="with-gap radio-btn" ng-model="formAdminData.surgerydelay"   name="surgerydelay" value="{{option}}" id="surgerydelay{{option}}" />
+            <label for="surgerydelay{{option}}" class="labelradio radiopadding">{{option}}</label>
+            </span>
+        <br>
+
+        <label class="radioBtnspace"> List records who travel for more than 50Km for surgery ?</label>
+
+        <!-- Define a div with input & label , iterate the div-->
+        <span ng-repeat="option in yesnoArrayCaps" class="radio-btn">
+    <input type="radio" class="with-gap radio-btn" ng-model="formAdminData.trvlsurg"  name="trvlsurg" value="{{option}}" id="trvlsurg{{option}}"/>
+            <label for="trvlsurg{{option}}" class="labelradio radiopadding">{{option}}</label>
+            </span>
+        <br>
+
+        <label class="radioBtnspace"> List records who experience any anxiety about heart condition ? </label>
+
+        <!-- Define a div with input & label , iterate the div-->
+        <span ng-repeat="option in yesnoArrayCaps" class="radio-btn">
+    <input type="radio" class="with-gap radio-btn" ng-model="formAdminData.anxietycond"   name="anxietycond" value="{{option}}" id="anxietycond{{option}}"/>
+            <label for="anxietycond{{option}}" class="labelradio radiopadding">{{option}}</label>
+            </span>
+
+
+
+
+
+
+    </div>
+
+<!--<div style="width: 100%;     padding-left: 4%;
+    padding-bottom: 3%;"  ng-show="advancedoption" class="adminbacktab" >
+
+    <table class="checkbox-btn checkboxpaading" style="width: 100%;"><tr><td><input type="checkbox" ng-model="formAdminData.conditioncalld" name="contctviaemail" id="checkboxG4" class=""   ng-true-value="Yes" ng-false-value="No"/>  <label for="checkboxG4" onclick>List user records whose specific condition are known?</label></td></tr></table>
+
+    <table class="checkbox-btn checkboxpaading" style="width: 100%;"><tr><td><input type="checkbox" ng-model="formAdminData.surgeryheld" name="contctviaemail" id="checkboxG41" class=""   ng-true-value="Yes" ng-false-value="No"/>  <label for="checkboxG41" onclick>List people who had corrective surgery in <heart></heart></label></td></tr></table>
+
+    <table class="checkbox-btn checkboxpaading" style="width: 100%;"><tr><td><input type="checkbox" ng-model="formAdminData.surgerydelay" name="contctviaemail" id="checkboxG42" class=""   ng-true-value="Yes" ng-false-value="No"/>  <label for="checkboxG42" onclick>List records whose surgery has been delayed?</label></td></tr></table>
+
+    <table class="checkbox-btn checkboxpaading" style="width: 100%;"><tr><td><input type="checkbox" ng-model="formAdminData.trvlsurg" name="contctviaemail" id="checkboxG43" class=""   ng-true-value="Yes" ng-false-value="No"/>  <label for="checkboxG43" onclick>List records who travel for more than 50Km for surgery.</label></td></tr></table>
+
+    <table class="checkbox-btn checkboxpaading" style="width: 100%;"><tr><td><input type="checkbox" ng-model="formAdminData.anxietycond" name="contctviaemail" id="checkboxG44" class=""   ng-true-value="Yes" ng-false-value="No"/>  <label for="checkboxG44" onclick>List records who experience any anxiety about heart condition?</label></td></tr></table>
+
+</div>-->
+<div class="adminbacktab">
+<a  style="color:#0072BB;cursor:pointer;font-weight: bold; padding: 4%;"  ng-model="advancedoption" ng-click="advancedoption=!advancedoption">{{toggleText}}</a>
+</div>
+<!--
+<div class="col-xs-6 col-xs-offset-3 col-xs-7">
+
+    <a ui-sref="" class="btn btn-block btn-info" ng-click="searchheartkid()" style="margin-top:5%;margin-left: 80%;width: 30%;">
+        Search  <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a></br>
+</div>-->
+<div class="btn-groupadmin surveybutton adminbacktab" style="margin-top: 0px;
+    width: 100%;">
+    <button  style="height: 3.5em"  class="btnnext btn-primary" ng-click="clearall()">Clear All</button>
+    <button  style="height: 3.5em"  ng-click="searchheartkid()" class="btnnext btn-default">Search</button>
+    <button  style="height: 3.5em"  ng-click="exportDataBySearch()" class="btnnext btn-default">Export</button>
+    <br><br><br>
+
+
+    <div class="errormessage adminbacktab" style="margin-left:5%;color:#ff2514;"><b>{{ErrorMessage}}</b></div>
+
+    <p style="color: red;">{{deleteMessage}}</p>
+
+    <div class="table-responsive adminbacktab" id="searchtable" ng-show="searchHeartKid">
+<span style="    color: #FF5722;
+    float: right;
+    margin-right: 3%;">Total Record Count :: <strong style="color: #0D47A1;font-weight: bolder;">{{totalSearchCount}}</strong></span>
+        <table class="table table-striped table-bordered" style="text-align: left;;width: 94%;margin-top: 4%;margin-left: 4%;color: black; color: #9a9a9a !important;border: none; border: 1px solid #ddd;">
+
+            <tr class="info" style="color: #000;cursor: pointer;">
+                <th ng-click="sort('id')">Id
+                <span class="glyphicon sort-icon" ng-show="sortKey=='id'"
+                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('referencenumber')">Reference No
+                <span class="glyphicon sort-icon" ng-show="sortKey=='referencenumber'"
+                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                </th>
+                <th ng-click="sort('firstname')">First Name
+                <span class="glyphicon sort-icon" ng-show="sortKey=='firstname'"
+                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                </th>
+                <th ng-click="sort('lastname')">Last Name
+                <span class="glyphicon sort-icon" ng-show="sortKey=='lastname'"
+                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                </th>
+                <th ng-click="sort('usertype')">User Type
+                <span class="glyphicon sort-icon" ng-show="sortKey=='usertype'"
+                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                </th>
+                <th ng-click="sort('status')">Status
+                <span class="glyphicon sort-icon" ng-show="sortKey=='status'"
+                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                </th>
+                <th >
+                </th>
+                <th ng-show="admin">
+                </th>
+            </tr>
+
+            <tr dir-paginate="a in searchusers|orderBy:sortKey:reverse|filter:search|itemsPerPage:10" style="color: #9a9a9a !important;">
+                <td>{{$index+1}}</td>
+                <td>{{a.profile.refno}}</td>
+                <td>{{a.profile.firstname}}</td>
+                <td>{{a.profile.lastname}}</td>
+                <td>{{a.profile.recordStatus.usertype}}</td>
+                <td>{{a.profile.recordStatus.status}}</td>
+
+                <td  style="text-align: center;cursor: pointer;"><img src="images/edit-user.png"  ng-click="getuserdetails(a.profile.refno)"/></td>
+                <td ng-show="admin" style="text-align: center;cursor:pointer;"><img src="images/delete_user.png"  confirmed-click="deleteuser($index,a.profile.refno)"  ng-confirm-click="Are you sure want to delete the record ?"/></td>
+
+                <!--<td><button class="btn btn-primary" style="margin-left: 13%; width: 70px;" ng-click="modifyuser(a)">Edit</button></td>
+           --> </tr>
+        </table>
+        <dir-pagination-controls ng-show="userrecordspresent" style="float: right;margin-right: 5%;margin-left:5%;"
+                                 max-size="10"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+
+        <span ng-show="norecordsfnd" style="color: red;text-align: left;" >No records found for the given search criteria </span>
+
+    </div>
+
+    <div ng-include="'admin-views/home/edituser-pane.html'"></div>
+
+</div>
+    </fieldset>
+<!--EDIT PANEL -->
+<br><br><br><br><br>
+
+    <div ng-show="admin" ng-include="'admin-views/home/search.view.html'">
+
+    </div>
+    <br><br>   <br><br>
+</div>
+
+
+<style>
+    .admindisable{
+        background-color: grey !important;
+        opacity:0.4;
+    }
+    .buttontab {
+        width: 150px;
+        height: 48px;
+        background-color: #D4D2D2;
+        border: 0px solid;
+        color: #666666;
+        font-weight: normal;
+        box-shadow: none;
+
+    }
+    .hrstyle
+    {
+        margin: 0px;
+        width: 100%;
+        float:left;
+    }
+    .control
+    {
+        padding-bottom: 7%;
+    }
+    .form-group
+    {
+        padding:10px;
+        text-align: left;
+    }
+    .activebutton
+    {
+        background-color: #0673b5 !important;
+        border: none;
+        color:#fff !important;
+    }
+    .radioBtnspace
+    {
+        width: 50%;
+        padding: 5px;;
+    }
+.adminbacktab
+{
+    background-color: #ffffff;
+}
+
+    </style>
+
+<script>
+
+
+</script>
+

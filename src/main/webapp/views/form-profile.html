@@ -1,0 +1,233 @@
+
+ <!--TO-DO :  Reference of HK_CHD remove , make generic-->
+<br>
+ <ul id="circle" ng-hide="circleprogress" ng-init="profile='true'">
+     <li ng-class="{active: items.pageid==survypageid}" id="{{items.pageid}}" ng-repeat="items in quespagelength">
+         {{items.pageid}}
+         <hr>
+     </li>
+     <li ng-class="">{{quespagelen}}</li>
+ </ul>
+
+
+<div class="col-lg-12 form-width" id="scrolltotop" >
+    <section id="two" class=" alt " style="background-color:#f9f9f9;" >
+        <section class="spotlight">
+            <div class="image" class="form-width" style="width:100%;">
+                <div class="headerpane">Patient Details</div>
+
+                <div class="controlpers" id="mainselection">
+                    <label class=" col-sm-2">{{HK_CHD_Content.profilepage.title}}</label>
+                    <select  name="titleselect" ng-model="formData.title" class="dropdownstyling yellow arrowupdown text"  ng-options="title for title in titleArray">
+                        <option value="">--Select--</option> <!-- not selected / blank option -->
+                    </select>
+                </div>
+                <div class="controlpers" >
+                    <label class=" col-sm-2">{{HK_CHD_Content.profilepage.firstname}}<em>*</em></label>
+                    <input type="text" name="firstname"
+                           ng-maxlength="20" value="" ng-pattern="/^[a-zA-Z ]*$/" ng-model="formData.firstname" class="textfeildname yellow" required/>
+                    <p ng-show="userForm.firstname.$dirty && userForm.firstname.$error.required" class="help-block haserrors">First Name is Required.</p>
+                    <p ng-show="userForm.firstname.$dirty && userForm.firstname.$error.pattern" class="help-block haserrors" >Please enter valid Name.</p>
+                </div>
+                <div class="controlpers">
+                    <label class=" col-sm-2">{{HK_CHD_Content.profilepage.lastname}}<em>*</em></label>
+                    <input type="text"  name="lastname" value=""  ng-pattern="/^[a-zA-Z ]*$/" ng-model="formData.lastname" class="textfeildname yellow" required/>
+                    <p ng-show="userForm.lastname.$dirty && userForm.lastname.$error.required" class="help-block haserrors" >Last Name is Required.</p>
+                    <p ng-show="userForm.lastname.$dirty && userForm.lastname.$error.pattern" class="help-block haserrors" >Please enter valid Name.</p>
+                </div>
+                <div class="controlpers">
+                    <label class=" col-sm-2">{{HK_CHD_Content.profilepage.gender}}</label>
+                    <select  name="sexselect"  ng-model="formData.gender    " class="dropdownstyling yellow arrowupdown text" ng-options="sex for sex in sexArray">
+                        <option value="">--Select--</option>
+                        <!-- not selected / blank option -->
+                    </select>
+                </div>
+                <div class="controlpers">
+                    <label class=" col-sm-21">{{HK_CHD_Content.profilepage.dob}}<em>*</em></label>
+
+                    <input type="text" readonly="true" ng-model="formData.birthdate" name="birthdate"
+                           ng-change="checkAge(formData.birthdate)" class="textfeildname yellow  text datepicker"
+                           required>
+           <p ng-show="userForm.birthdate.$dirty && userForm.birthdate.$error.required" class="help-block haserrors" >Dob is required</p>
+                </div>
+                <div ng-if ="calculateAge(formData.birthdate) != ''">
+                    <div class="controlpers">
+                        <label class=" col-sm-2">{{HK_CHD_Content.profilepage.age}}</label>
+                        <input type="text" name="age" value=""  disabled style="background-color: #FFFEF1 !important;
+    opacity: 0.6;" ng-model="ageval"  class="textfeildname yellow" />
+                        <p class="help-block haserrors">{{agecheckMessage}}</p>
+
+                    </div>
+                </div>
+                <div class="controlpers">
+                    <label class=" col-sm-22 ">{{HK_CHD_Content.profilepage.ethnicity}}</label>
+                    <select  name="lstofcountryArray" ng-model="formData.ethnicity"   ng-options="ethnicity for ethnicity in ethnicityArray" class="dropdownstyling yellow arrowupdown text-carer" >
+                        <option value="">--Select--</option> <!-- not selected / blank option -->
+
+                    </select>
+                </div>
+                <div class="controlpers">
+                    <label class=" col-sm-22 ">{{HK_CHD_Content.profilepage.language}}</label>
+                    <select  name="lstofcountryArray"  ng-model="formData.language" class="dropdownstyling yellow arrowupdown text-carer" ng-options="lang for lang in languageArray" >
+                        <option value="">--Select--</option> <!-- not selected / blank option -->
+
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="content form-width" style="width:100%; padding: 0">
+                <div class="headerpane">Contact Details</div>
+
+                <div class="control-label">
+                    <label class=" col-sm-22 ">{{HK_CHD_Content.profilepage.phone}}</label>
+                    <input type="phone"  name="phone"  value=""  ng-minlength="8" ng-maxlength="15" maxlength="15" ng-pattern="/^[0-9\+]{1,}[0-9\-]{3,15}$/" ng-model="formData.phone" class="textfeildname yellow" >
+                    <p ng-show="userForm.phone.$invalid && userForm.phone.$error.pattern " class="help-block haserrors" >Please enter valid phone number</p>
+                    <p ng-show="userForm.phone.$dirty && userForm.phone.$error.maxlength" class="help-block haserrors" >Maximum length exceeded.Please enter valid number </p>
+                    <p ng-show="userForm.phone.$dirty && userForm.phone.$error.minlength" class="help-block haserrors" >Please enter valid phone number (8-12) </p>
+                    <p ng-show="formData.phone == 0 && formData.phone != ''" class="help-block haserrors" >Please enter valid phone number.</p>
+
+
+
+                </div>
+                <div class="control-label" ng-show="userForm.phone.$valid && formData.phone != null">
+                    <div class="checkbox-btn"><input type="checkbox" ng-model="formData.contctviaphone" ng-init="formData.contctviaphone='no'" name="contctviaphone" id="checkboxG42" class="filled-in"   ng-true-value="yes" ng-false-value="no" />  <label style="color: #9a9a9a; font-family: ProximaNova-Regular;" for="checkboxG42" onclick>Do you agree to be contacted ?</label></div>
+                </div>
+                <div class="control-label">
+                    <label class=" col-sm-22">{{HK_CHD_Content.profilepage.email}} <em>*</em></label>
+                    <input type="email" name="emailpatient" id="emailpatient" value="" max="100"  ng-pattern="/^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-za-z]{2,4}$/" ng-model="formData.email" class="textfeildname yellow text-carer" placeholder="" required/>
+                    <p ng-show="userForm.emailpatient.$dirty && userForm.emailpatient.$error.required" class="help-block haserrors" >Email is Required</p>
+                    <p ng-show="userForm.emailpatient.$dirty && userForm.emailpatient.$error.pattern" class="help-block haserrors" >Please enter valid email</p>
+                </div>
+
+                <div class="control-label">
+                    <label class=" col-sm-22 ">{{HK_CHD_Content.profilepage.postcode}}<em>*</em></label>
+                    <input type="phone"  pattern="/^(\d)+$/" name="postcode" ng-minlength="4" ng-maxlength="6"  value="" ng-model="formData.postcode"  ng-pattern="/^(\d)+$/"  minlength="4" maxlength="6" id="postcde"  class="textfeildname text-carer" required/>
+                    <p ng-show="userForm.postcode.$dirty && userForm.postcode.$error.required" class="help-block haserrors" >Please enter PostCode.</p>
+                    <p ng-show="userForm.postcode.$dirty && userForm.postcode.$error.pattern" class="help-block haserrors" >Please enter Number Only.</p>
+                    <p ng-show="userForm.postcode.$dirty && userForm.postcode.$error.minlength" class="help-block haserrors" >Please enter valid postcode number</p>
+                    <p ng-show="formData.postcode == 0 && formData.postcode != ''" class="help-block haserrors" >Please enter valid postcode.</p>
+                    <p ng-show="userForm.postcode.$dirty && userForm.postcode.$error.maxlength" class="help-block haserrors" >Please enter valid postcode number</p>
+
+                </div>
+
+                <div class="control-label">
+                    <label class=" col-sm-22 ">{{HK_CHD_Content.profilepage.state}}</label>
+                    <select  name="state" ng-model="formData.state" ng-model="formData.state" class="dropdownstyling yellow arrowupdown text-carer" ng-options="title for title in statelistArray">
+                        <option value="">--Select--</option> <!-- not selected / blank option -->
+                    </select>
+                </div>
+                <div class="control-label">
+                    <label class=" col-sm-22 ">{{HK_CHD_Content.profilepage.countrybirth}}</label>
+                    <select  name="lstofcountryArray"  ng-model="formData.countrybirth"  ng-options="country for country in lstofcountryArray"  class="dropdownstyling yellow arrowupdown text-carer" >
+                        <option value="">--Select--</option> <!-- not selected / blank option -->
+                    </select>
+                </div>
+
+                <div class="control-label" ng-show="showcarer">
+                    <label class=" col-sm-22 "></label>
+                    <div class="checkbox-btn"><input type="checkbox" ng-model="formData.passedones" name="passedlovedones" id="checkboxG44" class="filled-in"   ng-true-value="yes" ng-false-value="no" />  <label style="color: #9a9a9a; font-family: ProximaNova-Regular;" for="checkboxG44" onclick>Are you filling in behalf of passed loved ones ?</label></div>
+                </div>
+
+            </div>
+
+        </section>
+        <section class="spotlight" style="flex-direction: row;" ng-show="showcarer">
+            <div class="image" class="form-width" style="width:100%;">
+                <div class="headerpane">{{HK_CHD_Content.profilepage.carer_header}}</div>
+                <div class="controlpers">
+                    <label class=" col-sm-2">{{HK_CHD_Content.profilepage.firstname}}<em>*</em></label>
+                    <input type="text" name="carerfirstname" value="" ng-pattern="/^[a-zA-Z ]*$/" ng-model="formData.carerfirstname" class="textfeildname yellow" ng-required="formData.usertype=='Carer'" />
+                    <p ng-show="userForm.carerfirstname.$dirty && userForm.carerfirstname.$error.required" class="help-block haserrors" >Carer first name is required.</p>
+                    <p ng-show="userForm.carerfirstname.$dirty && userForm.carerfirstname.$error.pattern" class="help-block haserrors" >Please enter valid Name.</p> </div>
+                <div class="controlpers">
+                    <label class=" col-sm-2">{{HK_CHD_Content.profilepage.lastname}}<em>*</em></label>
+                    <input type="text"  name="carerlastname" value=""  ng-pattern="/^[a-zA-Z ]*$/"   ng-model="formData.carerlastname" class="textfeildname yellow" ng-required="formData.usertype=='Carer'"/>
+                    <p ng-show="userForm.carerlastname.$dirty && userForm.carerlastname.$error.required" class="help-block haserrors" >Carer last name is required.</p>
+                    <p ng-show="userForm.carerlastname.$dirty && userForm.carerlastname.$error.pattern" class="help-block haserrors" >Please enter valid Name.</p></div>
+                <div class="controlpers">
+                    <label class=" col-sm-2">{{HK_CHD_Content.profilepage.dob}}</label>
+                    <input type="text" id="carerdatepicker" readonly="true" ng-change="checkAgeCarer(formData.carerbirthdate)" class="textfeildname yellow datepicker" ng-model="formData.carerbirthdate" style="cursor: hand" >
+                </div>
+            </div>
+
+            <div class="content form-width" style="padding: 0; width:100%; ">
+                <div class="headerpane">{{HK_CHD_Content.profilepage.carer_contctdetails}}</div>
+
+                <div class="control-label">
+                    <label class="col-sm-22 ">{{HK_CHD_Content.profilepage.phone}}</label>
+                    <input type="phone"  name="carerphone" value=""  ng-pattern="/^[0-9\+]{1,}[0-9\-]{3,15}$/" ng-minlength="8" maxlength="14" ng-maxlength="14" ng-model= "formData.carerphone" class="textfeildname yellow text-carer">
+                    <p ng-show="userForm.carerphone.$dirty && userForm.carerphone.$error.maxlength" class="help-block haserrors" >Maximum 12 character are allowed</p>
+                    <p ng-show="userForm.carerphone.$invalid && userForm.carerphone.$error.pattern" class="help-block haserrors" >Please enter valid number.</p>
+                    <p ng-show="userForm.carerphone.$dirty && userForm.carerphone.$error.minlength" class="help-block haserrors" >Please enter valid number (8-12).</p> </div>
+                <div class="control-label">
+                    <label class=" col-sm-22">{{HK_CHD_Content.profilepage.email}} <em>*</em></label>
+                    <input type="email" name="careremail" value=""  ng-model="formData.careremail" ng-pattern="/^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-za-z]{2,4}$/"  class="textfeildname yellow text-carer" ng-required="formData.usertype=='Carer'"/>
+                    <p ng-show="userForm.careremail.$dirty && userForm.careremail.$error.required" class="help-block haserrors" >Email is Required.</p>
+                    <p ng-show="userForm.careremail.$dirty && userForm.careremail.$error.pattern" class="help-block haserrors" >Please Enter valid email.</p> </div>
+            </div>
+        </section>
+        <div class="btn-group surveybutton" data-toggle="tooltip" title="" style="margin-top: 5%">
+            <button  class="btn btn-default profilebutn"  ng-click="personalInfoSubmit()"  ng-disabled="userForm.$invalid" >Next</button>
+        </div>
+        <br>
+    </section>
+
+</div>
+
+<!--TO-DO :  Move all the CSS to css files (less) -->
+<style>
+
+
+    .controlpers {
+        float: left;
+        margin: 20px 0 0 15px !important;
+        width: 95%;
+    }
+    .control-label{
+
+        float: left;
+        margin: 20px 0 0 15px !important;
+        width: 95%;
+    }
+    .checkboxpaading
+    {
+        width: 80%;
+        margin-left:10px;
+        margin-bottom: -7px;
+    }
+    .haserrors
+    {
+        color: #F03F3F;
+        margin: auto;
+        padding-top: 2%;
+        width: 100%;
+    }
+    .has-error{
+        border:1px solid #F03F3F;
+    }
+    .ngdialog-content {
+        height: 365px !important;
+    }
+
+    .ngdialog-close {
+        display: block;
+    }
+</style>
+<!--TO-DO :  Move all the js to user lib js-->
+<script>
+    $( document ).ready(function() {
+
+        var $j = jQuery.noConflict();
+        var date = new Date();
+        var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+        $(".datepicker").datepicker({
+            maxDate:new Date(y, m, d),
+            yearRange: '-90:+1M',
+            changeMonth: true,
+            changeYear: true
+        })
+
+
+    });
+</script>

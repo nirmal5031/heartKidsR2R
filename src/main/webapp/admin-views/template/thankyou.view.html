@@ -1,0 +1,98 @@
+<div class="col-lg-12" style=" padding-top: 2%; float: left;">
+    <div id="" class="adminbacktab" style=" color: #9a9a9a !important;line-height: 40px;padding: 2%; ">
+        <div ng-include="'admin-views/template/menu.html'"></div>
+    </div>
+</div>
+<div  class="col-lg-12" style="width:75%;float: right;margin-top: 3%;">
+    <button class="btn btn-default butonpublish" ng-disabled="isDisabled" confirmed-click="publishsite()"
+            ng-confirm-click="Are you sure want to publish the changes ?">Publish
+    </button>
+    <button style="background-color: #1AA01E;
+    color: white;
+    border-color: #06D106;" class="btn btn-default butonpublish" ng-click="disableButton()">
+        Preview</button>
+    <h4 style="color: #0044cc;">Confirmation Page Content :</h4>
+    <textarea class="txtarea" ng-model="formThankyou.line1" maxlength="500"></textarea>
+    <textarea class="txtarea" ng-model="formThankyou.line12" maxlength="500"></textarea>
+    <textarea class="txtarea" ng-model="formThankyou.line2" maxlength="500"></textarea>
+<div class="input-w">
+
+        <input type="text" class="textboxstyl" style="width: 74%; color: grey;" maxlength="100" ng-model="formThankyou.line3"/> <input type="text" style="width: 22%;    background-color: rgba(164, 162, 159, 0.71);
+    opacity: 0.7;    margin-left: -6px; " readonly="true" class="textboxstyl" maxlength="30" value="HKCHD432DS3232A0000X"/>
+    </div>
+    <textarea class="txtarea" ng-model="formThankyou.line4"></textarea>
+    <textarea class="txtarea" ng-model="formThankyou.line5"></textarea>
+
+
+<div class="input-w">
+    <label for="Label">Button Label : </label>
+    <input type="text" class="textboxstyl" maxlength="50" ng-model="formThankyou.buttonLabel" />
+</div>
+<div class="input-w">
+    <label for="ButtonLink">ButtonLink : </label>
+    <input type="text" class="textboxstyl" maxlength="150" ng-model="formThankyou.buttonLink" />
+</div>
+    <div class="input-w">
+        <label for="ButtonLink">FaceBook Link : </label>
+        <input type="text" class="textboxstyl" maxlength="150" ng-model="formThankyou.facebooklink" />
+    </div>
+    <div class="input-w">
+        <label for="ButtonLink">Twitter Link : </label>
+        <input type="text" class="textboxstyl" maxlength="150" ng-model="formThankyou.twilink" />
+    </div>
+    <br>
+    <button  style="height: 2.5em;
+    width: 95px; margin-left: 42%;" class="btnnext btn-default" ng-click="updatethankyou()">Update</button>
+
+
+    <br>
+
+    <div>
+<!--<textarea class="txtarea" ng-model="formThankyou"></textarea>-->
+
+    </div>
+
+
+</div>
+
+<style>
+    .txtarea
+    {
+        color: grey;
+        background-color: white;
+        width: 80%;
+    }
+    .input-w {
+        padding: 1%;
+        padding: 1%;
+    }
+
+    .input-w label {
+        width: 10%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .input-w input {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2.5em;
+        font-family: ProximaNova-Regular;
+        background-color: #fff;
+        width: 50%;
+        border: 1px solid #EEE;
+        color: #0044cc;
+    }
+
+    .input-w select {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2.15em;
+    }
+
+    .input-w textarea {
+        display: inline-block;
+        vertical-align: middle;
+        row-span: 2;
+    }
+</style>

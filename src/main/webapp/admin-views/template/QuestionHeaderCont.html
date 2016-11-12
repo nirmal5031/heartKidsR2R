@@ -1,0 +1,45 @@
+
+<div><br>
+    <span style="font-weight: 600;color:red;">Edit page headers/descriptions ::</span>
+    <br>
+    <div style="color: black; margin-top: 2%;">
+
+        <fieldset>
+
+            <div class="input-w">
+                <label for="Title">Header : </label>
+                <input type="text" class="textboxstyl" maxlength="50" ng-model="page_header_content.metadata.header" />
+                <span class="counteradmin">{{page_header_content.metadata.header.length}}/50</span>
+            </div>
+            <div class="input-w">
+                <label for="shortDescription">Short Description : </label>
+                <input type="text" class="textboxstyl" maxlength="150" ng-model="page_header_content.metadata.shortdesc" />
+                <span class="counteradmin">{{page_header_content.metadata.shortdesc.length}}/150</span>
+            </div>
+             <div class="input-w">
+                <label for="Description:">Description: </label>
+                <div class="chip" ng-repeat="pagecnt in page_header_content.metadata.desc">
+                    {{pagecnt}}
+          <i class="material-icons">close</i>
+                </div>
+              <span style="margin-top: 3%;"><img  src="images/EditRowFilled-24.png" title="Add options" ng-click="showeditor=true" style="margin-left: 2%; vertical-align: middle;"></span>
+            </div>
+
+
+            <div class="input-w" ng-show="showeditor">
+                <textarea type="text" class="textareanotepad"  ng-model="page_header_content.metadata.desc" ng-list=""></textarea>
+                <p style="
+    color: #ccc;
+    font-size: 15px;
+"><img src="images/Info-20.png"/> Enter each description separated by comma
+                </p>
+            </div>
+
+
+<br>
+            <button  style="height: 2.5em;margin-left:40%;width:120px;" class="ngdialog-close btnnext btn-default" ng-click="updateheadersection(page_header_content)">Update</button>
+
+        </fieldset>
+</div>
+   </div>
+

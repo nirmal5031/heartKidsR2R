@@ -1,0 +1,176 @@
+<div class="col-lg-12" style="width:23%; padding-top: 2%; float: left;">
+    <div id="" class="adminbacktab" style=" color: #9a9a9a !important;line-height: 40px;padding: 2%; ">
+
+        <div ng-include="'admin-views/template/menu.html'"></div>
+
+        </div>
+
+    </div>
+
+
+<div class="col-lg-12" style="width:75%; padding-top: 2%; float: right;">
+    <button class="btn btn-default butonpublish" ng-disabled="isDisabled" confirmed-click="publishsite()"
+            ng-confirm-click="Are you sure want to publish the changes ?">Publish
+    </button>
+   <button style="background-color: #1AA01E;
+    color: white;
+    border-color: #06D106;" class="btn btn-default butonpublish" ng-click="disableButton()">
+        Preview</button>
+
+    <!--<a href={{redirectToDev}} target="_blank"><span   style="float: right;
+    color: #0880CD;
+    width: 230px;
+    font-weight: 600; cursor: pointer;"><img
+            src="images/DeletePageFilled-30.png" title="Preview page"
+            style="margin-right: 1.5%;vertical-align: middle;"><span class="addques">Preview Page</span>
+ </span></a>
+-->
+
+
+    <button class="btn btn-default buttontab " ng-class="{'activebutton':HP_Sec_1=='true'}" ng-click="homepagesec('sec1')">Hero image
+    </button>
+    <button class="btn btn-default buttontab"  ng-click="homepagesec('sec2')" ng-class="{'activebutton':HP_Sec_2=='true'}" style="margin-left: -26px; ">Body content
+    </button>
+
+    <!--
+    <button class="btn btn-default buttontab"
+            ng-click="homepagesec('sec3')" ng-class="{'activebutton':HP_Sec_3=='true'}" style="margin-left: -26px; ">Usertype list
+    </button>-->
+    <hr class="hrstyle" style="border: 2px solid #0072BB;"/>
+
+
+    <div id="s" class="adminbacktab" style="color: #9a9a9a !important;line-height: 40px;padding: 2%;">
+
+    <div ng-show="HP_Sec_1=='true'" ng-include="'admin-views/template/homepage_section-1.html'"></div>
+    <div ng-show="HP_Sec_2=='true'" ng-include="'admin-views/template/homepagesection-2.html'"></div>
+    <div ng-show="HP_Sec_3=='true'" ng-include="'admin-views/template/homepagesection-3.html'"></div>
+</div>
+    <br>
+
+</div>
+<br>
+
+</div>
+
+<style>
+    .textboxstyl {
+        width: 60% !important;
+        background-color: white !important;
+        border: 1px solid #eee !important;
+    }
+
+    ul#contenttabtemp li {
+        list-style: none;
+        display: inline;
+        border: 1px solid #9a9a9a;
+        padding: 4%;
+    }
+
+    .admindisable {
+        background-color: grey !important;
+        opacity: 0.4;
+    }
+
+    .buttontab {
+        width: 200px;
+        height: 48px;
+        background-color: #D4D2D2;
+        border: 0px solid;
+        color: #666666;
+        font-weight: normal;
+        box-shadow: none;
+
+    }
+
+    .hrstyle {
+        margin: 0px;
+        width: 100%;
+        float: left;
+    }
+
+    .control {
+    }
+
+    .form-group {
+        padding: 8px;
+        text-align: left;
+    }
+
+    .activebutton {
+        background-color: #0673b5 !important;
+        border: none;
+        color: #fff !important;
+    }
+
+    .adminbacktab {
+        background-color: #ffffff;
+    }
+
+    .imagecont {
+        color: white;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    ul#contenttabtemp li:hover {
+        background: none;
+    !important;
+        background-color: white !important;
+    }
+    .list-group.panel > .list-group-item {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px
+    }
+    .list-group-submenu {
+        margin-left:20px;
+    }
+    .ngdialog-content
+    {
+        width: 60%;
+    }
+
+
+
+    .ngdialog.ngdialog-theme-default .ngdialog-content
+    {
+        width: 60%;
+        height:  auto;
+        border: 5px solid #ABB2D7;
+
+    }
+    .ngdialog.ngdialog-theme-default
+    {
+        padding-top:45px;
+        overflow: hidden;
+    }
+
+
+    .input-w
+    {
+        padding: 0.5%;
+    }
+    .input-w label {
+        width: 23%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .input-w input {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2.15em;
+        font-family: ProximaNova-Regular;
+    }
+    .input-w select {
+          display: inline-block;
+          vertical-align: middle;
+          height: 2.15em;
+      }
+    .input-w textarea {
+        display: inline-block;
+        vertical-align: middle;
+        row-span: 2;
+    }
+
+</style>

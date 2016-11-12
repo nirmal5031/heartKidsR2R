@@ -1,0 +1,156 @@
+<table ng-if="items.type=='barscalep31'" class="table bs-examplenode5" style="padding: 4px;">
+
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td name="chdimpactwork" style="" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in node1to5"
+            ng-click="chdimpactwork(node.id)"
+            ng-model="formData1[items.title]" ng-class="chdimpactworkClass(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table bs-examplenode5" ng-if="items.type=='barscalep41'" >
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td style="" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in nodes1to5"
+            ng-click="relationimpact(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClassrelimpact(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table bs-examplenode5" ng-if="items.type=='barscalep42'">
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td style="" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in nodes1to5"
+            ng-click="siblicksel(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClasssiblicksel(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table bs-examplenode5" style=" padding: 4px;  margin-top: 2%;" ng-if="items.type=='barscalep43'">
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td style="" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in nodes1to5"
+            ng-click="siblickselCHDimpct(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClasssiblickselCHDimpct(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table bs-examplenode5" style="" ng-if="items.type=='barscalep45'">
+    <tbody>
+    <tr style="padding: 4px;">
+        <td style="" name="frstsurgeryexp" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in node1to5"
+            ng-click="frstsurgerysel(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClassfrstsurgerysel(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''" ng-required="{{items.required}}">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table bs-examplenode5" style="" ng-if="items.type=='barscalep46'">
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td style="" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in nodes1to5" name="timesaftrsurgery"
+            ng-click="hosptlsurgerysel(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClasshosptlsurgery(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''" >
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table bs-examplenode5" style=" " ng-if="items.type=='barscalep47'">
+
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td style="" name="ratetransistion" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in node1to5"
+            ng-click="ratetransitionsel(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClassratetransition(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''" >
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table bs-examplenode5" ng-if="items.type=='barscalep48'">
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td style="" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in node1to5"
+            ng-click="feelsupportsel(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClassfeelsupport(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<table class="table bs-examplenode5" style="padding: 4px;" ng-if="items.type=='barscalep51'">
+    <tbody>
+    <tr style="padding: 4px; ">
+        <td style="" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in node1to5"
+            ng-click="doctorcountsee(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClassdoctorcountsee(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table bs-examplenode5" style="padding: 4px; " ng-if="items.type=='barscalep52'">
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td style="height:30px;" class="col-md-1 barstylecostin {{myClass}}" ng-repeat="node in traveldistnode"
+            ng-click="traveldistdoc(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClasstraveldistdoc(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table bs-examplenode5" style="padding: 4px;" ng-if="items.type=='barscalep53'">
+    <tbody>
+    <tr style=" padding: 4px; " >
+        <td style="" class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in node1to5"
+            ng-click="aftrsurgfeel(node.id)"
+            ng-model="formData1[items.title]" ng-class="getClassaftrsurgfeel(node.id)"   ng-mouseenter="myClass='redclass'"
+            ng-mouseleave="myClass = ''">
+            {{node.rate}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="checkbox-btn checkboxpaading" style="width: 100%;" ng-if="items.type=='checkbox'">
+    <tr><td><input type="checkbox" ng-model="formData1.pstcologist" name="pstcologist" id="psy" class="filled-in" value="no" ng-true-value="yes" ng-false-value="no"/><label for="psy" class="">Psychologist</label></td></tr>
+    <tr><td><input type="checkbox" ng-model="formData1.socworker" name="socworker" id="soc"class="filled-in"value="yes" ng-true-value="yes" ng-false-value="no"/>  <label for="soc" onclick>Social Worker</label></td></tr>
+    <tr><td><input type="checkbox" ng-model="formData1.familysuprt" name="familysuprt" id="fam" class="filled-in" value="yes" ng-true-value="yes" ng-false-value="no"/>  <label for="fam" onclick>Family support service</label></td></tr>
+    <tr><td><input type="checkbox" ng-model="formData1.dedicatednurse" name="dedicatednurse" id="dedchd" class="filled-in"  value="no" ng-true-value="yes" ng-false-value="no"/><label for="dedchd" class="">A dedicated CHD nurse post discharge</label></td></tr>
+</table>
+
+
+
+<div class="headerpane" ng-if="items.headerpane!=''">{{items.headerpane}}</div>
+
+<!--Header -->
+
+

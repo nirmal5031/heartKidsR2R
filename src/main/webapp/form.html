@@ -1,0 +1,14 @@
+<div id="form-container">
+    <div ng-include="'header.html'"></div>
+    <form id="signup-form" name="userForm" ng-submit="submit()" class="formclass" novalidate>
+
+        <!-- our nested state views will be injected here -->
+
+        <div id="form-views" ui-view>
+
+        </div>
+        <br><br>
+        <div ng-include="'footer.html'" style="margin-top: -3%;"></div>
+
+    </form>
+</div>

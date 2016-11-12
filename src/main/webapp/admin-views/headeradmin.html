@@ -1,0 +1,179 @@
+<header>
+    <div class="panel-heading panel panel-primary panel-transparent">
+<!--TO-DO :  rename to logo.png -->
+        <h3 class="panel-title" style="padding-bottom: 2.5%; height: 130px;"><a ng-click="logoutadmin()" href=""><span
+                style="float:right; margin-right: 10%;cursor: pointer;">Logout</span></a><a ui-sref="form.welcome"><img
+                src="images/heart_kidslogo1.png" alt=""></a><a ng-click="logoutadmin()" href=""><img style="    float: right;
+    " src="images/logout.png"/></a><br>
+
+
+
+<!--<span style="  float: right;
+    margin-right: 10%;
+    margin-top: -3%;" >Welcome {{adminuser}}</span>-->
+            <div id="demo" >
+                <div class="wrapper">
+                    <div class="content" ng-show="superuser">
+                        <ul>
+                <a ui-sref="form.template"><li>Template Manager</li></a>
+                            <a ui-sref="form.welcome"><li>Home</li></a>
+
+
+                        </ul>
+    </div>
+    <div class="parent">Welcome {{adminuser}}</div>
+
+                    </div></div>
+
+
+
+            <!--<nav>
+                <div class="handle">Welcome {{adminuser}}</div>
+                <ul class="hide">
+                    <li><a id="active" href="index.html">x`x HOME</a></li>
+                </ul>
+            </nav>-->
+
+         </h3>
+
+    </div>
+</header>
+
+<!--TO-DO :  Move all the CSS to css files (less) -->
+<!--TO-DO :  Move all the JS to js file -->
+<script>
+
+    $(document).ready(function() {
+        $('.handle').on('click', function() {
+            $('nav ul').slideToggle();
+        });
+    });
+</script>
+
+<style>
+    .handle{
+        width: 100%;
+            text-align: left;
+        box-sizing: border-box;
+        padding:15px 10px;
+        cursor: pointer;
+        color: white;
+        box-sizing: border-box;
+    }
+
+    .hide {
+        display: none;
+    }
+    #demo {
+/*
+        margin: 30px 0 50px 0;
+*/
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        float:right;
+        margin-top: -40px;
+    }
+
+    #demo .wrapper {
+        display: inline-block;
+        width: 180px;
+        margin: 0 10px 0 0;
+        height: 20px;
+        position: relative;
+    }
+
+    #demo .parent {
+        height: 100%;
+        width: 100%;
+        display: block;
+        cursor: pointer;
+        line-height: 30px;
+        height: 10px;
+        border-radius: 5px;
+       /* background: #F9F9F9;
+        border: 1px solid #AAA;
+        border-bottom: 1px solid #777;*/
+        color: #FFFFFF;        font-weight: bold;
+        z-index: 2;
+        position: relative;
+        -webkit-transition: border-radius .1s linear, background .1s linear, z-index 0s linear;
+        -webkit-transition-delay: .8s;
+        text-align: center;
+    }
+
+    #demo .parent:hover,
+    #demo .content:hover ~ .parent {
+        -webkit-transition-delay: 0s, 0s, 0s;
+    }
+
+    #demo .content:hover ~ .parent {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        z-index: 0;
+    }
+
+    #demo .content {
+        position: absolute;
+        top: 0;
+        display: block;
+        z-index: 1;
+        height: 0;
+        width: 180px;
+        padding-top: 30px;
+        -webkit-transition: height .5s ease;
+        -webkit-transition-delay: .4s;
+        border: 1px solid #777;
+        border-radius: 5px;
+        box-shadow: 0 1px 2px rgba(0,0,0,.4);
+    }
+
+    #demo .wrapper:active .content {
+        height: 123px;
+        z-index: 3;
+        -webkit-transition-delay: 0s;
+    }
+
+    #demo .content:hover {
+        height: 123px;
+        z-index: 3;
+        -webkit-transition-delay: 0s;
+        color: black;;
+    }
+
+
+    #demo .content ul {
+        background: #fff;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    #demo .content ul a {
+        text-decoration: none;
+    }
+
+    #demo .content li:hover {
+        background: #eee;
+        color: #333;
+    }
+
+    #demo .content li {
+        list-style: none;
+        text-align: left;
+        color: #888;
+        font-size: 14px;
+        line-height: 30px;
+        height: 30px;
+        padding-left: 10px;
+        border-top: 1px solid #ccc;
+    }
+
+    #demo .content li:last-of-type {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+</style>
+
+

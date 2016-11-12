@@ -1,0 +1,142 @@
+<fieldset id="editndialog">
+    <span style="font-weight: 600;color:red">Edit Questions ::</span>
+
+    <div class="input-w">
+        <label for="question">Question</label>
+        <textarea class="textboxstyl" ng-model="formDataQuestion.question" maxlength="300"></textarea>
+        <label><table class="checkbox-btn checkboxpaading" style=""><tr><td><input type="checkbox" ng-model="formDataQuestion.required" name="required" id="checkboxG4" style=""   ng-true-value="true" ng-false-value="false"/>     <label for="checkboxG4" onclick>Mandatory</label></td></tr></table>
+</label>
+    </div>
+    <div class="input-w">
+        <label for="type">Type : </label>
+        <select name="actiontype" ng-model="formDataQuestion.type" class="textfeildname  form-control arrowupdown"
+                style="moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;"
+                ng-options="type for type in inputlisttypeArray">
+            <option value="">--Select--</option></select>
+
+        <label for="Pattern">Pattern </label>
+        <select name="patterntype" ng-model="formDataQuestion.setPattern" class="textfeildname  form-control arrowupdown"
+                style="moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;"
+                ng-options="pattern for pattern in Patternarray">
+            <option value="">&#45;&#45;Select&#45;&#45;</option></select>
+        </div>
+
+    <div class="input-w"  ng-if="formDataQuestion.setPattern=='custom'" >
+        <label for="type">Regex : </label>
+
+        <input type="text" class="textboxstyl" style="width: 200px !important;" ng-model="formDataQuestion.pattern[0].regex">
+
+        <label for="Pattern">Message </label>
+        <input type="text"  class="textboxstyl" style="width: 200px !important;" ng-model="formDataQuestion.pattern[0].message">
+    </div>
+    <!--<div class="input-w">
+        <label for="Pattern">Pattern </label>
+        <select name="patterntype" ng-model="formDataQuestion.pattern" class="textfeildname  form-control arrowupdown"
+                style="moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;"
+                ng-options="pattern for pattern in Patternarray">
+            <option value="">&#45;&#45;Select&#45;&#45;</option></select>
+        <input type="text" ng-if="formDataQuestion.pattern=='custom'"  class="textboxstyl" style="width: 300px !important;" ng-model="formDataQuestion.pattern1">
+      </div>-->
+    <div class="input-w">
+        <label for="type">Dependency: </label>
+        <div class="chip" style="background-color: #4CAF50;
+    color: #fff;
+    font-weight: bolder; cursor: pointer" ng-repeat="dependent in formDataQuestion.dependency" ng-click="showdependques(dependent.dependentid, index, formDataQuestion.title)" >
+            {{dependent.dependentid}}
+            <i confirmed-click="deletedependentques(formDataQuestion.title, index, dependent.dependentid)"
+               ng-confirm-click="Are you sure want to delete the dependency ?" class="material-icons" style="color: #FDF59A;">close</i>
+        </div>
+       <span> <img  src="images/AddImageFilled-24.png" title="Add dependency" ng-click="addnewquestion(index,'dependentques',formDataQuestion.title)" style="margin-left: 2%; vertical-align: middle;"></span>
+    </div>
+
+    <div class="input-w" ng-show="showingdependentquestion != null">
+        <label>Dependent Question :</label>
+        <span class="showdependentques">{{showingdependentquestion}}</span>
+        <br>
+        <div class="chip" style="background-color: #0044cc;
+    color: #fff;
+    font-weight: bolder; cursor: pointer; margin-left: 24%;" >
+            Value : {{showdependentvalue}}
+        </div>
+        <div class="chip" style="background-color: #0044cc;
+    color: #fff;
+    font-weight: bolder; cursor: pointer"  >
+            Action : {{showdependentaction}}
+        </div>
+</div>
+    <div class="input-w">
+        <label for="Options:">Options: </label>
+        <div class="chip" ng-repeat="option in formDataQuestion.options">
+            {{option}}
+<!--
+            <i class="material-icons" >close</i>
+-->
+        </div>
+
+        <span style="margin-top: 3%;" ng-click="showoptioneditor=true"><img  src="images/EditRowFilled-24.png" title="Add options" style="margin-left: 2%; vertical-align: middle;"></span>
+<!--
+        <button style="width: 100px;" ng-click="addfieldforOptions()">Add field</button>
+-->
+ </div>
+    <div class="input-w" ng-show="showoptioneditor">
+        <textarea type="text" class="textareanotepad"  ng-model="formDataQuestion.options" ng-list=""></textarea>
+        <p style="
+    color: #ccc;
+    font-size: 15px;
+"><img src="images/Info-20.png"/> Enter each description separated by comma
+        </p></div>
+
+    <input type="hidden" class="textboxstyl" ng-model="formDataQuestion.title">
+
+
+    <br>
+   <span style="display: flex;
+    justify-content: center;"><button style="    height: 2.5em;
+    width: 95px;"  class="ngdialog-close btnnext btn-primary">Cancel</button>
+    <button  style="    height: 2.5em;
+    width: 95px;" class="btnnext btn-default" ng-click="updatejsonquestion(formDataQuestion)">Update</button>
+</span>
+    <!--
+    <button ng-show="addnewquestion=='true'" style="height: 3em" class="btnnext btn-default" ng-click="addingquestion(formDataQuestion,index)">Create</button>
+-->
+
+    <br>
+</div>
+    </fieldset>
+<script>
+
+
+
+</script>
+<style>
+
+    .numbercircle
+    {
+        border-radius: 30px;
+        border: 2px solid red;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 1.3em;
+    }
+
+    .selectSize label,
+    .selectSize input,
+    .selectSize select {
+        display: block;
+    }
+
+    .selectSize input,
+    .selectSize select {
+        display: inline;
+    }
+    .showdependentques
+    {
+        color: #4caf50;
+        font-family: ProximaNova-Regular;
+        font-size: 16px;
+    }
+
+</style>
+

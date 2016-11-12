@@ -1,0 +1,175 @@
+<br>
+<ul id="circle" ng-hide="circleprogress" ng-init="profile='true'">
+    <li ng-class="{active: items.pageid==HK_CHD_Content.pageid--1, completed: items.pageid < HK_CHD_Content.pageid--1}" id="{{items.pageid}}" ng-repeat="items in quespagelength">
+        {{items.pageid}}
+        <hr>
+    </li>
+    <li ng-class="{active: pagelength <= HK_CHD_Content.pageid}">{{quespagelen}}</li>
+</ul>
+<div class="col-lg-12" style="width:85%;">
+    <br>
+    <!--TO-DO :  Reference of HK_CHD remove , make generic-->
+    <div class="txtcntnt" ng-if="HK_CHD_Content.metadata.shortdesc != ''">
+        <p class="titlehead" ng-if="HK_CHD_Content.metadata.shortdesc != ''">{{HK_CHD_Content.metadata.shortdesc}}</p>
+        <div>
+            <!-- Loop thru meta data and bind dynamically-->
+            <p class="conctfrmt" ng-repeat="headercont in HK_CHD_Content.metadata.desc"><b class="hearticon" ng-if=" HK_CHD_Content.metadata.desc[0] != null">
+                &#9829;</b>&nbsp;&nbsp;{{headercont}}
+            </p>
+        </div>
+    </div>
+    <div class="headerpane">{{HK_CHD_Content.metadata.header}}</div>
+
+    <div class="control" ng-repeat="items in HK_CHD_Content.questionnaire" ng-if="items.showques=='true'">
+        <p class="conctfrmt">{{items.question}}<em ng-show="items.required=='true'">*</em></p>
+
+        <div ng-if="items.type=='radio'" class="radio-btn">
+            <!-- Define a div with input & label , iterate the div-->
+            <span ng-repeat="option in items.options"><input type="radio"
+                                                             ng-click="listener(option,items.title,'radio')"
+                                                             class="with-gap"
+                                                             ng-model="formData1[items.title]"
+                                                             name="{{items.title}}" value="{{option}}"
+                                                             id="{{items.title}}{{option}}"
+                                                             ng-required="{{items.required}}"/>
+            <label for={{items.title}}{{option}} class="labelradio radiopadding">{{option}}</label>
+            </span>
+        </div>
+
+          <select ng-if="items.type=='select'" ng-change="listener(formData1[items.title],items.title,'select')" name="{{items.title}}" style="width: 41%;"
+                ng-model="formData1[items.title]" class="textfeildname yellow arrowupdown dropdownstyle"
+                ng-required="items.required" ng-options="q for q in items.options">
+            <option value="">--Select--</option>
+        </select>
+
+          <textarea ng-if="items.type=='textarea'" type="textarea" name="{{items.title}}" maxlength="250" class="textareastyle"
+                  style="width: 100%;" ng-model="formData1[items.title]"></textarea>
+
+        <!-- iterate type , pattern , include min n max length  as  a part of pattern 2) Add listener on lostfocus , bind error msg dynamically-->
+        <div ng-if="items.type=='number'" >
+
+        <input  ng-change="listener(formData1[items.title],items.title,'number')" type="tel" min="0" maxlength="3" max="3" name="text_{{items.title}}" id="text_{{items.title}}"
+               ng-required="{{items.required}}" class="textboxstyl" ng-model="formData1[items.title]">
+
+            <div ng-show="errorDisplay" id="errorcontainer_{{items.title}}" class="errorcontainer"></div>
+
+        </div>
+        <div ng-if="items.type=='text'" >
+
+        <input  ng-change="listener(formData1[items.title],items.title,'text')" type="text" id="{{items.title}}"  name="{{items.title}}"
+               ng-required="{{items.required}}" class="textboxstyl" ng-model="formData1[items.title]"
+               style="width: 250px;background-color: #fff;">
+
+            <div ng-show="errorDisplay" id="errorcontainer_{{items.title}}" class="errorcontainer"></div>
+        </div>
+
+
+
+
+
+        <table ng-if="items.type=='barscale'" class="table bs-examplenode5">
+            <tbody>
+            <tr style="padding: 4px;">
+                <td class="col-md-1 barstylenode5 {{myClass}}" ng-repeat="node in items.options"
+                    ng-click="onclickbarscale(node,items.title)"
+                    ng-model="formData1[items.title]" ng-class="{bluebarrating : node === formData1[items.title]}"
+                    ng-mouseenter="myClass='redclass'"
+                    ng-mouseleave="myClass = ''" ng-required="{{items.required}}">
+                    {{node}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table ng-if="items.type=='barscaleTravel'" class="table bs-examplenode5">
+            <tbody>
+            <tr style="padding: 4px;">
+                <td class="col-md-1 barstylecostin {{myClass}}" ng-repeat="node in items.options"
+                    ng-click="onclickbarscale(node,items.title)"
+                    ng-model="formData1[items.title]" ng-class="{bluebarrating : node === formData1[items.title]}"
+                    ng-mouseenter="myClass='redclass'"
+                    ng-mouseleave="myClass = ''" ng-required="{{items.required}}">
+                    {{node}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="checkbox-btn checkboxpaading" style="width: 100%;" ng-if="items.type=='checkbox'">
+            <tr ng-repeat="checkbox in items.options">
+                <td><input type="checkbox" ng-model="formData1[checkbox]" ng-click="listener(checkbox,items.title,'checkbox')" name="{{items.title}}"
+                           id="{{items.title}}{{checkbox}}" class="filled-in" value="{{checkbox}}"/><label
+                        for="{{items.title}}{{checkbox}}" class="">{{checkbox}}</label></td>
+            </tr>
+        </table>
+
+        <rzslider rz-slider-model="moneyspent.value"
+                  rz-slider-options="moneyspent.options"  ng-if="items.type=='slider'"></rzslider>
+
+        <rzslider rz-slider-model="moneyspentuptosurg.value"
+                  rz-slider-options="moneyspentuptosurg.options" ng-if="items.type=='slider1'" ></rzslider>
+
+        <rzslider rz-slider-model="moneyspentaftersurg.value"
+                  rz-slider-options="moneyspentaftersurg.options" ng-if="items.type=='slider2'" ></rzslider>
+
+        <div class="headerpane" ng-if="items.headerpane!=''">{{items.headerpane}}</div>
+
+        </div>
+    <div ng-show="errorDisplay"><p class="errorcontainer">{{errorMessageNumber}}</p></div>
+
+    <div class="btn-group surveybutton">
+        <button ui-sref="" ng-click="gotopreviouspage(HK_CHD_Content.pageid)" class="btnnext btn-primary">Previous
+        </button>
+        <button  ng-if="pagelength>HK_CHD_Content.pageid" class="btnnext btn-default"
+                ng-disabled="userForm.$invalid" ng-click="savesurveyregistration(HK_CHD_Content.pageid)">Next
+        </button>
+        <button style="" ng-if="pagelength <= HK_CHD_Content.pageid" class="btnnext btn-default"
+                ng-disabled="userForm.$invalid" ng-click="submitcompletedform(HK_CHD_Content.pageid)">Submit
+        </button>
+    </div>
+    <br>
+   <br>
+    <modal data-backdrop="static" data-keyboard="false" visible="showThankModal">
+        <div ng-include="'views/confirmation.html'"></div>
+    </modal>
+
+
+
+
+</div>
+</div>
+
+
+<!--TO-DO :  Move all the CSS to css files (less) -->
+
+<style>
+    .rc-anchor-alert {
+        display: none !important;
+    }
+
+    .rc-anchor-light {
+        background-color: red;
+    }
+
+    .modal-header {
+        display: none;
+    }
+
+    .textboxstyl {
+        text-align: center;
+        width: 80px;
+        padding: 0.5%;
+        height: 50px;
+        margin-top: 15px;
+        margin-bottom: 0px;
+        background-color: #fff;
+        color: black;
+        border: 1px solid #e3e2e2;
+    }
+    .errorcontainer
+{
+    padding: 2% 0% 1% 0%;
+    color: red;
+    font-size: 1em;
+}
+
+</style>

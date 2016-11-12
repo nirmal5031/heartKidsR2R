@@ -1,0 +1,301 @@
+<div class="col-lg-12" style=" padding-top: 2%; float: left;">
+    <div id="" class="adminbacktab" style=" color: #9a9a9a !important;line-height: 40px;padding: 2%; ">
+        <div ng-include="'admin-views/template/menu.html'"></div>
+    </div>
+</div>
+<!--<div ng-hide="showQuestionContent" class="col-lg-12" style="width:75%;float: right;margin-top: 3%;">
+
+    <h4 style="color: #0277bd;">Instructions to use question template : </h4>
+    <ul id="ins-admin">
+        <li>Create Question</li>
+        <p>User can create a new question on any page or position with the valid input type, pattern etc..</p>
+        <br>
+        <li>Modify Question</li>
+        <p>User can create a new question on any page or position with the valid input type, pattern etc..</p>
+        <br>
+        <li>Delete Question</li>
+        <p>User can create a new question on any page or position with the valid input type, pattern etc..</p>
+        <br>
+        <li>Create New Page</li>
+        <p>User can create a new question on any page or position with the valid input type, pattern etc..</p>
+        <br>
+        <li>Create Delete Page</li>
+        <p>User can create a new question on any page or position with the valid input type, pattern etc..</p>
+        <br>
+        <li>Add dependency question</li>
+        <p>User can create a new question on any page or position with the valid input type, pattern etc..</p>
+
+
+    </ul>
+</div>-->
+
+<div class="col-lg-12" style="width:75%;float: right;" >
+    <br>
+    <button class="btn btn-default butonpublish" ng-disabled="isDisabled" confirmed-click="publishsite()"
+            ng-confirm-click="Are you sure want to publish the changes ?">Publish
+    </button>
+    <button style="background-color: #1AA01E;     margin-left: 12px;
+    color: white;
+    border-color: #06D106;" class="btn btn-default butonpublish" ng-click="disableButton()">
+        Preview</button>    <p style="text-align: right;  margin-right: 10%;margin-bottom: -18px;">
+                <span ng-click="addnewquestion(index,'create','')"><img
+                        src="images/AddQuestion-30.png" title="Add new question"
+                        style="margin-right: 1.5%;vertical-align: middle;"><span
+                        class="addques">Add Question</span></span>
+                 <span confirmed-click="deletepage(index)"
+                       ng-confirm-click="Are you sure want to delete the complete page ?"><img
+                         src="images/DeletePageFilled-30.png" title="Delete page"
+                         style="margin-right: 1.5%;vertical-align: middle;"><span class="delpage">Delete Page</span>
+ </span>
+
+
+    </p>
+    <button class=" activebutton btn btn-default buttontab">Page header contents
+    </button>
+    <hr class="hrstyle" style="border: 2px solid #0072BB;"/>
+    <br>
+    <div ng-show="successMessageContent">
+    <div  ng-if="ResponseMessageContent != null" class="my-notify-success">{{ResponseMessageContent}}</div>
+</div>
+    <br>
+
+
+    <div ng-include="'admin-views/template/QuestionHeaderCont.html'"></div>
+
+
+    <!-- Questions section starts-->
+
+    <div style="padding-top:2%;">
+        <br>
+        <button class="activebutton btn btn-default buttontab" class=""
+                ng-click="questionsec('questions')">Questionnaire Section
+        </button>
+        <hr class="hrstyle" style="border: 2px solid #0072BB;"/>
+
+
+        <!--<div ng-show="SuccessMessage">
+            <div ng-if="ResponseMessage != null" class="my-notify-success">{{ResponseMessage}}</div>
+        </div>-->
+        <div class="adminbacktab" ng-show="QP_Sec_1" style=" color: #9a9a9a !important;line-height: 40px;padding: 2%; ">
+            <!--<ul style="margin-top: 5%; cursor: pointer;  font-weight: 600;" id="contenttabtemp">
+                          <li ng-repeat="pagecontent in ques_template_content"
+                              ng-click="getPageQuestions($index)"> <span>Page : {{pagecontent.pageid}}
+          </span><span style="display:none;">Edit
+          </span></li>
+                      </ul>-->
+
+            <!-- <ul>
+                 <li class="imagecont" style="color: #0673b5; font-weight: 600; list-style: none;"
+                     ng-click="createnewquespage()"
+                     style="border: none;margin-top: 2px; cursor: pointer;"><img
+                         src="images/Plus-35.png" alt="add image container"> <span>Add Page</span></li>
+             </ul>
+ -->
+
+            <div id="questions">
+                <span style="font-weight: 600;color:red">Questions ::</span>
+                <div ng-repeat="pagequestions in questions_content" ng-if="pagequestions.question != ''"
+                     ng-show="pagequestions.showques=='true'"
+                     ng-show="pagequestions.dependency[0] != ''"
+                     id="{{pagequestions.title}}">
+                    <span>{{pagequestions.question}}</span>
+                    <p style=""><img src="images/Edit-24.png" title="Edit question" style="margin-right: 3%;"
+                                     ng-click="editquestion(pagequestions.title,index)"><img src="images/Delete-24.png"
+                                                                                             title="delete question"
+                                                                                             style="margin-right: 3%;"
+                                                                                             confirmed-click="deletequestion(pagequestions,index)"
+                                                                                             ng-confirm-click="Are you sure want to delete the question ?"><img
+                            src="images/ShowProperty-24.png" title="show dependency"
+                            ng-if="pagequestions.dependency.length>0"
+                            ng-click="showDependencies(pagequestions.title,pagequestions.dependency,$index)">
+
+                        <span
+                               id="{{pagequestions.title}}1" class="new badge"
+                                ng-if="pagequestions.dependency.length>0"
+                                ng-click="showDependencies(pagequestions.title,pagequestions.dependency,$index)">{{pagequestions.dependency.length}}</span>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .textboxstyl {
+        width: 60% !important;
+        background-color: white !important;
+        border: 1px solid #eee !important;
+    }
+
+    ul#contenttabtemp li {
+        list-style: none;
+        display: inline;
+        border: 1px solid #9a9a9a;
+        padding: 4%;
+        background-color: #0088CC;
+        color: white;
+    }
+
+    .admindisable {
+        background-color: grey !important;
+        opacity: 0.4;
+    }
+
+    .buttontab {
+        width: 200px;
+        height: 48px;
+        background-color: #D4D2D2;
+        border: 0px solid;
+        color: #666666;
+        font-weight: normal;
+        box-shadow: none;
+
+    }
+
+    .hrstyle {
+        margin: 0px;
+        width: 100%;
+        float: left;
+    }
+
+    .control {
+    }
+
+    .form-group {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .activebutton {
+        background-color: #0673b5 !important;
+        border: none;
+        color: #fff !important;
+    }
+
+    .adminbacktab {
+        background-color: #ffffff;
+    }
+
+    .imagecont {
+        color: white;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    ul#contenttabtemp li:hover {
+        background: none;
+    !important;
+        background-color: white !important;
+        color: #0088CC;
+    }
+
+    a:link {
+        text-decoration: none;
+        color: #fff;
+
+    }
+
+    a:visited {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a:active {
+        text-decoration: underline;
+    }
+
+    .addques {
+        font-weight: 700;
+        color: #0673b5;
+        margin-right: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+
+    }
+
+    .delpage {
+        font-weight: 700;
+        color: #E74C3C;
+        cursor: pointer;
+
+    }
+
+    img {
+        cursor: pointer;
+    }
+
+    .hidedep {
+        background-color: rgba(241, 11, 11, 0.57) !important;
+    }
+
+    .ngdialog-content {
+        width: 60%;
+    }
+
+    .ngdialog.ngdialog-theme-default .ngdialog-content {
+        width: 65%;
+        height: auto;
+        border: 5px solid #ABB2D7;
+    }
+
+    .ngdialog.ngdialog-theme-default {
+        padding-top: 45px;
+        overflow: hidden;
+    }
+
+    .input-w {
+        padding: 0.8%;
+    }
+
+    .input-w label {
+        width: 19%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .input-w input {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2.15em;
+        font-family: ProximaNova-Regular;
+        margin-right: 20px;
+    }
+
+    .input-w select {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2.15em;
+        margin-right: 20px;
+
+    }
+
+    .input-w textarea {
+        display: inline-block;
+        vertical-align: middle;
+        row-span: 2;
+    }
+
+    #ins-admin li {
+        font-weight: 600;
+        text-decoration: none;
+        list-style: none;
+        color: #0673B5;
+
+    }
+
+    #ins-admin p {
+
+        color: #777 !important;
+
+    }
+
+    .showdependencyques {
+        display: block !important;
+    }
+</style>

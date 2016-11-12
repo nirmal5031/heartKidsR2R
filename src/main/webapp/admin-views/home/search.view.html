@@ -1,0 +1,201 @@
+<div><div class="btn-groupadmin" style="float:left; width: 100%; margin-top: -5%;" >
+    <button  class="btn btn-default buttontab" ng-class="{'activebutton':adminusershw}" style="" ng-click="adminusershow()"  >Create Admin</button>
+    <button  class="btn btn-default buttontab"  ng-class="{'activebutton':manageaadmin}"  style="margin-left: -26px; "  ng-click="listadminuser()" >Manage Admin</button>
+
+    <hr class="hrstyle" style="border: 2px solid #0072BB;"></hr>
+</div>
+
+
+    <div id="manageuser" class="adminbacktab" style="color: #9A9A9A !important; width: 100%;" ng-show="manageuser">
+
+        <h4 style="color: #9A9A9A !important; padding:2% 2% 1% 1%;">List of admin user</h4>
+
+
+        <p style="color: red;margin:0 0% 2% 4%">{{manageAdminMessage}}</p>
+
+        <div class="table-responsive" id="exportable">
+
+            <table class="table table-striped table-bordered" style="width: 94%;margin-left: 4%;">
+                <tr class="info" style="color:black;">
+                    <th ng-click="sort('id')">Id
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='id'"
+                          ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                    <th ng-click="sort('username')">User Name
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='username'"
+                          ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                    </th>
+                    <th ng-click="sort('firstname')">First Name
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='firstname'"
+                          ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                    </th>
+                    <th ng-click="sort('lastname')">Last Name
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='lastname'"
+                          ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                    </th>
+                    <th ng-click="sort('userrole')">User Role
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='userrole'"
+                          ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                <tr dir-paginate="a in users|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+                    <td>{{$index+1}}</td>
+                    <td>{{a.username}}</td>
+                    <td>{{a.firstname}}</td>
+                    <td>{{a.lastname}}</td>
+                    <td>{{a.userrole}}</td>
+                    <td style="text-align: center;cursor:pointer;"><img title="reset password" src="images/reset_pass.png" confirmed-click="resetuserpassword($index,a.username)"  data-toggle="tooltip"
+                                                                        tooltip="Reset password"
+                                                                        tooltip-placement="left" ng-confirm-click="Are you sure want to reset the user passowrd ?"/></td>
+                    <td style="text-align: center;cursor:pointer;"><img  title="delete user" src="images/Cancel-24.png" confirmed-click="deleteadminuser($index,a.username)"  ng-confirm-click="Are you sure want to delete the user ?"/></td>
+                    <!--<td><button class="btn btn-primary" style="margin-left: 13%; width: 70px;" ng-click="modifyuser(a)">Edit</button></td>
+               --> </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="createuser" class="adminbacktab" ng-show="showadmincreate" style="width: 100%;">
+        <h4 style="color: #9A9A9A !important; padding:2% 2% 1% 1%; ">Create admin user</h4>
+        <p style="color:red;    font-weight: 600;
+    margin: 10px 0px 22px 19px;">{{creationMessage}}</p>
+        <section class="spotlight" style="margin:0px 0px 0px 0px;">
+            <div class="image" style="margin-left: 4%;width: 43%;" class="form-width">
+
+
+
+
+                    <div class="control">
+                    <label class=" col-sm-2">First Name <em>*</em></label>
+                    <input type="text" name="firstname"  maxlength="50" ng-pattern="/^[a-zA-Z ]*$/"
+                           class="textfeildname yellow" ng-model="formAdminData.firstname" required/>
+
+                    <p ng-show="userForm.firstname.$dirty && userForm.firstname.$error.required" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">First name is required</p>
+                    <p ng-show="userForm.firstname.$dirty && userForm.firstname.$error.pattern" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Firstname is not valid</p>
+					
+
+                  
+                </div>
+                <div class="control">
+                    <label class=" col-sm-2">Last Name <em>*</em></label>
+                    <input type="text" name="lstname"  ng-pattern="/^[a-zA-Z ]*$/" class="textfeildname yellow"
+                           ng-model="formAdminData.lastname" required/>
+
+                    <p ng-show="userForm.lstname.$dirty && userForm.lstname.$error.pattern" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Lastname is not valid</p>
+
+                    <p ng-show="userForm.lstname.$dirty && userForm.lstname.$error.required" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Last name is required</p>
+                </div>
+                <div class="control">
+                    <label class=" col-sm-2">User Name<em>*</em></label>
+                    <input type="text" name="username"  pattern="/^[a-zA-Z0-9]*$/" ng-pattern="/^[a-zA-Z0-9]*$/"
+                           class="textfeildname yellow" ng-model="formAdminData.username" required/>
+
+                    <p ng-show="userForm.username.$dirty && userForm.username.$error.pattern" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Username is not valid</p>
+
+                    <p ng-show="userForm.username.$dirty && userForm.username.$error.required" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">username is required</p>
+                </div>
+                <div class="control">
+                    <label class=" col-sm-2">Email<em>*</em></label>
+                    <input type="email" name="emailadminclient" ng-pattern="/^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-za-z]{2,4}$/" class="textfeildname yellow" ng-model="formAdminData.emailid"  required/>
+
+                    <p ng-show="userForm.emailadminclient.$dirty && userForm.emailadminclient.$error.required" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Email is Required.</p>
+
+                    <p ng-show="userForm.emailadminclient.$dirty && userForm.emailadminclient.$error.pattern" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Please Enter valid email.</p>
+                </div>
+
+                <br>
+
+
+            </div>
+
+            <div class="content form-width" style="width:43%;">
+                <div class="control" style=" ">
+                    <label class=" col-sm-2">Phone</label>
+                    <input type="phone" name="phoneadmin"  ng-pattern="/^[+0-9]*$/" ng-maxlength="14" ng-minlength="8"
+                           class="textfeildname yellow" value="" ng-model="formAdminData.phone"/>
+
+
+                    <p ng-show="userForm.phoneadmin.$dirty && userForm.phoneadmin.$error.pattern" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Please Enter valid phone number.</p>
+                    <p ng-show="userForm.phoneadmin.$dirty && userForm.phoneadmin.$error.maxlength" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Please Enter valid phone number.</p>
+                    <p ng-show="userForm.phoneadmin.$dirty && userForm.phoneadmin.$error.minlength" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Please Enter valid phone number.</p>
+                </div>
+
+
+                <div class="control">
+                    <label class=" col-sm-2">User Role<em>*</em></label>
+                    <select name="userrole" ng-model="formAdminData.userrole" class="textfeildname yellow arrowupdown"
+                            style="; -moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                            ng-options="userrole for userrole in userroleArray" required>
+                        <option value="">--Select--</option>
+                        <!-- not selected / blank option -->
+                    </select>
+
+                    <p ng-show="userForm.userrole.$dirty && userForm.userrole.$error.required" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">User role is Required.</p>
+
+                    <p class="help-block haserrors helptxt"  ng-show="formAdminData.userrole=='Admin'">User has all read, write, delete access</p>
+                    <p class="help-block haserrors helptxt"  ng-show="formAdminData.userrole=='Viewer'">User has only read or modify records access </p>
+                    <p class="help-block haserrors helptxt"  ng-show="formAdminData.userrole=='Superuser'">User has complete access to write, read, delete, manage templates.</p>
+
+                </div>
+                <div class="control">
+                    <label class=" col-sm-2">Password<em>*</em></label>
+                    <input type="password" name="password" ng-minlength="8" ng-maxlength="15"
+                           class="textfeildname yellow"  value="" ng-model="formAdminData.password" ng-init="formAdminData.password=''" required />
+
+                    <p ng-show="userForm.password.$dirty && userForm.password.$error.required" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Password is required .</p>
+
+                    <p ng-show="userForm.password.$dirty && userForm.password.$error.maxlength" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Password is too big</p>
+
+                    <p ng-show="userForm.password.$dirty && userForm.password.$error.minlength" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Password is too weak or less than 8 characters</p>
+                </div>
+                <div class="control">
+                    <label class=" col-sm-2">Confirm Password<em>*</em></label>
+                    <input type="password" name='confirm_password'  ng-maxlength="15"
+                           ng-model="formAdminData.confirm_password" class="textfeildname yellow" required />
+
+                    <p ng-show="userForm.confirm_password.$dirty && userForm.confirm_password.$error.required" class="help-block haserrors"
+                       style="margin: auto;width: 100%;">Please re-enter the password.</p>
+
+                    <p ng-show="passwordmismatch"
+                       class="help-block haserrors" style="margin: auto;width: 100%;">Passwords do not match! Please re-enter</p>
+                </div>
+            </div>
+        </section>
+        <div class="btn-groupadmin surveybutton" style="margin-top: 0px;
+    margin-left: 39%; padding-bottom: 2%;">
+            <button  type="reset" style="height: 3.5em"  ng-click="clearallmanage()" class="btnnext btn-primary">Clear All</button>
+            <button  style="height: 3.5em" ng-disabled="userForm.$invalid"  ng-click="createadminuser()"  class="btnnext btn-default">Create admin</button>
+        </div>
+    </div></div>
+
+<style>
+    .haserrors
+    {
+        float:left;
+    }
+    .helptxt
+    {
+        width: 100%;
+        padding: 10px;
+        color: #0088cc !important;
+        font-family: ProximaNova-Regular;
+        font-weight: 500;
+    }
+</style>

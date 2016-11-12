@@ -1,0 +1,52 @@
+
+    <!--<ul style="margin-top: 5%;" id="contenttabtemp">
+        <li style="background-image: url('{{homebanner.image}}');" class="imagecont"
+            ng-repeat="homebanner in template_content.homebannercontent"
+            ng-click="imagecontentedit(homebanner.id)"><span>{{homebanner.title}}
+</span></li>
+    </ul>
+    <ul>
+        <li class="imagecont" style="color: #0673b5; font-weight: 600; list-style: none;"
+            ng-click="createbanner()" style="border: none;margin-top: 2px; cursor: pointer;"><img
+                src="images/Plus-35.png" alt="add image container"> <span>Add Banner</span></li>
+    </ul>-->
+    <div ng-show="SuccessMessage">
+    <div  ng-if="ResponseMessage != null" class="my-notify-success">{{ResponseMessage}}</div>
+</div>
+    <br>
+    <div class="card small" ng-repeat="homebanner in template_content.homebannercontent">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{homebanner.image}}">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{homebanner.title}}<i class="material-icons right">more_vert</i></span>
+            <p style="margin-top: 3%; cursor: pointer;"><img  src="images/EditProperty-30.png" title="Edit property" style="margin-right: 3%;" ng-click="imagecontentedit(homebanner.id)"><img  src="images/DeleteProperty-30.png" title="delete property" confirmed-click="deletebannerjson($index)"
+                                                                                                                                                                               ng-confirm-click="Are you sure want to delete the banner ?"></p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{homebanner.title}}<i class="material-icons right">close</i></span>
+           <p ng-repeat="shortdesc in homebanner.short_desc">Line {{$index+1}} : {{shortdesc}}</p>
+            <span>LeadLine : {{homebanner.leadlines}}</span>
+        </div>
+    </div>
+
+
+    <div class="card small" ng-repeat="a in range(bannernum) track by $index">
+        <div class="card-image waves-effect waves-block waves-light" ng-click="createbanner()">
+            <img class="activator" src="images/Addbanner.png" title="Create Property">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Title<i class="material-icons right">more_vert</i></span>
+            <p style="margin-top: 3%;"><img  src="images/AddProperty-30.png" title="Add property" ng-click="createbanner()"></p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Title {{$index}}<i class="material-icons right">close</i></span>
+            <p>Create a new banner</p>
+        </div>
+    </div>
+
+    <div ng-show="createbannerbtn=='true'" ng-include="'admin-views/template/createbanner.html'"></div>
+
+</div>
+
+

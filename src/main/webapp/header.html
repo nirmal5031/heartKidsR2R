@@ -1,0 +1,35 @@
+<header>
+    <div class="panel-heading panel panel-primary panel-transparent">
+  <!-- TO-DO : rename to logo.png-->
+        <h3 class="panel-title" ><a href="index.html" ><img src="images/Home.png" alt=""></a></h3>
+        <div ng-if="formData.refno != null" style="margin-top: -1%; margin-right: 12%; float:right;"> <div  class="addreferen">Ref No: </div>
+            <span style="margin-top: -38px;
+    font-weight: bold; line-height: 3;
+    color: #FFFFFF;">{{formData.refno }}</span>
+</div>
+    </div>
+
+    <div ng-show="development" style=" height: 65px;
+    background-color: #fdf59a;
+    border: 3px solid #EDF01B;
+    padding: 0px;
+    margin-top: 1px;
+    width: 100%;" ng-controller="homepagecontroller">
+
+        <span style="left: 0px !important;width: 80%;color: #0044cc;float: left; padding: 8px;"><strong style="color: red;">Note :</strong> You are seeing the application in preview mode. Contents changed will not be updated in live environment until you click on publish button. Make sure to validate all the changes before publishing it to live environment</span>
+        <span style="width: 18%;
+    float: right;"><button class="buttonpub"  confirmed-click="publishsite()"
+                           ng-confirm-click="Are you sure want to publish the changes ?">Publish</button></span></div>
+</header>
+
+
+<style>
+    .buttonpub
+    {
+        background-color: #0044cc;
+        color: white;
+        border-radius: 8px;
+        height: 34px;
+        margin-top: 10px;
+    }
+</style>

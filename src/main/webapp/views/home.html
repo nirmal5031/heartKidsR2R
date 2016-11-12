@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+    <!-- CDN CSS Repository -->
+
+    <!-- TO-DO : Reduce the local repo of css framework and point to CDN -->
+
+
+    <!-- CSS Framework Library -->
+
+    <!-- USER Library LESS Compiled Distro -->
+
+    <!-- TO-DO : Minify when precompiling -->
+
+    <!-- TO-DO : Validate if it is necessary to have these redundant imports -->
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="asset/css/userlibrary/less/dist/style.css"> <!-- Resource style -->
+    <script src="asset/js/jquery-2.1.1.js"></script>
+    <script src="asset/js/angular-ui-router.min.js"></script>
+    <script src="asset/js/main.js"></script> <!-- Resource jQuery -->
+    <script src="../app.js"></script>
+    <script src="asset/js/bootstrap.min.js"></script>
+    <script src="../asset/js/modernizr.js"></script>
+
+</head>
+<!-- TO-DO : No reference to HK_CHD_ through out the body content , can be Survey_-->
+<body class="landing" ng-app="formApp">
+<form name="validForm" class="formclass" novalidate ng-submit="submit()">
+
+
+    <!--  <div  ng-show="development" style="height: 65px; background-color: blue; border: 5px solid black;">
+
+      <span>Note : You are seeing the preview mode. Contents changes has not been updated in live . Once you have verified the change you have made and click on publish button to deploy contents in production</span>
+      </div>-->
+    <header class="cd-header">
+        <div ng-show="development" style="    height: 65px;
+    background-color: #fdf59a;
+    border: 3px solid #EDF01B;
+    padding: 0px;
+    margin-top: 0px;
+    width: 100%;position: fixed;opacity: 0.80;">
+
+            <span style="left: 0px !important;width: 80%;float: left; padding:0px 2px 2px 25px"><strong style="color: red;">Note :</strong> You are seeing the application in <strong style="color: #0D47A1;"><img src="images/Detective-20.png">preview mode</strong>. Contents changed has not been updated in live environment until you click on publish button . The survey entry you create here will not be added in the database. <a style="text-decoration: underline;" href="index.html">Click here</a> to go to R2R live portal.</span>
+        <span style="width: 18%;
+    float: right;"><button class="publishbuttonhom"  style="opacity: 1 !important;" confirmed-click="publishsite()"
+                           ng-confirm-click="Are you sure want to publish the changes ? ">Publish</button></span></div>
+        <!--<div ng-show="development"> <p style="  width: 15%;
+     background-color: #f3e97a;
+     color: #0044cc;
+     float: left;
+     text-align: center;
+     padding: 16px;
+     font-weight: 600;"> Preview Mode <br></p>
+            <span style="color: white;font-weight: 600;" ng-if="ResponseMessagePublish != null">{{ResponseMessagePublish}}</span>
+            <button ng-click="publishsite()">Publish</button></div>-->
+        <h4 class="surveypart">Survey Participants: <strong>{{regcount}}</strong></h4>
+        <div class="cd-primary-nav">
+            <ul>
+                <!-- TO-DO : Links to be made dynamic , either property file or ideal is admin template -->
+                <li><a href="http://www.heartkids.org.au">ANZ CHD Consortium</a></li>
+                <li><a href="http://www.heartkids.org.au">HeartKids</a></li>
+                <li><a href="http://www.heartkids.org.au/contact-us#content">Help</a></li>
+                <li><a  id= "unsubscribeOpenId" style="cursor: pointer" ng-click="unSubscribeUserDetails()">Unsubscribe</a></li>
+            </ul>
+        </div> <!-- .cd-primary-nav -->
+    </header>
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+        <section class="cd-hero">
+            <ul class="cd-hero-slider autoplay">
+                <li class="selected" ng-repeat="item in HK_CHD_Content.homebannercontent"
+                    style="background-image: url('{{item.image}}')">
+                    <div class="cd-full-width">
+                        <p ng-if="item.short_desc[0]!=null">{{item.short_desc[0]}}</p>
+                        <h2 ng-if="item.leadlines!=null">{{item.leadlines}}</h2>
+                        <p ng-if="item.short_desc[1]!=null">{{item.short_desc[1]}}</p>
+                        <a ng-if="item.action.type=='button'" ng-click="scrollTo('learnmore')" class="cd-btn secondary">{{item.action.label}}</a>
+                    </div>
+                </li>
+
+
+            </ul>
+
+            <div class="cd-slider-nav">
+                <nav>
+                    <span class="cd-marker item-1"></span>
+                    <ul>
+                        <li ng-repeat="item in HK_CHD_Content.homebannercontent" ng-class="{selected:item.id=='0'}"><a
+                                {{item.title}}!=null href="#0">{{item.title}}</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <section class="wrapper alt style2">
+            <section class="spotlight" id="learnmore">
+                <div class="image">
+                    <h2>{{HK_CHD_Content.othrhomecont[0].a01_left_header}}</h2>
+                    <p>{{HK_CHD_Content.othrhomecont[0].a03_left_content}}</p>
+                </div>
+                <div class="image">
+                    <h2>{{HK_CHD_Content.othrhomecont[0].a02_right_header}}</h2>
+                    <p>{{HK_CHD_Content.othrhomecont[0].a04_right_content}}</p>
+                </div>
+            </section>
+        </section>
+
+
+        <section class="sectionThree ">
+            <section class="features"><h2>Please Select Who you Are?</h2></section>
+            <section class="spotlight">
+                <div class="image" style="width: 100%;" ng-repeat="items in HK_CHD_Content.usertypetab">
+                    <h2>{{items.title}}</h2>
+                    <div class="imageContainer" class="button special" ng-click="disclaimerCheck(items.title)"><img
+                            src="{{items.img}}" style="width: 50%;" class="patient-width"></div>
+                    <div class="textContainer">
+                        <p>{{items.type_shrt_desc}}</p>
+                        <p>{{items.type_desc}}</p>
+                        <div><a class="button special" ng-click="disclaimerCheck(items.title)">{{items.button_label}}&nbsp;&nbsp;&nbsp;&nbsp;></a>
+                        </div>
+                    </div>
+                </div>
+                <modal title="Heartkids disclaimer" data-backdrop="static" data-keyboard="false" visible="showModal">
+                    <div ng-include="'views/disclaimerpatient.html'"></div>
+                </modal>
+                <modal title="Heartkids disclaimer" data-backdrop="static" data-keyboard="false" visible="showCModal">
+                    <div ng-include="'views/disclaimercarer.html'"></div>
+                </modal>
+                <modal title="Unsubscription" data-backdrop="static" data-keyboard="false" visible="showUnsubscribe">
+                    <div ng-include="'views/unsubscribe.html'"></div>
+                </modal>
+            </section>
+        </section>
+
+
+        <!-- Footer -->
+        <div ng-include="'footer.html'"></div>
+    </div>
+
+
+    <!-- CDN JS Repository -->
+
+    <!-- JS Framework Library -->
+
+    <!-- USER Library -->
+
+    <script src="assets/js/ie/respond.min.js"></script>
+    <![endif]-->
+</form>
+</body>
+
+</html>
+

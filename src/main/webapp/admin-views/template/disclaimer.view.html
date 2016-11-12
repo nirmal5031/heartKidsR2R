@@ -1,0 +1,401 @@
+<div class="col-lg-12" style=" padding-top: 2%; float: left;">
+    <div id="" class="adminbacktab" style=" color: #9a9a9a !important;line-height: 40px;padding: 2%; ">
+        <div ng-include="'admin-views/template/menu.html'"></div>
+    </div>
+</div>
+
+<div class="col-lg-12" style="width:75%;float: right;margin-top: 3%;">
+    <button class="btn btn-default buttontab " ng-class="{'activebutton':HP_Sec_1=='true'}"
+            ng-click="homepagesec('sec1')">Disclaimer Patient
+    </button>
+    <button class="btn btn-default buttontab"
+            ng-class="{'activebutton':HP_Sec_2=='true'}" ng-click="homepagesec('sec2')" style="margin-left: -26px; ">
+        Disclaimer Carer
+    </button>
+
+    <button class="btn btn-default butonpublish" confirmed-click="publishsite()"
+            ng-confirm-click="Are you sure want to publish the changes ?">Publish
+    </button>
+    <button style="background-color: #1AA01E;
+    color: white;
+    border-color: #06D106;" class="btn btn-default butonpublish">
+        <a href={{redirectToDev}} target="_blank"> Preview</a></button>
+    <hr class="hrstyle" style="border: 2px solid #0072BB;"/>
+
+    <br>
+
+    <div ng-show="HP_Sec_1=='true'">
+        <div class="input-w">
+        <label for="Title">Header : </label><span><img  src="images/EditRow-30.png" ng-click="editorEnabled1=!editorEnabled1" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+
+        <div ng-hide="editorEnabled1">
+           <p style="color: grey">{{formDisclaimer.header}}</p>
+        </div>
+        <div ng-show="editorEnabled1">
+            <textarea type="text" class="textboxstyl" style="color: grey; width: 80% !important;" ng-model="formDisclaimer.header"></textarea>
+            <a style="color: grey; cursor:pointer;" ng-click="editorEnabled1=!editorEnabled1">Done editing?</a>
+        </div>
+        </div>
+
+
+        <div class="input-w">
+            <label for="content">Description : </label><span><img  src="images/EditRow-30.png" ng-click="editorEnabled2=!editorEnabled2" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+
+            <div ng-hide="editorEnabled2">
+                <p style="color: grey">{{formDisclaimer.intro}}</p>
+            </div>
+            <div ng-show="editorEnabled2">
+                <textarea type="text" class="textboxstyl" style="color: grey; width: 80% !important; height: 15em;"  ng-model="formDisclaimer.intro"></textarea>
+                <a style="color: grey; cursor:pointer;" ng-click="editorEnabled2=!editorEnabled2">Done editing?</a>
+            </div>
+        </div>
+
+        <br>
+        <h4 style="color: #FF5722;"> Disclaimer Content::</h4>
+        <div ng-repeat="item in formDisclaimer.disclaimercontent">
+            <div class="input-w">
+
+                <div ng-hide="editorEnabled">
+                    <label for="{{item.question}}">{{item.question}} </label><span><img  src="images/EditRow-30.png" ng-click="editorEnabled=!editorEnabled" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"><img src="images/Delete-30.png" ng-click="deleteDisContent(item,$index)" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+                    <p style="color: grey">{{item.answer}}</p>
+                </div>
+                <div ng-show="editorEnabled">
+                    <input type="text" class="textboxstyl" style="width: 80%" ng-model="item.question"/>
+                    <textarea  class="textboxstyl" style="color: grey; width: 80% !important; height: 15em;" ng-model="item.answer"></textarea>
+                    <a style="color: grey; cursor:pointer;" ng-click="editorEnabled=!editorEnabled">Done editing?</a>
+                </div>
+
+            <br>
+        </div>
+            </div>
+
+
+        <div class="input-w">
+            <label for="content">Consent : </label><span><img  src="images/EditRow-30.png" ng-click="editorEnabled3=!editorEnabled3" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+
+            <div ng-hide="editorEnabled3">
+                <p style="color: grey">{{formDisclaimer.consent}}</p>
+            </div>
+            <div ng-show="editorEnabled3">
+                <textarea type="text" class="textboxstyl" style="color: grey; width: 80% !important; height: 15em;"  ng-model="formDisclaimer.consent"></textarea>
+                <a style="color: grey; cursor:pointer;" ng-click="editorEnabled3=!editorEnabled3">Done editing?</a>
+            </div>
+        </div>
+
+
+        <div class="input-w">
+            <label for="content">Consent Content: </label><span><img  src="images/EditRow-30.png" ng-click="editorEnabled4=!editorEnabled4" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+
+            <div ng-hide="editorEnabled4">
+                <p style="color: grey">{{formDisclaimer.consentcontent}}</p>
+            </div>
+            <div ng-show="editorEnabled4">
+                <textarea type="text" class="textboxstyl" style="color: grey; width: 80% !important; height: 15em;"  ng-model="formDisclaimer.consentcontent"></textarea>
+                <a style="color: grey; cursor:pointer;" ng-click="editorEnabled4=!editorEnabled4">Done editing?</a>
+            </div>
+        </div>
+        <br>
+
+        <span style="color: red;">{{ResponseMessage}}</span>
+        <br>
+        <button style="height: 2.5em;
+    width: 95px; margin-left: 35%;" class="btnnext btn-default" ng-click="updatedisclaimer()">Update
+        </button>
+
+    </div>
+    <br>
+    <div ng-show="HP_Sec_2=='true'">
+
+        <div class="input-w">
+            <label for="Title">Header : </label><span><img  src="images/EditRow-30.png" ng-click="editorEnabledCarer1=!editorEnabledCarer1" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+
+            <div ng-hide="editorEnabledCarer1">
+                <p style="color: grey">{{formDisclaimerCarer.header}}</p>
+            </div>
+            <div ng-show="editorEnabledCarer1">
+                <textarea type="text" class="textboxstyl" style="color: grey; width: 80% !important;"  ng-model="formDisclaimerCarer.header"></textarea>
+                <a style="color: grey; cursor:pointer;" ng-click="editorEnabledCarer1=!editorEnabledCarer1">Done editing?</a>
+            </div>
+        </div>
+
+
+        <div class="input-w">
+            <label for="Title">Description : </label> <span><img  src="images/EditRow-30.png" ng-click="editorEnabledCarer2=!editorEnabledCarer2" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+
+
+            <div ng-hide="editorEnabledCarer2">
+                <p style="color: grey">{{formDisclaimerCarer.intro}}</p>
+            </div>
+            <div ng-show="editorEnabledCarer2">
+                <textarea type="text" class="textboxstyl" style="color: grey; width: 80% !important; height: 15em;"  ng-model="formDisclaimerCarer.intro"></textarea>
+                <a style="color: grey; cursor:pointer;" ng-click="editorEnabledCarer1=!editorEnabledCarer">Done editing?</a>
+            </div>
+        </div>
+          <br>
+        <h4 style="color: #FF5722;"> Disclaimer Content::</h4>
+        <div ng-repeat="item in formDisclaimerCarer.disclaimercontent">
+            <div class="input-w">
+
+                <div ng-hide="editorEnabledCarer">
+                    <label for="{{item.question}}">{{item.question}} </label>   <span><img  src="images/EditRow-30.png" ng-click="editorEnabledCarer=!editorEnabledCarer" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"><img src="images/Delete-30.png" ng-click="deleteDisContentCarer(item,$index)" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+
+                    <p style="color: grey">{{item.answer}}</p>
+                </div>
+                <div ng-show="editorEnabledCarer">
+                    <input type="text" class="textboxstyl" style="width: 80%" ng-model="item.question"/>
+                    <textarea  class="textboxstyl" style="color: grey; width: 80% !important; height: 15em;"  ng-model="item.answer"></textarea>
+                    <a style="color: grey; cursor:pointer;" ng-click="editorEnabledCarer=!editorEnabledCarer">Done editing?</a>
+                </div>
+
+                <br>
+            </div>
+        </div>
+          <div class="input-w">
+            <label for="Title">Consent : </label>  <span><img  src="images/EditRow-30.png" ng-click="editorEnabledCarer3=!editorEnabledCarer3" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+         <div ng-hide="editorEnabledCarer3">
+                <p style="color: grey">{{formDisclaimerCarer.consent}}</p>
+            </div>
+            <div ng-show="editorEnabledCarer3">
+                <textarea type="text" class="textboxstyl" style="color: grey; width: 80% !important; height: 15em;"  ng-model="formDisclaimerCarer.consent"></textarea>
+                <a style="color: grey; cursor:pointer; font-weight: 600;" ng-click="editorEnabledCarer3=!editorEnabledCarer3">Done editing?</a>
+            </div>
+        </div>
+
+
+        <div class="input-w">
+            <label for="Title">Consent : </label><span><img  src="images/EditRow-30.png" ng-click="editorEnabledCarer4=!editorEnabledCarer4" title="Edit content" ng-hide="editorEnabledCarer1" style="margin-right: 3%;"></span>
+
+
+            <div ng-hide="editorEnabledCarer4">
+                <p style="color: grey">{{formDisclaimerCarer.consentcontent}}</p>
+            </div>
+            <div ng-show="editorEnabledCarer4">
+                <textarea type="text" class="textboxstyl" style="color: grey; width: 80% !important; height: 15em;"  ng-model="formDisclaimerCarer.consentcontent"></textarea>
+                <a style="color: grey; cursor:pointer;" ng-click="editorEnabledCarer4=!editorEnabledCarer4">Done editing?</a>
+            </div>
+        </div>
+        <br>
+
+        <span style="color: red;">{{ResponseMessage}}</span>
+  <br>
+        <button style="height: 2.5em;
+    width: 95px; margin-left: 35%;" class="btnnext btn-default" ng-click="updatedisclaimercarer()">Update
+        </button>
+
+    </div>
+
+    <div ng-show="HP_Sec_1=='true'"><div ng-show="advancedoption" >
+        <br>
+       <span style="color: blue;"><a style="font-weight: 600;text-decoration: underline;cursor: pointer"  confirmed-click="showEditContent('Patient')"
+                                     ng-confirm-click="Are you sure want to delete the patient disclaimer question ?">Click here</a> to delete all disclaimer questions and create new ?</span>
+    </div></div>
+
+    <div ng-show="HP_Sec_2=='true'">
+    <div ng-show="advancedoption" >
+        <br>
+        <span style="color: blue;"><a style="font-weight: 600;text-decoration: underline;cursor: pointer" confirmed-click="showEditContent('Carer')"
+                                      ng-confirm-click="Are you sure want to delete all carer disclaimer questions ?">Click here</a> to delete all disclaimer questions and create new ?</span>
+    </div>
+</div>
+
+    <div ng-show="showEditContentpatient && HP_Sec_1=='true'">
+
+            <div class="input-w" ng-repeat="item in formDisclaimer.disclaimercontent">
+
+                <div >
+                    <input type="text" class="textboxstyl" style="width: 80%" ng-model="formDisclaimer.disclaimercontent[$index].question" placeholder="Enter question(Optional)"/>
+                    <textarea  class="textboxstyl" style="color: grey; width: 80% !important; height: 10em;" placeholder="Enter disclaimer content" ng-model="formDisclaimer.disclaimercontent[$index].answer"></textarea>
+                </div>
+                <br>
+            </div>
+        <span style="color: blue;"><a style="font-weight: 600;text-decoration: underline;" ng-click="addLine()">Add new question</a></span>
+
+
+        <br>
+        <button style="height: 2.5em;
+    width: 95px; margin-left: 35%;" class="btnnext btn-default" ng-click="saveNewDisclaimer('Patient')">Save
+        </button>
+
+    </div>
+
+
+    <div ng-show="showEditContentcarer" && HP_Sec_1=='true'">
+
+        <div class="input-w" ng-repeat="item in formDisclaimerCarer.disclaimercontent">
+
+            <div >
+                <input type="text" class="textboxstyl" style="width: 80%" ng-model="formDisclaimerCarer.disclaimercontent[$index].question" placeholder="Enter question(Optional)"/>
+                <textarea  class="textboxstyl" style="color: grey; width: 80% !important; height: 10em;" placeholder="Enter disclaimer content" ng-model="formDisclaimerCarer.disclaimercontent[$index].answer"></textarea>
+            </div>
+            <br>
+        </div>
+        <span style="color: blue;"><a style="font-weight: 600;text-decoration: underline; cursor: pointer;" ng-click="addLineCarer()">Add question</a></span>
+
+
+        <br>
+        <button style="height: 2.5em;
+    width: 95px; margin-left: 35%;" class="btnnext btn-default" ng-click="saveNewDisclaimer('Carer')">Save
+        </button>
+
+    </div>
+
+
+
+    <br>
+<br>
+    <div class="adminbacktab">
+        <a  style="color:#0072BB;cursor:pointer;font-weight: bold; padding: 4%;"  ng-model="advancedoption" ng-click="advancedoption=!advancedoption">{{toggleText}}</a>
+    </div>
+
+<!--
+  <p style="color: mediumvioletred;width:90%;">{{formDisclaimer}}</p>
+-->
+</div>
+
+
+<style>
+
+    .textboxstyl {
+        width: 80% !important;
+        background-color: white !important;
+        border: 1px solid #eee !important;
+
+    }
+    .textboxstyl input
+    {
+        background-color: rgb(241, 237, 237) !important;
+
+    }
+
+    ul#contenttabtemp li {
+        list-style: none;
+        display: inline;
+        border: 1px solid #9a9a9a;
+        padding: 4%;
+    }
+
+    .admindisable {
+        background-color: grey !important;
+        opacity: 0.4;
+    }
+
+    .buttontab {
+        width: 200px;
+        height: 48px;
+        background-color: #D4D2D2;
+        border: 0px solid;
+        color: #666666;
+        font-weight: normal;
+        box-shadow: none;
+
+    }
+
+    .hrstyle {
+        margin: 0px;
+        width: 100%;
+        float: left;
+    }
+
+    .control {
+    }
+
+    .form-group {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .activebutton {
+        background-color: #0673b5 !important;
+        border: none;
+        color: #fff !important;
+    }
+
+    .adminbacktab {
+        background-color: #ffffff;
+    }
+
+    .imagecont {
+        color: white;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    ul#contenttabtemp li:hover {
+        background: none;
+    !important;
+        background-color: white !important;
+    }
+
+    .list-group.panel > .list-group-item {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px
+    }
+
+    .list-group-submenu {
+        margin-left: 20px;
+    }
+
+    .ngdialog-content {
+        width: 60%;
+    }
+
+    .ngdialog.ngdialog-theme-default .ngdialog-content {
+        width: 60%;
+        height: auto;
+    }
+
+    .ngdialog.ngdialog-theme-default {
+        padding-top: 45px;
+        overflow: hidden;
+    }
+
+    .input-w {
+        padding: 0.5%;
+    }
+
+    .input-w label {
+        width: 80%;
+        display: inline-block;
+        vertical-align: middle;
+        color: #0044CC;
+        font-weight: 600;
+    }
+
+    .input-w input {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2.15em;
+        font-family: ProximaNova-Regular;
+        color: #808080;
+        background-color: rgb(241, 237, 237) !important;
+
+
+    }
+
+    .input-w select {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2.15em;
+    }
+
+    .input-w textarea {
+        display: inline-block;
+        vertical-align: middle;
+        row-span: 2;
+        color: #808080;
+        width: 95% !important;
+    }
+    p{
+
+        color:black !important;
+        font-size: 15px;
+    font-family: ProximaNova-Regular;
+    }
+    /* all */
+    ::-webkit-input-placeholder { color:#f00; }
+    ::-moz-placeholder { color:#f00; } /* firefox 19+ */
+    :-ms-input-placeholder { color:#f00; } /* ie */
+    input:-moz-placeholder { color:#f00; }
+
+</style>

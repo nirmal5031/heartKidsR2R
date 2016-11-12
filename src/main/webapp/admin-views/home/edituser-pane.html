@@ -1,0 +1,298 @@
+<div ng-show="edituserdetailshow" id="edituser">
+
+    <div class="container" style="">
+        <h4 style="color: #0044cc; margin-left: 2%">Manage User Details - {{formData.profile.refno}}</h4>
+        <ul class="nav nav-tabs" style="border:none;" ng-init="editMenu('personal')">
+            <li class=" " ng-class="{activebutton: isSelected('personal')}" ng-click="editMenu('personal')"><span>Personal Info</span>
+            </li>
+            <li ng-class="{activebutton: isSelected('question')}" ng-click="getQuestionContent('question')"><span>Questionnarie</span>
+            </li>
+
+        </ul>
+    </div><hr class="hrstyle" style="border: 2px solid #0072BB;"></hr>
+
+
+    <div class="row" ng-hide="questionariesection">
+        <div class="col-xs-row" style="width: 32%;">
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <input ng-disabled="!admin" name="firstnamesearch" ng-class="admindisable = '!admin'"
+                       ng-pattern="/^[a-zA-Z ]*$/" type="text" class="form-control textfeildname"
+                       ng-model="formData.profile.firstname"
+                       placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex</label>
+
+                <select name="sexselect" ng-model="formData.profile.gender" class="form-control textfeildname arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="sex for sex in sexArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">eMail</label>
+                <input type="email" id="emailpatientsearch" ng-disabled="!admin" class="form-control textfeildname"
+                       ng-pattern="/^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-za-z]{2,4}$/" placeholder=""
+                       ng-model="formData.profile.email">
+
+            </div>
+            <div class="form-group">
+                <label for="language">Language Spoken</label>
+                <select name="lstofcountryArray" ng-model="formData.profile.language"
+                        class="form-control textfeildname arrowupdown"
+                        style="moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="lang for lang in languageArray">
+                    <option value="">--Select--</option> <!-- not selected / blank option -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <select name="title" ng-model="formData.profile.title" class="form-control textfeildname arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="title for title in titleArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+
+        </div>
+        <div class="col-xs-row" style="width: 32%;">
+            <div class="form-group">
+                <label for="lastname2">Last Name</label>
+                <input type="text" ng-disabled="!admin" name="lastnamesearch" value="" ng-pattern="/^[a-zA-Z ]*$/"
+                       class="form-control textfeildname" placeholder="" ng-model="formData.profile.lastname">
+
+            </div>
+            <div class="form-group">
+                <label for="birthdatepat">Dob (MM/DD/YYYY)</label>
+                <input type="text" name="birthdate" ng-disabled="!admin" style="cursor: hand"
+                       class=" datepicker form-control textfeildname "
+                       ng-model="formData.profile.birthdate">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" name="phoneseac" ng-minlength="8" ng-maxlength="14" maxlength="14"
+                       ng-pattern="/^[0-9  +-]+$/" ng-disabled="!admin" class="form-control textfeildname"
+                       placeholder="" ng-model="formData.profile.phone">
+
+            </div>
+            <div class="form-group">
+                <label for="state">User Type</label>
+                <select name="usertype" ng-model="formData.profile.recordStatus.usertype" class="form-control textfeildname arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="usertype for usertype in usertypeArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+            <div ng-if="calculateAge(formData.birthdate) != ''">
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control textfeildname" disabled
+                           style="background-color: #FFFEF1 !important;" ng-model="formData.profile.age">
+                </div>
+            </div>
+
+            <!--  <div class="form-group">
+                  <label for="status">Status</label>
+                  <select name="status" ng-model="formData.status" class="form-control textfeildname arrowupdown"
+                          style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                          ng-options="status for status in statusArray">
+                      <option value="">&#45;&#45;Select&#45;&#45;</option>
+                      &lt;!&ndash; not selected / blank option &ndash;&gt;
+                  </select>
+              </div>-->
+        </div>
+        <div class="col-xs-row" style="width: 32%;">
+            <div class="form-group">
+                <label for="state">State</label>
+                <select name="stateselct" ng-model="formData.profile.state" class="form-control textfeildname arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="state for state in statelistArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" name="postcode" class="form-control textfeildname" ng-minlength="4" ng-maxlength="6"
+                       ng-pattern="/^(\d)+$/" ng-model="formData.profile.postcode" maxlength="6" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label for="birth">Country of Birth</label>
+
+                <select name="countrybirth" ng-model="formData.profile.countrybirth"
+                        class="form-control textfeildname arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="country for country in lstofcountryArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ethnicity">Ethnicity</label>
+                <select name="ethnicity" ng-model="formData.profile.ethnicity" class="form-control textfeildname arrowupdown"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="ethnicity for ethnicity in ethnicityArray">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contactviaphone">Contact via Phone</label>
+                <select ng-disabled="!admin" name="contactviaphone" ng-model="formData.profile.contctviaphone"
+                        class="form-control arrowupdown textfeildname"
+                        style=" moz-appearance: none;-webkit-appearance: none;appearance:none;"
+                        ng-options="contact for contact in yesnoArraycaps">
+                    <option value="">--Select--</option>
+                    <!-- not selected / blank option -->
+                </select>
+            </div>
+
+        </div>
+        <div class="btn-groupadmin surveybutton" style="    background-color: #fff;
+    width: 90%;
+    margin-left: 5%;">
+            <button style="height: 3.5em" ng-click="closeedittable()" class="btnnext btn-primary">Cancel</button>
+            <button style="height: 3.5em" ng-click="updateProfilesavedetails()" class="btnnext btn-default">Update
+            </button>
+        </div>
+    </div>
+    <div ng-show="questionariesection">
+        <br>
+        <br>
+        <ul class="nav nav-tabs" style="    margin-top: 3%;
+    border: 6px solid #0072bb;
+    height: 38px;" ng-init="setPageQuestion(0)">
+            <li ng-repeat="items in HK_CHD_Content" style="height: 56px;"  ng-class="{activebutton: isSelected($index)}" ng-click="setPageQuestion($index)"><span>{{items.pagetitle}}</span>
+            </li>
+        </ul>
+
+<div>
+        <div ng-repeat="items in editRecordContent.questionnaire" style="width: 100%; float: left;"
+             ng-if="items.question != ''">
+            <br>
+            <div class="form-group1" style="margin-left: 10px;" ng-if="questionairescopew[items.title] != null">
+                <label style="color: #0D47A1" for="{{items.title}}">{{items.question}}</label>
+                <select ng-if="items.type != 'number' && items.type != 'text' && items.type != 'textarea'&& items.type != 'slider' && items.type != 'slider1' && items.type != 'slider2' && items.type != 'checkbox'"
+                        ng-model="questionairescopew[items.title]" name="{{items.title}}" style="width: 70%; margin-bottom: 0px"
+                        class="textfeildname yellow arrowupdown dropdownstyle"
+                        ng-options="q for q in items.options">
+                    <option value="">&#45;&#45;Select&#45;&#45;</option>
+                </select>
+                <input ng-if="items.type=='number' || items.type=='slider' || items.type=='slider1' || items.type=='slider2'"
+                       type="text" ng-model="questionairescopew[items.title]" name="{{items.title}}"
+                       class="textboxnumber"
+                       style=" background-color: white; color: grey;
+        border: 2px solid lightgray;
+        width: 50%;">
+
+                <input ng-if="items.type=='text'" type="text" ng-model="questionairescopew[items.title]"
+                       name="{{items.title}}" class="textboxnumber"
+                       style=" background-color: white; color: grey;
+        border: 2px solid lightgray;
+        width: 50%;">
+
+                 <textarea ng-if="items.type=='textarea'" type="text" ng-model="questionairescopew[items.title]"
+                  name="{{items.title}}" class="textboxnumber"
+                  style=" background-color: white; color: grey;
+        border: 2px solid lightgray;
+        width: 100%;"></textarea>
+
+                <table class="checkbox-btn checkboxpaading" style="width: 100%;" ng-if="items.type=='checkbox'">
+
+                    <tr ng-repeat="checkbox in items.options"><td><input type="checkbox" ng-model="questionairescopew[checkbox]" name="" ng-true-value="true" ng-false-value="false" id="{{checkbox}}" class="" />
+
+
+                        <label for="{{items.title}}{{checkbox}}" class="">{{checkbox}}</label></td>
+
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+</div>
+        <!--<div ng-repeat="pageQues in HK_CHD_Content">
+            <div class="headercontent"><h4 style="color: #fff;margin-left: 40%;">{{pageQues.pagetitle}}</h4></div>
+            <div ng-repeat="items in pageQues.questionnaire" style="width: 48%; float: left;"
+                 ng-if="items.question != ''">
+                <br>
+                <div class="form-group1" style="margin-left: 10px;">
+                    <label style="color: #0D47A1" for="{{items.title}}">{{items.question}}</label>
+                    <select ng-if="items.type != 'number' && items.type != 'text' && items.type != 'textarea'&& items.type != 'slider' && items.type != 'slider1' && items.type != 'slider2'"
+                            ng-model="questionairescopew[items.title]" name="{{items.title}}" style="width: 70%;"
+                            class="textfeildname yellow arrowupdown dropdownstyle"
+                            ng-options="q for q in items.options">
+                        <option value="">&#45;&#45;Select&#45;&#45;</option>
+                    </select>
+                    <input ng-if="items.type=='number' || items.type=='slider' || items.type=='slider1' || items.type=='slider2'"
+                           type="text" ng-model="questionairescopew[items.title]" name="{{items.title}}"
+                           class="textboxnumber"
+                           style=" background-color: white; color: grey;
+        border: 2px solid lightgray;
+        width: 50%;">
+
+                    <input ng-if="items.type=='text'" type="text" ng-model="questionairescopew[items.title]"
+                           name="{{items.title}}" class="textboxnumber"
+                           style=" background-color: white; color: grey;
+        border: 2px solid lightgray;
+        width: 50%;">
+
+        <textarea ng-if="items.type=='textarea'" type="text" ng-model="questionairescopew[items.title]"
+                  name="{{items.title}}" class="textboxnumber"
+                  style=" background-color: white; color: grey;
+        border: 2px solid lightgray;
+        width: 100%;"></textarea>
+
+
+                </div>
+            </div>
+
+        </div>-->
+s        <div class="btn-groupadmin surveybutton" style="width: 100%;margin-top: 10px;">
+            <button style="height: 2.5em" ng-click="closeedittable()" class="btnnext btn-primary">Cancel</button>
+            <button style="height: 2.5em" ng-click="editsavedetails()" class="btnnext btn-default">Update</button>
+            <br></div>
+    </div>
+    <br>
+    <span style="color: red; margin-left: 2%;">{{EditMessage}}</span>
+
+    <br><br>
+
+</div>
+
+<style>
+    .editpanesizing {
+        height: 60px;
+    }
+
+    .textboxnumber {
+        background-color: white;
+        border: 1px solid grey;
+        width: 50%;
+    }
+
+    .headercontent {
+        background-color: #337ab7;
+        height: 50px;
+        padding: 10px;
+        border: 2px solid #673AB7;
+        border-radius: 12px;
+        display: flex;
+        width: 100%;
+    }
+
+    .form-group1 {
+        text-align: left;
+    }
+</style>

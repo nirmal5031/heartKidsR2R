@@ -1,0 +1,163 @@
+<fieldset>
+    <span ng-hide = "showoptionforDependency"style="font-weight: 600;color:red">Create Questions :</span>
+    <span ng-show="showoptionforDependency" style="font-weight: 600;color:red">Create Dependent Questions :</span>
+    <div class="input-w" ng-show="showoptionforDependency">
+        <label for="whntoslect">When to Show</label>
+        <select ng-if="formDataQuestion.type != 'text' || formDataQuestion.type != 'textarea' || formDataQuestion.type != 'number' " ng-model="formDataCreateQuestion.selectedItem" name="whntoshow" class="textfeildname  form-control arrowupdown"
+                style="moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;">
+            <option value="">&#45;&#45;Select&#45;&#45;</option>
+            <option ng-repeat="item in formDataQuestion.options"  value="{{item}}">{{item}}</option>
+        </select>
+
+        <input ng-if="formDataQuestion.type == 'text' || formDataQuestion.type == 'textarea' || formDataQuestion.type == 'number'" type="text" maxlength="3" class="textboxstyl" style="width: 55px !important;" ng-model="formDataCreateQuestion.selectedItem">
+
+
+    </div>
+    <div class="input-w">
+        <label for="question">Question</label>
+        <textarea class="textboxstyl" ng-model="formDataCreateQuestion.question" maxlength="300"></textarea>
+        <label><table class="checkbox-btn checkboxpaading" style=""><tr><td><input type="checkbox" ng-model="formDataCreateQuestion.required" name="required" id="checkboxG4"  ng-true-value="true" ng-false-value="false"/>     <label for="checkboxG4" onclick>Mandatory</label></td></tr></table>
+</label>
+    </div>
+    <div class="input-w">
+        <label for="type">Type : </label>
+        <select name="actiontype" ng-model="formDataCreateQuestion.type" class="textfeildname  form-control arrowupdown"
+                style="moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;"
+                ng-options="type for type in inputlisttypeArray">
+            <option value="">--Select--</option></select>
+    </div>
+    <div class="input-w">
+        <label for="Pattern">Pattern </label>
+        <select name="patterntype" ng-model="formDataCreateQuestion.Setpattern" class="textfeildname  form-control arrowupdown"
+                style="moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;"
+                ng-options="pattern for pattern in Patternarray">
+            <option value="">&#45;&#45;Select&#45;&#45;</option></select>
+
+        <label for="QuestionPosition">Question Position </label>
+
+        <input type="text" maxlength="3" class="textboxstyl" style="width: 55px !important;" ng-model="formDataCreateQuestion.questionposition">
+    </div>
+
+
+    <div class="input-w"  ng-if="formDataCreateQuestion.Setpattern=='custom'" >
+        <label for="type">Regex : </label>
+
+        <input type="text" class="textboxstyl" style="width: 200px !important;" ng-model="formDataCreateQuestion.pattern[0].regex">
+
+        <label for="Message">Message </label>
+        <input type="text"  class="textboxstyl" style="width: 200px !important;" ng-model="formDataCreateQuestion.pattern[0].message">
+    </div>
+
+
+
+
+    <div class="input-w" ng-show="formDataCreateQuestion.type == 'radio' || formDataCreateQuestion.type == 'barscale' || formDataCreateQuestion.type == 'checkbox'">
+        <label for="Options:">Options: </label>
+        <div class="chip" ng-repeat="option in formDataCreateQuestion.options">
+            {{option}}
+            <i class="material-icons">close</i>
+        </div>
+
+        <span style="margin-top: 3%;" ng-click="showoptioneditor=true"><img  src="images/AddColumnFilled-24.png" title="Add options" style="margin-left: 2%; vertical-align: middle;"></span>
+
+    </div>
+
+    <div class="input-w" ng-show="showoptioneditor">
+        <textarea type="text" class="textareanotepad" placeholder="enter the values in comma separated value"  ng-model="formDataCreateQuestion.options" ng-list=""></textarea>
+        <p style="
+    color: #ccc;
+    font-size: 15px;
+"><img src="images/Info-20.png"/> Enter each description separated by comma
+        </p>
+    </div>
+
+
+    <input type="hidden" class="textboxstyl" ng-model="formDataCreateQuestion.title">
+    <input type="hidden" class="textboxstyl" ng-model="formDataCreateQuestion.showques">
+    <input type="hidden" class="textboxstyl" ng-model="formDataCreateQuestion.dependency" ng-list="[]">
+
+    <span style="color:red;font-weight: 600;">{{ResponseMessagePopup}}</span>
+    <br>
+   <span style="display: flex;
+    justify-content: center;"><button style="height: 3em" id="closedialog"  class="ngdialog-close btnnext btn-primary">Cancel</button>
+    <button ng-hide = "showoptionforDependency" style="height: 3em" class="btnnext btn-default" ng-click="addingquestion(index)">Create </button>
+           <button ng-show = "showoptionforDependency" style="height: 3em" class="btnnext btn-default" ng-click="addingquestionDep(index,depndtparentques)">Create </button>
+
+
+</span>
+
+    <!--
+    <button ng-show="addnewquestion=='true'" style="height: 3em" class="btnnext btn-default" ng-click="addingquestioUpdaten(formDataCreateQuestion,index)">Create</button>
+-->
+    <br>
+    </div>
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div>
+    <span style="font-weight: 600;color:red">Create Questions ::</span>
+    <br>
+ <div>
+        Question :   <textarea class="textboxstyl" ng-model="formDataCreateQuestion.question"></textarea>
+
+
+        type :      <select name="actiontype" ng-model="formDataCreateQuestion.type" class="textfeildname  form-control arrowupdown"
+                            style=" moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;"
+                            ng-options="type for type in inputlisttypeArray">
+        <option value="">&#45;&#45;Select&#45;&#45;</option></select>
+
+            <input type="hidden" class="textboxstyl" ng-model="formDataCreateQuestion.title">
+            <input type="hidden" class="textboxstyl" ng-model="formDataCreateQuestion.showques">
+            <input type="hidden" class="textboxstyl" ng-model="dep_title">
+
+
+    </div>
+    <div>
+        Required : <select name="required" ng-model="formDataCreateQuestion.required" class="textfeildname  form-control arrowupdown"
+                           style=" moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;"
+                           ng-options="type for type in truefalseArray">
+        <option value="">&#45;&#45;Select&#45;&#45;</option></select>
+
+        Usertype :<input type="text" class="textboxstyl" ng-model="formDataCreateQuestion.usertype" ng-list="">
+
+        Pattern : <select name="patterntype" ng-model="formDataCreateQuestion.pattern" class="textfeildname  form-control arrowupdown"
+                          style="moz-appearance: none;-webkit-appearance: none;appearance:none; width: 200px;"
+                          ng-options="pattern for pattern in Patternarray">
+        <option value="">&#45;&#45;Select&#45;&#45;</option></select>
+
+        Options:<textarea style="background-color: #fff;border: 1px solid #DADADA;" ng-model="formDataCreateQuestion.options" ng-list="" ng-trim="false"></textarea>
+ <input type="hidden" class="textboxstyl"   ng-model="formDataCreateQuestion.dependency[0]" ng-init="formDataCreateQuestion.dependency[0]=''" >
+
+    </div>
+
+
+    <br><br>
+    <button style="height: 3em" ng-click="" class="ngdialog-close btnnext btn-primary">Cancel</button>
+    <button   ng-show="addingquestions_new" style="height: 3em" class="ngdialog-close btnnext btn-default" ng-click="addingquestion(formDataCreateQuestion,index)">Create</button>
+    <button  ng-show="addingdepques=='true'" style="height: 3em" class="ngdialog-close btnnext btn-default" ng-click="addingdep_question(formDataCreateQuestion,index,dep_title)">Create dep</button>
+
+    <br>
+</div>-->
+

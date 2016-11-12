@@ -1,0 +1,19 @@
+{
+"profilepage": {
+		"title": "Title",
+		"firstname": "First Name",
+		"lastname": "Last Name",
+		"gender": "Gender",
+		"dob": "Date of Birth",
+		"age": "Age",
+		"ethnicity": "Ethnicity",
+		"language": "Language Spoken",
+		"contact.header": "Contact Details",
+		"phone": "Phone",
+		"email": "Email",
+		"postcode": "Postcode",
+		"state": "State",
+		"countrybirth": "Country of Birth",
+		"carer_header": "Carer Details",
+		"carer_contctdetails": "Carer contact details"
+	}}

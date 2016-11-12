@@ -1,0 +1,82 @@
+<fieldset>
+    <div class="input-w">
+        <label for="Title">Title : </label>
+        <input type="text" class="textboxstyl" maxlength="15" ng-model="formUsertype.title" />
+        <span style="color: orange; font-weight: 600;">{{formUsertype.title.length}}/20</span>
+    </div>
+
+    <div class="input-w">
+        <label for="uploadimage">Upload image : </label>
+        <input style="color:rebeccapurple; " type="file" name="file"
+               file-model="myFile">    </div>
+    <div class="input-w">
+        <label for="Image">Image : </label>
+        <input class="textboxstyl" ng-model="formUsertype.img" type="text"/>    </div>
+    <div class="input-w">
+        <label for="Short Des">Short Description : </label>
+        <input class="textboxstyl" maxlength="60" ng-model="formUsertype.type_shrt_desc" type="text"/>    </div>
+    <div class="input-w">
+        <label for="Description">Description : </label>
+        <textarea class="textboxstyl" maxlength="100" ng-model="formUsertype.type_desc"></textarea></div>
+    <div class="input-w">
+        <label for="Label">Button Label </label>
+        <input class="textboxstyl" maxlength="60" ng-model="formUsertype.button_label" type="text"/>    </div>
+    <input type="hidden" class="textboxstyl" ng-model="formUsertype.id">
+
+
+    <div class="btn-groupadmin surveybutton" style="width:100%;">
+            <button style="height: 3em" ng-click="" class="ngdialog-close btnnext btn-primary">Cancel</button>
+            <button ng-show="!createusertypetab" style="height: 3em" class="btnnext btn-default"
+                    ng-click="updatehomeuser(formUsertype.id)">Update</button>
+            <button ng-show="createusertypetab" style="height: 3em" ng-click="addinghomeuser(formUsertype)"
+                class="btnnext btn-default">Create
+            </button>
+
+        </div>
+   <!-- <div ng-show="createusertypetab=='true'">
+        <div style="padding: 2%;">
+
+            Title :<input type="text" class="textboxstyl" ng-model="formUsertypec.title">
+
+            Image :<input type="text" class="textboxstyl" ng-model="formUsertypec.img">
+
+            Short Description : <input type="text" class="textboxstyl" ng-model="formUsertypec.type_shrt_desc">
+
+            Description :<input type="text" class="textboxstyl" ng-model="formUsertypec.type_desc">
+
+            Button Label<input type="text" class="textboxstyl" ng-model="formUsertypec.button_label">
+
+            <input type="hidden" class="textboxstyl" ng-model="formUsertypec.id">
+
+
+        </div>
+
+
+        <div class="btn-groupadmin surveybutton" style="background-color: #fff; width: 100%">
+            <button style="height: 3em" ng-click="" class="btnnext btn-primary">Cancel</button>
+            <button ng-show="createusertypetab=='true'" style="height: 3em" ng-click="addinghomeuser(formUsertypec)"
+                    class="btnnext btn-default">Create
+            </button>
+
+        </div>
+    </div>-->
+
+</fieldset>
+
+
+<style>
+
+
+    .ngdialog.ngdialog-theme-default .ngdialog-content
+    {
+        width: 55%;
+        height: 500px;
+    }
+    .ngdialog.ngdialog-theme-default
+    {
+        padding-top:45px;
+        overflow: hidden;
+    }
+
+
+</style>

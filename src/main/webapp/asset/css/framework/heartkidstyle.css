@@ -1,0 +1,762 @@
+/*
+Theme Name: HeartKids WP Theme
+Description: Semantic, SEO Optimised, Custom Wordpress Theme for Heartkids
+Author: #
+Author URI: #
+*/
+
+/* Reset */
+a, abbr, acronym, address, area, b, bdo, big, blockquote, body, button, caption, cite,
+code, col, colgroup, dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2, h3, h4,
+h5, h6, hr, html, i, images, ins, kbd, label, legend, li, map, object, ol, p, param, pre,
+q, samp, small, span, strong, sub, sup, table, tbody, td, textarea, tfoot, th, thead,
+tr, tt, ul, var {margin:0;padding:0;vertical-align:baseline}
+
+
+/* Defaults */
+:focus {outline:0}
+a,a:visited {text-decoration:none;color:#EA4936}
+a:hover {text-decoration:none;color:#397ca0}
+abbr,acronym,dfn {border-bottom:1px dotted;cursor:help}
+blockquote {background:#EEE;border-left:2px solid #CCC;margin:0 0 1em}
+blockquote p {margin:.5em}
+html {height:100%;background:url(images/bg.jpg)}
+body {background:url(images/body.jpg) repeat-x;min-height:100%;position:relative;font:12px Arial,Verdana,sans-serif;color:#545454}
+code,pre {font-size:1em}
+del {text-decoration:line-through}
+dfn {font-style:italic;font-weight:700}
+dt {font-weight:700}
+dd {margin:0 0 1em 10px}
+fieldset {border:0}
+fieldset p {margin:0 0 5px}
+img {border:0;vertical-align:bottom}
+ins {text-decoration:none}
+h1 {color:#ea4936;font-size:24px;font-family:'MarvelBold';font-weight:400;text-transform:uppercase;padding:0 0 14px}
+h2 {color:#397CA0;font-size:14px;padding:0 0 11px}
+h3 {font-size:20px;color:#397CA0;font-weight:400;font-family:'MarvelBold'}
+h4 {font:bold 1em/1.25em Georgia, Garamond, Serif}
+hr {margin:0 0 0.5em}
+p {margin:0 0 1em}
+ul,ol {list-style:none;margin:0 0 1em}
+textarea {font:1em Arial;overflow:auto}
+
+/* Containers */
+#page {width:100%;overflow:hidden;background:url(images/back-bg.jpg) no-repeat 50% 0}
+#wrapper {width:100%;overflow:hidden;background:url(images/shadows.png) no-repeat 50% 0}
+.content {width:980px;margin:0 auto}
+#main {width:980px;background:#fff;padding-bottom:203px;margin:5px auto 0}
+#main:after {clear:both;display:block;content:''}
+
+/* Header */
+#header {width:100%;background-color:#f6f6f6 ;float:left;position:relative;z-index:100;margin:0px 0px 0; margin-top:0px;}
+#header select {margin-top:3px}
+#header #logo {float:left}
+#header p.country {font-size:24px;font-family:'MarvelRegular';background:url(images/separator2.png) no-repeat;line-height:112px;text-transform:uppercase;float:left;color:#626262;margin:18px 0 0 -5px;padding:0 0 0 20px}
+#header ul {width:978px;float:left;font-size:17px;height:48px;background:url(images/nav.png) repeat-x;text-transform:uppercase;font-family:'MarvelBold';margin:0 0 0 -1px}
+#header ul a {color:#fff;height:48px;line-height:50px;float:left;padding:0 12px}
+#header ul li:first-child {background:none}
+#header ul li {float:left;background:url(images/separator.png) no-repeat 0 8px;position:relative;height:48px;z-index:100}
+#header ul li:hover a,#header ul a:hover,#header ul .active a,#header ul .hovered a,#header ul .current-page-ancestor a,#header ul .current_page_parent a {background:#ea4936 url(images/hover.png) no-repeat 100% 0}
+#header ul .sub-menu {position:absolute;top:48px;left:0;width:180px;background:#ea4936;overflow:hidden;display:none}
+#header ul ul {width:100%;height:auto;font-size:16px;z-index:100;text-transform:none;background:none;margin:0;padding:0}
+#header ul ul li {width:100%;height:auto;float:none;background:none;margin:0;padding:0}
+#header ul ul a,#header ul .active ul a,#header ul .hovered ul a,#header ul .current-page-ancestor ul a,#header ul .current_page_parent ul a,#header ul li:hover ul a {float:left;width:160px;height:auto;line-height:normal;color:#fff;background:none;position:relative;padding:5px 10px}
+#header ul ul a:hover,#header ul .active ul a:hover,#header ul .hovered ul a:hover,#header ul .current-page-ancestor ul a:hover,#header ul .current_page_parent ul a:hover,#header ul li:hover ul a:hover {background:#fa9b82}
+#header .right-section {width:370px;float:right;margin:23px 0 0}
+#header .right-section form {float:right;margin-right:20px}
+#header .right-section label {font-size:15px;font-weight:bold;color:#a8302b;text-transform:uppercase;float:left;font-family:'MarvelRegular';margin:5px 10px 0 74px}
+#header .right-section .contact {width:370px;float:left;background:url(images/contact.png) no-repeat;color:#397ca0;text-transform:uppercase;margin:24px 0 0;padding:26px 0 0}
+#header .right-section .contact p {background:url(images/phone.png) no-repeat 1px 2px;font-family:'MarvelRegular';float:right;font-size:22px;padding:0 24px 0 25px}
+#header .right-section .contact p a {color:#397ca0}
+#header .right-section .contact p a:hover {color:#bb0e0a}
+#header .right-section .contact p:hover {background:url(images/phone-hover.png) no-repeat 1px 2px}
+#header .right-section .contact p:hover a {color:#bb0e0a}
+
+/* Visual */
+#visual {width:979px;float:left;position:relative}
+#slide-nav {position:absolute;z-index:10;bottom:11px;left:530px}
+#slide-nav #pager {float:left;margin:4px 0 0 7px}
+*+html #slide-nav #pager {margin-top:-12px}
+#slide-nav #pager a {float:left;width:12px;height:13px;background:url(images/dots.png) no-repeat;text-indent:-9999px;margin:0 5px 0 0}
+#slide-nav #pager a:hover,#visual #pager a.activeSlide {background-position:0 -13px}
+#visual a.prev,#visual a.next {float:left;color:#1a87c0;z-index:10;font-size:15px}
+#visual .left-section {width:979px;height:350px}
+#visual .left-section #slider {width:100% !important;height:350px !important;position:relative}
+#visual .left-section #slider .slide {width:100% !important;height:350px !important}
+#visual .left-section #slider img {position:absolute;top:0;left:1px}
+#visual .left-section #slider .text {width:455px;left:0;bottom:0;background:url(images/text.png);position:absolute;padding:19px 20px 0 37px}
+#visual .left-section #slider .text p span {color:#ea4936}
+#visual .left-section #slider .text p em {font-style:normal;font-weight:400;color:#1a87c0}
+#visual .left-section #slider .text p {font-size:22px;line-height:33px;color:#515151;font-family:'MarvelRegular';margin:0 0 8px}
+#visual .right-section {width:280px;height:332px;position:absolute;top:0;right:0;z-index:10;padding-top:18px}
+#visual .right-section a {width:283px;height:102px;background:url(images/links.png) no-repeat;float:right;margin:0 -9px 2px 0}
+#visual .right-section a:hover strong,#visual .right-section a:hover span {color:#eee}
+#visual .right-section a strong {text-transform:uppercase;font-size:28px;font-family:'MarvelBold';color:#fff;display:block;padding:14px 0 0 17px}
+#visual .right-section span {width:160px;display:block;color:#fff;cursor:pointer;padding:6px 0 0 21px}
+#visual .right-section a.work {background-position:0 -103px}
+#visual .right-section a.heart {background-position:0 -206px}
+#visual .right-section a.heart span {padding-top:0}
+
+/* Content */
+.page-template-pt-sponsors-php #content {width:937px;float:left;margin:25px 15px 0 27px}
+.page-template-pt-home-php #content h2,.page-template-pt-home-php #bottom h2 {color:#397ca0;font-size:24px;text-transform:uppercase;background:url(images/heart.png) no-repeat 100% 6px;float:left;font-family:'MarvelBold';font-weight:400;padding:0 32px 0 0}
+#content #posts h3,#content #posts h3 a,.page-template-pt-home-php #content h3,.page-template-pt-home-php #content h3 a {font-size:19px;color:#397ca0;font-family:'MarvelBold';font-weight:400;padding:0 0 2px}
+.page-template-pt-home-php #content h3 a:hover,#content #posts h3 a:hover {color:#EA4936}
+#content #posts {width:100%;overflow:hidden}
+.page-template-pt-home-php #content {width:488px;float:left;margin:31px 0 0 27px;padding:0}
+#content #posts .image-placer {width:106px;height:106px;float:left;background:url(images/img-placer.png) no-repeat;margin-right:12px;padding:6px 0 0 6px}
+#content .post {/*height:1%;*/overflow:hidden;border-bottom:1px dotted #a2a2a2;margin-bottom:-1px;margin-right:44px;padding:20px 0 15px}
+#content .post a.more,#stories-list a.more {font-size:12px;text-transform:uppercase;color:#ea4936;float:left;line-height:28px;background:url(images/arrow.png) no-repeat 100% 5px;padding:0 20px 0 0}
+#stories-list a:hover.more,#content .post a:hover.more {color:#397ca0}
+#content .post .text {overflow:hidden;/*height:1%*/}
+#content .post p {margin:0 0 5px}
+#content h1.work {color:#4579b9}
+.two-columns #content,.archive #content,.search #content,.single-post #content,.blog #content,.page-template-pt-stories-php #content,.single-story #content,.page-template-pt-our_work-php #content {width:690px;float:left;overflow:visible;margin:25px 0 0 14px}
+.two-columns #content .description,.archive #content .description,.search #content .description,.single-post #content .description,.blog #content .description,.page-template-pt-stories-php #content .description,.single-story #content .description,.page-template-pt-our_work-php #content .description {width:396px}
+.two-columns #content .description .image-placer,.archive #content .description .image-placer,.search #content .description .image-placer,.single-post #content .description .image-placer,.blog #content .description .image-placer,.page-template-pt-stories-php #content .description .image-placer,.single-story #content .description .image-placer,.page-template-pt-our_work-php #content .description .image-placer {width:389px;height:260px;background:url(images/img-placer4.png) no-repeat;padding:7px 0 0 7px}
+.two-columns #content .description p,.archive #content .description p,.search #content .description p,.single-post #content .description p,.blog #content .description p,.page-template-pt-stories-php #content .description p,.single-story #content .description p,.page-template-pt-our_work-php #content .description p {font-size:11px;color:#626262;padding:0 0 0 22px}
+.two-columns #content .alignright .image-placer,.archive #content .alignright .image-placer,.search #content .alignright .image-placer,.single-post #content .alignright .image-placer,.blog #content .alignright .image-placer,.page-template-pt-stories-php #content .alignright .image-placer,.single-story #content .alignright .image-placer,.page-template-pt-our_work-php #content .alignright .image-placer {margin-left:10px}
+#content ul#gallery {width:730px;float:left}
+#content ul#gallery li .image-placer {width:344px;height:190px;background:url(images/img-placer3.png) no-repeat;position:relative;margin:0;padding:6px 0 0 6px}
+#content ul#gallery h2 {width:336px;height:38px;font-size:20px;text-transform:uppercase;color:#fff;font-family:'MarvelBold';font-weight:400;line-height:38px;background:url(images/title.gif) repeat-x;margin:-5px 0 0 7px;padding:0;text-align:center}
+#content ul#gallery li {float:left;background:none;padding:0 10px 12px 0}
+#content ul#gallery .btn {position:absolute;top:58px;left:136px;overflow:hidden;text-indent:-6666px;width:78px;height:78px;background:url('images/btn-our-work-more.png') no-repeat}
+#content {width:475px;float:left;overflow:hidden;margin:25px -100% 0 230px;padding:0 0 16px}
+#content p {line-height:18px;margin:0 0 17px}
+#content .image-placer {width:239px;height:239px;background:url(images/img-placer2.png) no-repeat;padding:6px 0 0 6px}
+.alignleft .image-placer {margin:0 13px 0 -8px}
+#content ul {margin:0;padding:7px 0 8px}
+#content li {background:url(images/separator3.png) no-repeat 0 5px;padding:0 0 9px 9px}
+.content-section {width:980px;float:left}
+.page-template-pt-home-php .content-section {background:#f0f2ee url(images/content-section.jpg) no-repeat}
+
+/* Bottom */
+#bottom .left {float:left;width:482px;background:url(images/bg-sponsors.png) no-repeat;margin:15px 0 0 31px;padding:25px 0 0}
+#bottom {width:100%;float:left;padding-bottom:44px}
+#bottom .column {width:180px !important;float:left;display:inline;margin:0 11px 0 15px;text-align:center}
+#bottom .left .column p {font-size:16px;color:#397ca0;font-family:'MarvelBold';padding:0}
+#bottom .left p {padding:0 60px 0 0}
+#bottom .sponsors {width:100%;float:left}
+#bottom .right {width:430px;float:right;margin:30px 34px 0 0}
+#bottom .right .cycle {margin-top:18px}
+
+/* Left Sidebar */
+.page-template-pt-home-php #sidebar {width:448px;float:right;margin:25px 17px 0 0}
+.page-template-pt-home-php #sidebar ul.tabs {width:100%;float:left;margin:0}
+.page-template-pt-home-php #sidebar ul.tabs li {float:left}
+.page-template-pt-home-php #sidebar ul.tabs li a {float:left;height:32px;line-height:32px;font-size:20px;text-transform:uppercase;font-family:'MarvelBold';color:#fff;background:url(images/tabs.gif) repeat-x;padding:0 25px}
+.page-template-pt-home-php #sidebar ul.tabs li a:hover,.page-template-pt-home-php #sidebar ul.tabs li.active a {height:40px;border:solid #a3c0ce;line-height:46px;margin-top:-9px;background:#fff url(images/tabs-hover.gif) repeat-x;color:#38799c;position:relative;border-width:1px 1px 0;padding:0 24px}
+.page-template-pt-home-php #sidebar .tabs-section {width:434px;border:1px solid #9ebcc9;float:left;background:#fff;margin:-1px 0 15px;padding:6px 5px 0}
+.page-template-pt-home-php #sidebar h3 {color:#397ca0;font-size:19px;font-family:'MarvelBold';font-weight:400;line-height:19px;padding:20px 0 5px 10px}
+.page-template-pt-home-php #sidebar .tabs-section p {padding:0 40px 0 10px}
+.page-template-pt-home-php #sidebar h3 span {font-size:17px;display:block}
+.page-template-pt-home-php #sidebar #info-box {width:444px;border:1px solid #cfcfce;float:left;background:#fff}
+.page-template-pt-home-php #sidebar .column {width:190px;float:left;padding:16px 24px 0 0}
+.page-template-pt-home-php #sidebar .column h3 {padding:0 0 8px}
+.page-template-pt-home-php #sidebar .messages {overflow:hidden;padding:0 0 36px 16px}
+.page-template-pt-home-php #sidebar #info-box h3,.page-template-pt-home-php #sidebar #info-box h3 a {font-size:19px;color:#397ca0}
+.page-template-pt-home-php #sidebar #info-box p {margin:0}
+.page-template-pt-home-php #sidebar #info-box p a {color:#4a649d}
+.page-template-pt-home-php #sidebar #info-box p a:hover {text-decoration:underline}
+#left-sidebar {width:190px;min-height:346px;float:left;background:url(images/left-sidebar.png) no-repeat 100% 0;margin:0 0 0 22px}
+.page-id-2107 #left-sidebar {display:none}
+#left-sidebar ul {width:100%;float:left;font-size:16px;font-family:'MarvelBold';margin:-8px 0 0}
+#left-sidebar ul li:first-child {background:none}
+#left-sidebar ul li {width:100%;float:left;background:url(images/dots2.png) no-repeat 0 0;padding:6px 0}
+#left-sidebar ul a {float:left;width:166px;color:#397ca0;margin:0 0 0 -14px;padding:0 0 0 14px}
+#left-sidebar ul a:hover,#left-sidebar ul .active a {background:url(images/arrow2.png) no-repeat 0 3px;color:#ea4936}
+
+/* Right Sidebar */
+#right-sidebar {width:248px;float:right;margin:27px 0 8px}
+#right-sidebar #main-links a {width:256px;height:93px;background:url(images/links2.png) no-repeat;float:right;margin:0 0 5px}
+#right-sidebar #main-links a strong {text-transform:uppercase;font-size:24px;font-family:'MarvelBold';color:#fff;display:block;padding:14px 0 0 17px}
+#right-sidebar #main-links a span {width:155px;display:block;color:#fff;font-size:11px;cursor:pointer;padding:3px 0 0 18px}
+#right-sidebar a.work {background-position:0 -97px !important}
+#right-sidebar a.heart {background-position:0 -194px !important}
+#right-sidebar a.heart span {padding-top:0 !important}
+#right-sidebar #text-3 img {border:1px solid #636364}
+#right-sidebar .facebook {width:238px;border:1px solid #d4d4d4;margin:7px 0 0}
+#right-sidebar .facebook p {margin:0 0 5px}
+#right-sidebar .facebook .messages {width:100%;overflow:hidden;margin:7px 0 0}
+#right-sidebar .facebook .messages .column {width:212px;border-bottom:1px dotted #a2a2a2;margin:7px 0 -1px 13px}
+#right-sidebar .facebook .messages .column p a {color:#4a649d}
+#right-sidebar .facebook .messages .column h3 a,#right-sidebar .facebook .messages .column h3 {color:#397ca0;font-size:19px}
+#right-sidebar .facebook .messages .column h3 a:hover {text-decoration:underline}
+#right-sidebar .facebook .messages .column p a:hover {text-decoration:underline}
+#left-sidebar h3 {padding:25px 0 13px}
+#right-sidebar #main-links {width:100%;float:right;margin:0 -8px -3px 0}
+#right-sidebar #stories-list {background:#edeee9;width:240px;overflow:hidden;margin:68px 0 0}
+#sidebar .facebook-title {height:78px;background:#e6eced url(images/facebook-title.png) no-repeat 18px 14px}
+#right-sidebar .facebook-title {height:62px;background:#dce5e6 url(images/facebook-small.png) no-repeat 13px 13px}
+#right-sidebar .facebook-title a.like {float:right;margin:27px 18px 0 0}
+#right-sidebar .facebook-title h3 {color:#397ca0;font-size:19px;width:82px;float:left;padding:12px 0 0 62px}
+#sidebar .facebook-title h3 {float:left;padding:30px 0 0 80px}
+#sidebar a.like {float:right;margin:30px 20px 0 0}
+#stories-list .image-placer {width:73px;height:73px;background:url(images/img-placer5.png) no-repeat;float:left;margin-right:5px;padding:6px 0 0 6px}
+#stories-list ul {overflow:hidden;height:1%;padding:0 10px}
+#stories-list li:first-child {border:none}
+#stories-list li {border-top:1px dotted #a2a2a2;width:100%;overflow:hidden;vertical-align:top;padding:3px 0}
+#stories-list h2 {color:#397ca0;height:50px;font-size:20px;line-height:50px;text-transform:uppercase;background:#e9eae3 url(images/heart.png) no-repeat 130px 15px;font-family:'MarvelBold';font-weight:400;float:left;width:100%;padding:0 0 0 13px}
+#stories-list h3 {color:#397ca0 !important;font-size:20px !important;line-height:normal !important;padding:5px 0 0 !important}
+#stories-list p {margin:0 0 1em !important;padding:0 !important}
+*+html #right-sidebar #main-links {margin-right:0}
+
+/* Footer */
+#footer {width:100%;height:203px;position:absolute;bottom:0;left:0;background:url(images/bg-footer.jpg) repeat-x}
+#footer .left {width:215px;float:left;font-family:'MarvelRegular';padding:23px 0 0 30px}
+#footer .left a {color:#fff;text-decoration:none}
+#footer .left a:hover {text-decoration:underline}
+#footer .left p {font-size:16px;color:#fff;margin:0;padding:0 0 11px}
+#footer .right {width:300px;float:right;padding:16px 23px 0 0}
+#footer .right p {float:right;color:#fff;font-size:13px;font-weight:700;margin:0 0 9px}
+#footer .right ul {float:right;border-top:1px dotted #fff;font-size:12px;padding:8px 0 0}
+*+ html #footer .right ul {width:295px}
+#footer .right ul a {color:#fff}
+#footer .right ul a:hover {text-decoration:underline}
+#footer .right ul li:first-child {background:none;padding-left:0}
+#footer .right ul li {float:left;background:url(images/separator.gif) no-repeat 0 2px;padding:0 8px}
+#footer .right ul li:last-child {padding-right:0}
+
+/* Donations  */
+.page-template-pt-donate-php #content,.page-template-pt-dd-php #content,.parent-pageid-208 #content, .page-id-2107 #content {margin-left:20px;width:675px}
+
+/* Image Alignment  */
+img.aligncenter {display:block;margin-left:auto;margin-right:auto}
+img.alignright {display:inline;margin:0 0 2px 7px;padding:4px}
+img.alignleft {display:inline;margin:0;padding:0}
+.alignright {float:right}
+.alignleft {float:left}
+.navigation {width:100%;overflow:hidden}
+.navigation .prev,.navigation .next {width:40%;padding:15px}
+.navigation .prev {float:left;text-align:left}
+.navigation .next {float:right;text-align:right}
+
+#text-2 {clear:both;height:400px;overflow:hidden}
+#text-2 img {margin-bottom:5px}
+#poll .sp-poll {width:408px !important;border:none;box-shadow:none !important}
+#poll h3 {display:none}
+#poll .sp-poll p {padding-bottom:15px !important}
+#poll .sp-label {padding-top:5px !important}
+#poll .sp-btn {width:200px !important;display:block;margin:0 auto !important}
+#poll .sp-results dt {font-weight:700 !important}
+#poll .sp-answer-response {border:none !important;background:url(images/vote-bg.gif) repeat-x;padding-top:14px}
+#poll .sp-question {color:#397CA0;font-family:'MarvelBold';font-size:17px}
+
+.contact {float:left;margin-left:50px;width:250px}
+.page-id-68 .row {clear:both}
+.
+.page-template-pt-fullwidth-php #content {margin:25px;width:930px}
+
+
+
+/*--- woocomerce ---*/
+.woocommerce #content,
+.woocommerce-page #content{
+    float:left;
+    width:738px;
+    margin:0;
+    padding:25px 0 15px 15px;
+    overflow:visible;
+}
+#content .shop-nav{
+    float:right;
+    position:relative;
+    margin:-13px 0 0;
+}
+#content .shop-nav ul{
+    float:left;
+    margin:0;
+    padding:0;
+    font-size:12px;
+    line-height:24px;
+    position:relative;
+    text-transform:uppercase;
+}
+#content .col2-set .col-1,
+#content .col2-set .col-2{
+    width:738px;
+}
+#content .col2-set .col-1{
+    background:#f8f8f8;
+    padding:15px;
+    width:708px;
+    margin-bottom:20px;
+}
+#content .form-row label{display:inline !important;}
+#content p#billing_company_field label,
+#content p#account_username_field label{display:block !important;}
+#content #customer_details label{
+    color:#353535;
+    text-transform:uppercase;
+    display:block;
+}
+
+#content #customer_details input[type="text"]{
+    width:348px;
+    height:28px;
+    line-height:28px;
+    padding:0 5px;
+    border:1px solid #d3d4d4;
+}
+#content .shop-nav ul li{
+    float:left;
+    margin:0 0 0 17px;
+    padding:0;
+    background:none;
+}
+#customer_details  h3{
+    color:#d64227;
+    font-size:28px;
+    text-transform:uppercase;
+}
+
+#content .shop-nav ul a{
+    float:right;
+    height:28px;
+    color:#fff;
+    background:url(images/bg-checkout.png) no-repeat;
+    margin: -7px -21px 0 0;
+    padding: 8px 0 0 24px;
+    width: 91px;
+}
+#content .shop-nav ul a:hover{ color:#397ca0; }
+#content .shop-nav .login{
+    float:left;
+    font-size:12px;
+    line-height:24px;
+    padding:5px 0 0;
+    margin:0;
+    border:none;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+}
+#content .shop-nav .clear{ display:none;}
+#content .shop-nav .login p.form-row{
+    float:left;
+    margin:0;
+    padding:0;
+}
+#content .shop-nav .login p.form-row-first,
+#content .shop-nav .login p.form-row-last{ width:auto;}
+#content .shop-nav .login .input-text{
+    float:left;
+    width:90px;
+    height:13px;
+    margin:0;
+    padding:4px 5px 2px;
+    border:none;
+    background:url('images/bg-field1.gif') no-repeat;
+    font-size:11px;
+    line-height:13px;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+    -moz-box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    box-sizing:content-box;
+}
+#content .shop-nav .login .lost_password{ display:none;}
+#content .shop-nav .login .button{
+    border:none;
+    float:left;
+    margin:0 0 0 17px;
+    padding:0;
+    cursor:pointer;
+    text-transform:uppercase;
+    color:#397ca0;
+    background:none;
+    font-weight:normal;
+    text-shadow:none;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+}
+#content .shop-nav .login .button:hover{
+    color:#ea4936;
+}
+#content .shop-nav .login label{
+    float:left;
+    font-size:12px;
+    color:#707070;
+    padding:1px 6px 0 10px;
+}
+#content .shop-nav .login label .required{ display:none;}
+#content ul.products-list{
+    width:768px;
+    overflow:hidden;
+    margin:0 -15px;
+    padding:0;
+    overflow:hidden;
+}
+#content ul.products-list li{
+    float:left;
+    width:162px;
+    overflow:hidden;
+    margin:17px 15px 20px;
+    padding:0;
+    background:none;
+}
+#content ul.products-list .tumbn{
+    display:block;
+    width:158px;
+    height:158px;
+    padding:2px;
+    background:url('images/bg-prod-thumb.gif') no-repeat;
+}
+#content ul.products-list .tumbn img{
+    vertical-align:top;
+    border:2px solid #fff;
+}
+#content ul.products-list a:hover .tumbn img{ border-color:#ea4936;}
+#content ul.products-list a{
+    color:#397ca0;
+    font-family:'MarvelRegular';
+    text-align:center;
+}
+#content .related-products ul.products-list a{
+    color:#ea4936;
+    font-size:18px;
+    line-height:normal;
+}
+#content ul.products-list a:hover{ color:#ea4936;}
+#content ul.products-list .price{
+    font-size:26px;
+    line-height:24px;
+    display:block;
+}
+#content .related-products ul.products-list .price{
+    font-size:18px;
+    line-height:normal;
+}
+#content ul.products-list a strong{
+    font-size:18px;
+    font-weight:normal;
+    display:block;
+}
+#content .related-products ul.products-list a strong{
+    font-size:18px;
+    line-height:normal;
+}
+#content ul.products-list a.button{
+    display:block;
+    width:95px;
+    height:26px;
+    font:bold 12px/26px Arial, sans-serif;
+    margin:3px auto 0;
+    text-align:center;
+    color:#fff;
+    text-transform:uppercase;
+    padding:0;
+    border:none;
+    text-shadow:none;
+}
+#content ul.products-list a.button:hover{
+    background:#d43d2c;
+}
+#content .related-products ul.products-list a.button{ display:none;}
+#content .prod_info{
+    width:100%;
+    overflow:hidden;
+    clear:both;
+}
+#content .product-el{
+    width:100%;
+    overflow:hidden;
+}
+#content .product-el p{
+    font-size:14px;
+    line-height:normal;
+    padding:0;
+    color:#535353;
+
+}
+#content .product-el .summary h2{
+
+    color:#397ca0;
+    padding:0;
+    margin:0;
+    font-size:24px;
+    font-weight:normal;
+}
+#content .product-el h3{
+    margin:0 0 6px;
+    padding:0;
+    font-size:24px;
+    color:#397ca0;
+    font-weight:normal;
+}
+#content .product-el .images{
+    float:left;
+    width:352px;
+    height:351px;
+    background:#fff;
+    border:3px solid #e3e3e3;
+    padding:9px;
+    margin:0 12px 20px 0;
+}
+#content .product-el .summary{
+    overflow:hidden;
+    height:1%;
+    padding:65px 0 20px;
+}
+
+#content .product-el .summary .price{
+    font-size:24px;
+    color:#397ca0;
+    margin:0 0 14px;
+    font-family:Arial,Verdana,sans-serif;
+}
+#content .product-el .summary .cart{
+    margin:0;
+    padding:0 0 24px;
+    display:block;
+
+}
+#content .product-el .summary .cart .quantity-hold{
+    width:100%;
+    overflow:hidden;
+    margin-bottom:26px;
+}
+#content .product-el .summary .cart .quantity-hold strong{
+    padding:6px 11px 0 0;
+    font-size:24px;
+    float:left;
+    color:#397ca0;
+    font-weight:normal;
+    font-family:'MarvelRegular';
+}
+#content .product-el .summary .cart .quantity-hold .quantity{
+    float:left;
+    width:72px;
+    position:relative;
+    margin:0;
+}
+#content .product-el .summary .cart .quantity-hold .input-text{
+    float:left;
+    margin:0;
+    padding:0;
+    width:50px;
+    height:29px;
+    border:1px solid #d9d9d9;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+    font-weight:normal;
+    text-align:center;
+    font-size:18px;
+    line-height:29px;
+    color:#397ca0;
+}
+#content .product-el .summary .cart .button{
+    display:block;
+    clear:both;
+    width:105px;
+    height:34px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+    text-shadow:none;
+    font:bold 11px/29px Arial, sans-serif;
+    color:#fff;
+    text-align:center;
+    border:none;
+    text-transform:uppercase;
+    margin:0;
+    background:#387a9e;
+}
+#content .product-el .summary .cart .button:hover{
+    opacity:0.9;
+    filter:alpha(opacity=90);
+}
+#content .product-el .prod_info .panel{
+    width:100%;
+    background:url('images/sep-line2.gif') repeat-x 0 100%;
+    overflow:hidden;
+    margin-bottom:20px;
+    padding-bottom:12px;
+}
+#content .product-el .related-products{
+    width:100%;
+    overflow:hidden;
+    padding:10px 0;
+}
+#left-sidebar .widget_shopping_cart{
+    clear:both;
+    width:180px;
+    overflow:hidden;
+    padding:10px 10px 10px 0;
+}
+#left-sidebar .widget_shopping_cart ul{
+    float:none;
+    margin:0;
+    padding:0;
+}
+#left-sidebar .widget_shopping_cart ul li{
+    background:none;
+    margin:0;
+    padding:4px 0;
+    width:100%;
+    overflow:hidden;
+    float:none;
+}
+#left-sidebar .widget_shopping_cart ul a{
+    float:none;
+    display:block;
+    width:auto;
+    margin:0;
+    padding:0;
+    background:none;
+}
+.widget_shopping_cart .buttons a.button{ float:left;	}
+.widget_shopping_cart .buttons a.checkout{ margin-left:10px !important;}
+.woocommerce_message{ line-height:22px;}
+.cart-collaterals .cart_totals table{ width:100%;}
+
+
+#main a.button, #main button.button, #main  input.button, #main #review_form #submit{
+    background:#ec5c4b;
+    background-image: linear-gradient(bottom, rgb(234,75,57) 25%, rgb(240,124,111) 75%);
+    background-image: -o-linear-gradient(bottom, rgb(234,75,57) 25%, rgb(240,124,111) 75%);
+    background-image: -moz-linear-gradient(bottom, rgb(234,75,57) 25%, rgb(240,124,111) 75%);
+    background-image: -webkit-linear-gradient(bottom, rgb(234,75,57) 25%, rgb(240,124,111) 75%);
+    background-image: -ms-linear-gradient(bottom, rgb(234,75,57) 25%, rgb(240,124,111) 75%);
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.25, rgb(234,75,57)),
+            color-stop(0.75, rgb(240,124,111))
+    );
+    display:block;
+    height:30px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+    text-shadow:none;
+    font: 10px/29px Arial, sans-serif;
+    color:#fff;
+    text-align:center;
+    border:1px solid #c93423;
+    text-transform:uppercase;
+    margin:0;
+    padding:0 8px;
+    border:none;
+}
+#main a.button{ height:28px;}
+#main a.button:hover, #content button.button:hover, #main  input.button:hover, #main #review_form #submit:hover{
+    background:#d43d2c;
+}
+#main td.actions .coupon .button{
+    float:left;
+}
+#main td.actions .checkout-button,
+#main td.actions .submit-btn{
+    float:right;
+    margin:0 0 0 5px;
+}
+#main td.actions .coupon .input-text{
+    width:100px;
+    height:19px;
+    margin:3px 10px 0 0;
+}
+#main #shiptobilling{ margin:0 !important;}
+#main #shiptobilling label{ font-size:1em;}
+#main .form-row .required{
+    color:#545454;
+    text-decoration:none;
+    border:none;
+}
+#main .woocommerce_error{
+    padding:18px 10px 10px 27px;
+    margin:5px 5px 20px;
+}
+#main .woocommerce_error li{
+    background:none;
+}
+#payment ul li{ background:none;}
+
+
+#logos {background:#FFF;height:150px;padding:10px 0 0;margin-right:20px}
+#logos .column {height:150px;width:200px !important}
+
+.donate-button{
+    display: inline-block;
+    zoom:1;
+    *display:inline;
+    color: #fff !important;
+    border: 1px solid #0073AC;
+    background: #4295cc;
+    background: -moz-linear-gradient(top, #4295cc 0%, #0073ac 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4295cc), color-stop(100%,#0073ac));
+    background: -webkit-linear-gradient(top, #4295cc 0%,#0073ac 100%);
+    background: -o-linear-gradient(top, #4295cc 0%,#0073ac 100%);
+    background: -ms-linear-gradient(top, #4295cc 0%,#0073ac 100%);
+    background: linear-gradient(to bottom, #4295cc 0%,#0073ac 100%);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'MarvelRegular';
+    src: url('fonts/marvel-regular-webfont.eot');
+    src: url('fonts/marvel-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/marvel-regular-webfont.woff') format('woff'),
+    url('fonts/marvel-regular-webfont.ttf') format('truetype'),
+    url('fonts/marvel-regular-webfont.svg#MarvelRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MarvelBold';
+    src: url('fonts/marvel-bold-webfont.eot');
+    src: url('fonts/marvel-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/marvel-bold-webfont.woff') format('woff'),
+    url('fonts/marvel-bold-webfont.ttf') format('truetype'),
+    url('fonts/marvel-bold-webfont.svg#MarvelBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.proxied-field-wrap {
+    /*     position:relative;
+        height:0;
+        width:0;
+        overflow:hidden;
+        margin:0;
+        padding:0;
+        input {
+            position:absolute;
+            top:0;
+            left:0;
+            }
+         */    }
+
+#status-buttons                 {  }
+#status-buttons a               { color:#FFF; display:inline-block; font-size:12px; margin-right:10px; text-align:center; text-transform:uppercase; }
+#status-buttons a:hover         { text-decoration:none; }
+
+/* we will style the span as the circled number */
+#status-buttons span            { background:#080808; display:block; height:30px; margin:0 auto 10px; padding-top:5px; width:30px;
+    border-radius:50%; }
+
+/* active buttons turn light green-blue*/
+#status-buttons a.active span   { background:#00BC8C; }

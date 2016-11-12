@@ -1,0 +1,41 @@
+<div ng-include="'header.html'"></div>
+<form name="form">
+<div class="col-md-6 col-md-offset-3"  style="background-color:#f9f9f9; color:black;width: 85%;" >
+
+    <h2 style="color: #0044cc; text-align: center;">Reset Password</h2>
+    <h2 style="color: #0044cc;text-align: center;">{{resetMessage}}</h2>
+
+
+    <div class="loginformtext">
+        <label class=" col-sm-2">Old Password<em>*</em></label>
+        <input type="password" name="password" ng-pattern="/^[a-zA-Z0-9]*$/" required  class="textfeildname yellow"  ng-model="formAdminData.password" required />
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block haserrors">Please enter your password</span>
+        <span ng-show="form.password.$dirty && form.password.$error.pattern" class="help-block haserrors">Password is not valid</span>
+    </div>
+
+    <div class="loginformtext" >
+        <label class=" col-sm-2">New Password<em>*</em></label>
+        <input type="password" name="passwordnew" ng-pattern="/^[a-zA-Z0-9]*$/"ng-minlength="5" id="" required class="textfeildname yellow"  ng-model="formAdminData.newpassword" required />
+        <span ng-show="form.passwordnew.$dirty && form.passwordnew.$error.required" class="help-block haserrors">Please enter your new password</span>
+        <span ng-show="form.passwordnew.$dirty && form.passwordnew.$error.pattern" class="help-block haserrors">Password is not valid</span>
+        <span ng-show="form.passwordnew.$dirty && form.passwordnew.$error.minlength" class="help-block haserrors">Password should be more than 5 characters</span>
+
+    </div>
+
+    <div class="loginformtext" >
+        <label class=" col-sm-2">Confirm New Password<em>*</em></label>
+        <input type="password" name="confirm_password" ng-pattern="/^[a-zA-Z0-9]*$/"  class="textfeildname yellow"  required ng-model="formAdminData.confirm_new_password" required />
+        <span ng-show="form.confirm_password.$dirty && form.confirm_password.$error.required" class="help-block haserrors">Please confirm the password</span>
+        <span ng-show="form.confirm_password.$dirty && form.confirm_password.$error.pattern" class="help-block haserrors">Password is not valid</span>
+    </div> <br>
+    <p style="color: red;font-weight: 600;text-align: center;">{{resetpass}}</p>
+    <br>
+    <div class="btn-group" style="text-align: center;" data-toggle="tooltip" title="" >
+        <button type="submit" style="width: 15%;
+    height: 60px;" ng-disabled="form.$invalid || vm.dataLoading" ng-click="resetpassword()"class="btn btn-primary">Reset</button>
+        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>
+    <br></form>
+    </div>
+<div ng-include="'footer.html'"></div>
+

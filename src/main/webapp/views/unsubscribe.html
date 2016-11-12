@@ -1,0 +1,66 @@
+<!--TO-DO :  Move to JSON File -->
+
+<div class="col-lg-12" style="width:85%;"></div>
+    <br>
+<!--
+<h4 style="text-align:center;color:#026ab3; font-size:20px; font-weight:bold; padding:4px; border-bottom:2px #026ab3 solid;">UnSubscribe</h4>
+-->
+
+    <div class="col-md-12" ng-show="UnsubscribeSectionText">
+        <br>
+        <div style="    float: left;
+    width: 57%;">
+        <label class=" col-sm-2">Reference Number</label>
+        <input type="text" ng-model="unsubsReferenceNo" placeholder="Please enter reference number"></div>
+        <div style="    margin-top: 20px !important;
+    margin-right: 12px;float: right;"><a class="button special" id="unsubsId" ng-click="unsubscribeClick(unsubsReferenceNo)">Unsubscribe</a>
+            </br>
+            </br> </div>
+
+    </div>
+
+    <div style="color: #000 !important;" ng-show="UnsubscribeSectionResp">
+        <br>
+        <h4  style="color: #000 !important;"> THANK YOU </h4>
+        <p> YOU HAVE BEEN SUCCESSFULLY UNSUBSCRIBED. </p>
+        <p>Your refno : <b style="color: #026ab3 !important; font-weight: 600;">{{unsubsReferenceNo}}</b> details have been removed from our database.</p>
+
+        <p style="color: #026ab3 !important; font-weight: 600;">
+            Yours sincerely,</br>
+            HeartKids team
+        </p>
+        </br>
+        <div style="width: 150px !important;"><a class="button special"  ng-click="backToHome()">Home</a>
+            </br> </br>
+    </div>
+    </div>
+
+
+<div style="color: #000 !important;" ng-show="UnsubscribeSectionRespNotFound">
+    <h4  style="color: #000 !important;"> THANK YOU </h4>
+    <p> We don't find any records for the reference number <b style="color: #026ab3 !important; font-weight: 600;">{{unsubsReferenceNo}}</b>. This records might have been un-subscribed already or you have given invalid reference number.</p>
+
+    <p> You can take the survey again by clicking home.</p>
+    <p style="color: #026ab3 !important; font-weight: 600;">
+        Yours sincerely,</br>
+        HeartKids team
+    </p>
+    </br>
+    <div style="width: 150px !important;"><a class="button special" ng-click="backToHome()">Home</a>
+        </br> </br>
+    </div>
+</div>
+
+<style>
+    input[type="text"]
+    {
+        background: #0072bb !important;
+        border-radius: 3px;
+        border: 2px solid #010c22 !important;
+        color: #fff !important;
+        display: block;
+        outline: 0;
+        padding: 0 1em;
+        text-decoration: none;
+        width: 85% !important;    }
+</style>
